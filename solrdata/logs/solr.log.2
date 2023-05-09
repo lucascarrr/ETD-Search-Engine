@@ -1,0 +1,85 @@
+2023-05-09 13:55:38.166 INFO  (main) [] o.e.j.s.Server jetty-10.0.13; built: 2022-12-07T20:13:20.134Z; git: 1c2636ea05c0ca8de1ffd6ca7f3a98ac084c766d; jvm 17.0.7+7
+2023-05-09 13:55:38.357 WARN  (main) [] o.e.j.u.DeprecationWarning Using @Deprecated Class org.eclipse.jetty.servlet.listener.ELContextCleaner
+2023-05-09 13:55:38.375 INFO  (main) [] o.a.s.s.CoreContainerProvider Using logger factory org.apache.logging.slf4j.Log4jLoggerFactory
+2023-05-09 13:55:38.379 INFO  (main) [] o.a.s.s.CoreContainerProvider  ___      _       Welcome to Apache Solr™ version 9.2.1
+2023-05-09 13:55:38.381 INFO  (main) [] o.a.s.s.CoreContainerProvider / __| ___| |_ _   Starting in standalone mode on port 8983
+2023-05-09 13:55:38.381 INFO  (main) [] o.a.s.s.CoreContainerProvider \__ \/ _ \ | '_|  Install dir: /opt/solr-9.2.1
+2023-05-09 13:55:38.381 INFO  (main) [] o.a.s.s.CoreContainerProvider |___/\___/_|_|    Start time: 2023-05-09T13:55:38.381288428Z
+2023-05-09 13:55:38.384 INFO  (main) [] o.a.s.s.CoreContainerProvider Solr started with "-XX:+CrashOnOutOfMemoryError" that will crash on any OutOfMemoryError exception. The cause of the OOME will be logged in the crash file at the following path: /var/solr/logs/jvm_crash_12.log
+2023-05-09 13:55:38.389 INFO  (main) [] o.a.s.s.CoreContainerProvider Solr Home: /var/solr/data (source: system property: solr.solr.home)
+2023-05-09 13:55:38.391 INFO  (main) [] o.a.s.c.SolrXmlConfig solr.xml not found in SOLR_HOME, using built-in default
+2023-05-09 13:55:38.392 INFO  (main) [] o.a.s.c.SolrXmlConfig Loading solr.xml from /opt/solr-9.2.1/server/solr/solr.xml
+2023-05-09 13:55:38.442 INFO  (main) [] o.a.s.c.SolrResourceLoader Added 1 libs to classloader, from paths: [/opt/solr-9.2.1/lib]
+2023-05-09 13:55:39.065 WARN  (main) [] o.a.s.u.StartupLoggingUtils Jetty request logging enabled. Will retain logs for last 3 days. See chapter "Configuring Logging" in reference guide for how to configure.
+2023-05-09 13:55:39.067 WARN  (main) [] o.a.s.c.CoreContainer Not all security plugins configured!  authentication=disabled authorization=disabled.  Solr is only as secure as you make it. Consider configuring authentication/authorization before exposing Solr to users internal or external.  See https://s.apache.org/solrsecurity for more info
+2023-05-09 13:55:39.191 INFO  (main) [] o.a.s.c.CorePropertiesLocator Found 1 core definitions underneath /var/solr/data
+2023-05-09 13:55:39.191 INFO  (main) [] o.a.s.c.CorePropertiesLocator Cores are: [gettingstarted]
+2023-05-09 13:55:39.228 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.c.SolrConfig Using Lucene MatchVersion: 9.4.0
+2023-05-09 13:55:39.310 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.s.IndexSchema Schema name=default-config
+2023-05-09 13:55:39.460 INFO  (main) [] o.a.s.j.SolrRequestAuthorizer Creating a new SolrRequestAuthorizer
+2023-05-09 13:55:39.538 INFO  (main) [] o.e.j.s.h.ContextHandler Started o.e.j.w.WebAppContext@61a002b1{solr-jetty-context.xml,/solr,file:///opt/solr-9.2.1/server/solr-webapp/webapp/,AVAILABLE}{/opt/solr-9.2.1/server/solr-webapp/webapp}
+2023-05-09 13:55:39.550 INFO  (main) [] o.e.j.s.RequestLogWriter Opened /var/solr/logs/2023_05_09.request.log
+2023-05-09 13:55:39.557 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.s.IndexSchema Loaded schema default-config/1.6 with uniqueid field id
+2023-05-09 13:55:39.557 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.c.CoreContainer Creating SolrCore 'gettingstarted' using configuration from instancedir /var/solr/data/gettingstarted, trusted=true
+2023-05-09 13:55:39.565 INFO  (main) [] o.e.j.s.AbstractConnector Started ServerConnector@53812a9b{HTTP/1.1, (http/1.1, h2c)}{0.0.0.0:8983}
+2023-05-09 13:55:39.567 INFO  (main) [] o.e.j.s.Server Started Server@269f4bad{STARTING}[10.0.13,sto=0] @2286ms
+2023-05-09 13:55:39.576 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.c.SolrCore Opening new SolrCore at [/var/solr/data/gettingstarted], dataDir=[/var/solr/data/gettingstarted/data/]
+2023-05-09 13:55:39.817 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.j.SolrRequestAuthorizer Creating a new SolrRequestAuthorizer
+2023-05-09 13:55:39.826 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.u.UpdateHandler Using UpdateLog implementation: org.apache.solr.update.UpdateLog
+2023-05-09 13:55:39.826 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.u.UpdateLog Initializing UpdateLog: dataDir= defaultSyncLevel=FLUSH numRecordsToKeep=100 maxNumLogsToKeep=10 numVersionBuckets=65536
+2023-05-09 13:55:39.842 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.u.CommitTracker Hard AutoCommit: if uncommitted for 15000ms; 
+2023-05-09 13:55:39.842 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.u.CommitTracker Soft AutoCommit: disabled
+2023-05-09 13:55:39.972 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.r.ManagedResourceStorage File-based storage initialized to use dir: /var/solr/data/gettingstarted/conf
+2023-05-09 13:55:39.984 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.s.DirectSolrSpellChecker init: {name=default, field=_text_, classname=solr.DirectSolrSpellChecker, distanceMeasure=internal, maxEdits=2, minPrefix=1, maxInspections=5, minQueryLength=4, accuracy=0.5, maxQueryFrequency=0.01}
+2023-05-09 13:55:39.990 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.h.ReplicationHandler Commits will be reserved for 10000 ms
+2023-05-09 13:55:40.002 INFO  (searcherExecutor-12-thread-1-processing-gettingstarted) [ x:gettingstarted] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2023-05-09 13:55:40.002 INFO  (searcherExecutor-12-thread-1-processing-gettingstarted) [ x:gettingstarted] o.a.s.h.c.SpellCheckComponent Loading spell index for spellchecker: default
+2023-05-09 13:55:40.007 INFO  (searcherExecutor-12-thread-1-processing-gettingstarted) [ x:gettingstarted] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
+2023-05-09 13:55:40.411 INFO  (qtp479459041-17) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683640540353} status=0 QTime=6
+2023-05-09 13:55:40.431 INFO  (qtp479459041-23) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/config/params params={wt=json&_=1683640540391} status=0 QTime=1
+2023-05-09 13:55:40.436 INFO  (qtp479459041-21) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683640540354} status=0 QTime=14
+2023-05-09 13:55:40.451 INFO  (qtp479459041-18) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=*:*&indent=true&q.op=OR&useParams=&_=1683640540391} hits=5 status=0 QTime=40
+2023-05-09 13:55:44.899 INFO  (qtp479459041-20) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683640540353} status=0 QTime=5
+2023-05-09 13:55:44.907 INFO  (qtp479459041-23) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={numTerms=0&show=index&wt=json&_=1683640544883} status=0 QTime=13
+2023-05-09 13:55:44.917 INFO  (qtp479459041-25) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683640540354} status=0 QTime=23
+2023-05-09 13:55:44.922 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/replication params={wt=json&command=details&_=1683640544883} status=0 QTime=25
+2023-05-09 13:55:44.925 INFO  (qtp479459041-17) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/ping params={action=status&wt=json&_=1683640540354&ts=1683640540354} status=503 QTime=9
+2023-05-09 13:55:44.932 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/system params={wt=json&_=1683640544883} status=0 QTime=10
+2023-05-09 13:57:09.037 INFO  (qtp479459041-25) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/ping params={action=status&wt=json&_=1683640629010&ts=1683640629010} status=503 QTime=1
+2023-05-09 13:57:09.038 INFO  (qtp479459041-23) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683640629010} status=0 QTime=5
+2023-05-09 13:57:09.039 INFO  (qtp479459041-17) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={numTerms=0&show=index&wt=json&_=1683640629024} status=0 QTime=4
+2023-05-09 13:57:09.048 INFO  (qtp479459041-44) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/replication params={wt=json&command=details&_=1683640629024} status=0 QTime=3
+2023-05-09 13:57:09.049 INFO  (qtp479459041-24) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683640629010} status=0 QTime=14
+2023-05-09 13:57:09.052 INFO  (qtp479459041-20) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/system params={wt=json&_=1683640629024} status=0 QTime=20
+2023-05-09 13:57:10.940 INFO  (qtp479459041-26) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683640629010} status=0 QTime=0
+2023-05-09 13:57:10.958 INFO  (qtp479459041-21) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683640629010} status=0 QTime=18
+2023-05-09 13:57:10.969 INFO  (qtp479459041-17) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={show=schema&wt=json&_=1683640629024} status=0 QTime=29
+2023-05-09 13:57:16.033 INFO  (qtp479459041-18) [ x:gettingstarted] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commitWithin=1000&overwrite=true&wt=json&_=1683640629024}{} 0 39
+2023-05-09 13:57:18.202 INFO  (qtp479459041-20) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/ping params={action=status&wt=json&_=1683640629010&ts=1683640629010} status=503 QTime=0
+2023-05-09 13:57:18.204 INFO  (qtp479459041-44) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/replication params={wt=json&command=details&_=1683640629024} status=0 QTime=5
+2023-05-09 13:57:18.209 INFO  (qtp479459041-18) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683640629010} status=0 QTime=0
+2023-05-09 13:57:18.213 INFO  (qtp479459041-17) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={numTerms=0&show=index&wt=json&_=1683640629024} status=0 QTime=9
+2023-05-09 13:57:18.217 INFO  (qtp479459041-25) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683640629010} status=0 QTime=18
+2023-05-09 13:57:18.228 INFO  (qtp479459041-26) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/system params={wt=json&_=1683640629024} status=0 QTime=29
+2023-05-09 13:58:47.914 INFO  (qtp479459041-18) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683640629010} status=0 QTime=6
+2023-05-09 13:58:47.931 INFO  (qtp479459041-22) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={show=schema&wt=json&_=1683640629024} status=0 QTime=24
+2023-05-09 13:58:47.935 INFO  (qtp479459041-21) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683640629010} status=0 QTime=28
+2023-05-09 13:58:50.486 INFO  (qtp479459041-45) [ x:gettingstarted] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commitWithin=1000&overwrite=true&wt=json&_=1683640629024}{deleteByQuery=*:* (-1765425262572339200)} 0 116
+2023-05-09 13:58:51.512 INFO  (searcherExecutor-12-thread-1-processing-gettingstarted) [ x:gettingstarted] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2023-05-09 13:58:51.532 INFO  (searcherExecutor-12-thread-1-processing-gettingstarted) [ x:gettingstarted] o.a.s.c.SolrCore Registered new searcher autowarm time: 13 ms
+2023-05-09 13:58:52.460 INFO  (qtp479459041-22) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683640629010} status=0 QTime=0
+2023-05-09 13:58:52.461 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/ping params={action=status&wt=json&_=1683640629010&ts=1683640629010} status=503 QTime=0
+2023-05-09 13:58:52.475 INFO  (qtp479459041-45) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={numTerms=0&show=index&wt=json&_=1683640629024} status=0 QTime=3
+2023-05-09 13:58:52.477 INFO  (qtp479459041-17) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/replication params={wt=json&command=details&_=1683640629024} status=0 QTime=7
+2023-05-09 13:58:52.478 INFO  (qtp479459041-24) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683640629010} status=0 QTime=15
+2023-05-09 13:58:52.482 INFO  (qtp479459041-23) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/system params={wt=json&_=1683640629024} status=0 QTime=18
+2023-05-09 13:59:07.855 INFO  (JettyShutdownThread) [] o.e.j.s.Server Stopped Server@269f4bad{STOPPING}[10.0.13,sto=0]
+2023-05-09 13:59:07.861 INFO  (JettyShutdownThread) [] o.e.j.s.AbstractConnector Stopped ServerConnector@53812a9b{HTTP/1.1, (http/1.1, h2c)}{0.0.0.0:8983}
+2023-05-09 13:59:07.868 INFO  (JettyShutdownThread) [] o.a.s.c.CoreContainer Shutting down CoreContainer instance=1000631907
+2023-05-09 13:59:07.869 INFO  (coreCloseExecutor-18-thread-1) [ x:gettingstarted] o.a.s.c.SolrCore CLOSING SolrCore org.apache.solr.core.SolrCore@13f8b2ba gettingstarted
+2023-05-09 13:59:07.869 INFO  (coreCloseExecutor-18-thread-1) [ x:gettingstarted] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.core.gettingstarted tag=SolrCore@13f8b2ba
+2023-05-09 13:59:07.885 INFO  (coreCloseExecutor-18-thread-1) [ x:gettingstarted] o.a.s.u.DirectUpdateHandler2 Committing on IndexWriter.close()  ... SKIPPED (unnecessary).
+2023-05-09 13:59:07.894 INFO  (JettyShutdownThread) [] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.node tag=null
+2023-05-09 13:59:07.899 INFO  (JettyShutdownThread) [] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.jvm tag=null
+2023-05-09 13:59:07.903 INFO  (JettyShutdownThread) [] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.jetty tag=null
+2023-05-09 13:59:07.910 INFO  (JettyShutdownThread) [] o.e.j.s.h.ContextHandler Stopped o.e.j.w.WebAppContext@61a002b1{solr-jetty-context.xml,/solr,null,STOPPED}{/opt/solr-9.2.1/server/solr-webapp/webapp}

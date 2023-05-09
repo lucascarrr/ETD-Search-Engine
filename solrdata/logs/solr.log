@@ -1,0 +1,132 @@
+2023-05-09 13:59:12.207 INFO  (main) [] o.e.j.s.Server jetty-10.0.13; built: 2022-12-07T20:13:20.134Z; git: 1c2636ea05c0ca8de1ffd6ca7f3a98ac084c766d; jvm 17.0.7+7
+2023-05-09 13:59:12.368 WARN  (main) [] o.e.j.u.DeprecationWarning Using @Deprecated Class org.eclipse.jetty.servlet.listener.ELContextCleaner
+2023-05-09 13:59:12.384 INFO  (main) [] o.a.s.s.CoreContainerProvider Using logger factory org.apache.logging.slf4j.Log4jLoggerFactory
+2023-05-09 13:59:12.388 INFO  (main) [] o.a.s.s.CoreContainerProvider  ___      _       Welcome to Apache Solr™ version 9.2.1
+2023-05-09 13:59:12.388 INFO  (main) [] o.a.s.s.CoreContainerProvider / __| ___| |_ _   Starting in standalone mode on port 8983
+2023-05-09 13:59:12.388 INFO  (main) [] o.a.s.s.CoreContainerProvider \__ \/ _ \ | '_|  Install dir: /opt/solr-9.2.1
+2023-05-09 13:59:12.388 INFO  (main) [] o.a.s.s.CoreContainerProvider |___/\___/_|_|    Start time: 2023-05-09T13:59:12.388329763Z
+2023-05-09 13:59:12.390 INFO  (main) [] o.a.s.s.CoreContainerProvider Solr started with "-XX:+CrashOnOutOfMemoryError" that will crash on any OutOfMemoryError exception. The cause of the OOME will be logged in the crash file at the following path: /var/solr/logs/jvm_crash_12.log
+2023-05-09 13:59:12.392 INFO  (main) [] o.a.s.s.CoreContainerProvider Solr Home: /var/solr/data (source: system property: solr.solr.home)
+2023-05-09 13:59:12.394 INFO  (main) [] o.a.s.c.SolrXmlConfig solr.xml not found in SOLR_HOME, using built-in default
+2023-05-09 13:59:12.394 INFO  (main) [] o.a.s.c.SolrXmlConfig Loading solr.xml from /opt/solr-9.2.1/server/solr/solr.xml
+2023-05-09 13:59:12.441 INFO  (main) [] o.a.s.c.SolrResourceLoader Added 1 libs to classloader, from paths: [/opt/solr-9.2.1/lib]
+2023-05-09 13:59:12.949 WARN  (main) [] o.a.s.u.StartupLoggingUtils Jetty request logging enabled. Will retain logs for last 3 days. See chapter "Configuring Logging" in reference guide for how to configure.
+2023-05-09 13:59:12.951 WARN  (main) [] o.a.s.c.CoreContainer Not all security plugins configured!  authentication=disabled authorization=disabled.  Solr is only as secure as you make it. Consider configuring authentication/authorization before exposing Solr to users internal or external.  See https://s.apache.org/solrsecurity for more info
+2023-05-09 13:59:13.072 INFO  (main) [] o.a.s.c.CorePropertiesLocator Found 1 core definitions underneath /var/solr/data
+2023-05-09 13:59:13.073 INFO  (main) [] o.a.s.c.CorePropertiesLocator Cores are: [gettingstarted]
+2023-05-09 13:59:13.131 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.c.SolrConfig Using Lucene MatchVersion: 9.4.0
+2023-05-09 13:59:13.231 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.s.IndexSchema Schema name=default-config
+2023-05-09 13:59:13.379 INFO  (main) [] o.a.s.j.SolrRequestAuthorizer Creating a new SolrRequestAuthorizer
+2023-05-09 13:59:13.458 INFO  (main) [] o.e.j.s.h.ContextHandler Started o.e.j.w.WebAppContext@61a002b1{solr-jetty-context.xml,/solr,file:///opt/solr-9.2.1/server/solr-webapp/webapp/,AVAILABLE}{/opt/solr-9.2.1/server/solr-webapp/webapp}
+2023-05-09 13:59:13.467 INFO  (main) [] o.e.j.s.RequestLogWriter Opened /var/solr/logs/2023_05_09.request.log
+2023-05-09 13:59:13.477 INFO  (main) [] o.e.j.s.AbstractConnector Started ServerConnector@53812a9b{HTTP/1.1, (http/1.1, h2c)}{0.0.0.0:8983}
+2023-05-09 13:59:13.480 INFO  (main) [] o.e.j.s.Server Started Server@269f4bad{STARTING}[10.0.13,sto=0] @1878ms
+2023-05-09 13:59:13.528 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.s.IndexSchema Loaded schema default-config/1.6 with uniqueid field id
+2023-05-09 13:59:13.528 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.c.CoreContainer Creating SolrCore 'gettingstarted' using configuration from instancedir /var/solr/data/gettingstarted, trusted=true
+2023-05-09 13:59:13.547 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.c.SolrCore Opening new SolrCore at [/var/solr/data/gettingstarted], dataDir=[/var/solr/data/gettingstarted/data/]
+2023-05-09 13:59:13.851 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.j.SolrRequestAuthorizer Creating a new SolrRequestAuthorizer
+2023-05-09 13:59:13.861 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.u.UpdateHandler Using UpdateLog implementation: org.apache.solr.update.UpdateLog
+2023-05-09 13:59:13.862 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.u.UpdateLog Initializing UpdateLog: dataDir= defaultSyncLevel=FLUSH numRecordsToKeep=100 maxNumLogsToKeep=10 numVersionBuckets=65536
+2023-05-09 13:59:13.881 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.u.CommitTracker Hard AutoCommit: if uncommitted for 15000ms; 
+2023-05-09 13:59:13.881 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.u.CommitTracker Soft AutoCommit: disabled
+2023-05-09 13:59:13.933 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.r.ManagedResourceStorage File-based storage initialized to use dir: /var/solr/data/gettingstarted/conf
+2023-05-09 13:59:13.942 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.s.DirectSolrSpellChecker init: {maxEdits=2, minPrefix=1, maxInspections=5, minQueryLength=4, accuracy=0.5, maxQueryFrequency=0.01, name=default, field=_text_, classname=solr.DirectSolrSpellChecker, distanceMeasure=internal}
+2023-05-09 13:59:13.946 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.h.ReplicationHandler Commits will be reserved for 10000 ms
+2023-05-09 13:59:13.951 INFO  (searcherExecutor-12-thread-1-processing-gettingstarted) [ x:gettingstarted] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2023-05-09 13:59:13.951 INFO  (searcherExecutor-12-thread-1-processing-gettingstarted) [ x:gettingstarted] o.a.s.h.c.SpellCheckComponent Loading spell index for spellchecker: default
+2023-05-09 13:59:13.954 INFO  (searcherExecutor-12-thread-1-processing-gettingstarted) [ x:gettingstarted] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
+2023-05-09 13:59:14.609 INFO  (qtp479459041-18) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683640754579} status=0 QTime=7
+2023-05-09 13:59:14.610 INFO  (qtp479459041-17) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={numTerms=0&show=index&wt=json&_=1683640754594} status=0 QTime=3
+2023-05-09 13:59:14.623 INFO  (qtp479459041-21) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683640754579} status=0 QTime=11
+2023-05-09 13:59:14.625 INFO  (qtp479459041-23) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/ping params={action=status&wt=json&_=1683640754579&ts=1683640754579} status=503 QTime=3
+2023-05-09 13:59:14.631 INFO  (qtp479459041-20) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/system params={wt=json&_=1683640754594} status=0 QTime=5
+2023-05-09 13:59:14.632 INFO  (qtp479459041-25) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/replication params={wt=json&command=details&_=1683640754594} status=0 QTime=7
+2023-05-09 13:59:15.980 INFO  (qtp479459041-20) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={numTerms=0&show=index&wt=json&_=1683640755973} status=0 QTime=0
+2023-05-09 13:59:15.981 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/ping params={action=status&wt=json&_=1683640755959&ts=1683640755959} status=503 QTime=0
+2023-05-09 13:59:15.988 INFO  (qtp479459041-17) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683640755959} status=0 QTime=0
+2023-05-09 13:59:15.994 INFO  (qtp479459041-26) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683640755959} status=0 QTime=14
+2023-05-09 13:59:15.997 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/replication params={wt=json&command=details&_=1683640755973} status=0 QTime=4
+2023-05-09 13:59:16.006 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/system params={wt=json&_=1683640755973} status=0 QTime=21
+2023-05-09 13:59:27.472 INFO  (qtp479459041-23) [ x:gettingstarted] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={}{add=[adata (1765425301333999616), apple (1765425301387476992), asus (1765425301388525568), ati (1765425301388525569), belkin (1765425301388525570), canon (1765425301389574144), corsair (1765425301389574145), dell (1765425301389574146), maxtor (1765425301390622720), samsung (1765425301390622721), ... (11 adds)]} 0 83
+2023-05-09 13:59:27.570 INFO  (searcherExecutor-12-thread-1-processing-gettingstarted) [ x:gettingstarted] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2023-05-09 13:59:27.581 INFO  (searcherExecutor-12-thread-1-processing-gettingstarted) [ x:gettingstarted] o.a.s.c.SolrCore Registered new searcher autowarm time: 3 ms
+2023-05-09 13:59:27.586 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{commit=} 0 106
+2023-05-09 13:59:29.784 INFO  (qtp479459041-18) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/ping params={action=status&wt=json&_=1683640769762&ts=1683640769762} status=503 QTime=0
+2023-05-09 13:59:29.790 INFO  (qtp479459041-23) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683640769762} status=0 QTime=0
+2023-05-09 13:59:29.798 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/system params={wt=json&_=1683640769777} status=0 QTime=11
+2023-05-09 13:59:29.799 INFO  (qtp479459041-26) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683640769762} status=0 QTime=15
+2023-05-09 13:59:29.802 INFO  (qtp479459041-20) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={numTerms=0&show=index&wt=json&_=1683640769777} status=0 QTime=10
+2023-05-09 13:59:29.804 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/replication params={wt=json&command=details&_=1683640769777} status=0 QTime=20
+2023-05-09 13:59:44.683 INFO  (qtp479459041-22) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683640769762} status=0 QTime=0
+2023-05-09 13:59:44.698 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={show=schema&wt=json&_=1683640769777} status=0 QTime=15
+2023-05-09 13:59:44.701 INFO  (qtp479459041-17) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683640769762} status=0 QTime=18
+2023-05-09 13:59:47.700 INFO  (qtp479459041-18) [ x:gettingstarted] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commitWithin=1000&overwrite=true&wt=json&_=1683640769777}{deleteByQuery=*:* (-1765425322540400640)} 0 61
+2023-05-09 13:59:48.710 INFO  (searcherExecutor-12-thread-1-processing-gettingstarted) [ x:gettingstarted] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2023-05-09 13:59:48.729 INFO  (searcherExecutor-12-thread-1-processing-gettingstarted) [ x:gettingstarted] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
+2023-05-09 13:59:50.039 INFO  (qtp479459041-17) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683640769762} status=0 QTime=0
+2023-05-09 13:59:50.039 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={numTerms=0&show=index&wt=json&_=1683640769777} status=0 QTime=0
+2023-05-09 13:59:50.049 INFO  (qtp479459041-22) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/ping params={action=status&wt=json&_=1683640769762&ts=1683640769762} status=503 QTime=1
+2023-05-09 13:59:50.060 INFO  (qtp479459041-18) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/replication params={wt=json&command=details&_=1683640769777} status=0 QTime=20
+2023-05-09 13:59:50.061 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/system params={wt=json&_=1683640769777} status=0 QTime=19
+2023-05-09 13:59:50.061 INFO  (qtp479459041-23) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683640769762} status=0 QTime=21
+2023-05-09 14:07:22.022 INFO  (qtp479459041-26) [ x:gettingstarted] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={}{add=[1 (1765425798963003392), 2 (1765425798993412096)]} 0 34
+2023-05-09 14:07:22.093 INFO  (searcherExecutor-12-thread-1-processing-gettingstarted) [ x:gettingstarted] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2023-05-09 14:07:22.098 INFO  (searcherExecutor-12-thread-1-processing-gettingstarted) [ x:gettingstarted] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
+2023-05-09 14:07:22.100 INFO  (qtp479459041-25) [ x:gettingstarted] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{commit=} 0 69
+2023-05-09 14:07:23.841 INFO  (qtp479459041-24) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683641243820} status=0 QTime=0
+2023-05-09 14:07:23.848 INFO  (qtp479459041-25) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/ping params={action=status&wt=json&_=1683641243820&ts=1683641243820} status=503 QTime=0
+2023-05-09 14:07:23.866 INFO  (qtp479459041-25) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={numTerms=0&show=index&wt=json&_=1683641243835} status=0 QTime=0
+2023-05-09 14:07:23.866 INFO  (qtp479459041-20) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683641243820} status=0 QTime=10
+2023-05-09 14:07:23.875 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/system params={wt=json&_=1683641243835} status=0 QTime=6
+2023-05-09 14:07:23.879 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/replication params={wt=json&command=details&_=1683641243835} status=0 QTime=17
+2023-05-09 14:07:27.142 INFO  (qtp479459041-20) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683641243820} status=0 QTime=0
+2023-05-09 14:07:27.146 INFO  (qtp479459041-17) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/config/params params={wt=json&_=1683641247128} status=0 QTime=4
+2023-05-09 14:07:27.152 INFO  (qtp479459041-24) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683641243820} status=0 QTime=10
+2023-05-09 14:07:28.375 INFO  (qtp479459041-17) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683641243820} status=0 QTime=0
+2023-05-09 14:07:28.376 INFO  (qtp479459041-25) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/config/params params={wt=json&_=1683641247128} status=0 QTime=0
+2023-05-09 14:07:28.391 INFO  (qtp479459041-21) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683641243820} status=0 QTime=16
+2023-05-09 14:07:28.400 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=*:*&indent=true&q.op=OR&useParams=&_=1683641247128} hits=2 status=0 QTime=25
+2023-05-09 14:07:46.746 INFO  (qtp479459041-17) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/config/params params={wt=json&_=1683641247128} status=0 QTime=0
+2023-05-09 14:07:46.746 INFO  (qtp479459041-20) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683641243820} status=0 QTime=0
+2023-05-09 14:07:46.759 INFO  (qtp479459041-21) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683641243820} status=0 QTime=12
+2023-05-09 14:07:46.782 INFO  (qtp479459041-23) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+cats&indent=true&q.op=OR&fq=subject:+rice&useParams=&_=1683641247128} hits=0 status=0 QTime=35
+2023-05-09 14:08:02.064 INFO  (qtp479459041-20) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683641243820} status=0 QTime=0
+2023-05-09 14:08:02.065 INFO  (qtp479459041-26) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/config/params params={wt=json&_=1683641247128} status=0 QTime=0
+2023-05-09 14:08:02.070 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+cats&indent=true&q.op=AND&fq=subject:+rice&useParams=&_=1683641247128} hits=0 status=0 QTime=6
+2023-05-09 14:08:02.084 INFO  (qtp479459041-25) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683641243820} status=0 QTime=20
+2023-05-09 14:08:09.049 INFO  (qtp479459041-21) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683641243820} status=0 QTime=0
+2023-05-09 14:08:09.049 INFO  (qtp479459041-22) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/config/params params={wt=json&_=1683641247128} status=0 QTime=0
+2023-05-09 14:08:09.058 INFO  (qtp479459041-17) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683641243820} status=0 QTime=9
+2023-05-09 14:08:09.059 INFO  (qtp479459041-20) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+cats&indent=true&q.op=AND&fq=subject:+dogs&useParams=&_=1683641247128} hits=1 status=0 QTime=7
+2023-05-09 14:08:13.465 INFO  (qtp479459041-22) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683641243820} status=0 QTime=0
+2023-05-09 14:08:13.465 INFO  (qtp479459041-17) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/config/params params={wt=json&_=1683641247128} status=0 QTime=0
+2023-05-09 14:08:13.472 INFO  (qtp479459041-20) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+cats&indent=true&q.op=OR&fq=subject:+dogs&useParams=&_=1683641247128} hits=1 status=0 QTime=5
+2023-05-09 14:08:13.479 INFO  (qtp479459041-26) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683641243820} status=0 QTime=14
+2023-05-09 14:08:17.576 INFO  (qtp479459041-18) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/config/params params={wt=json&_=1683641247128} status=0 QTime=0
+2023-05-09 14:08:17.577 INFO  (qtp479459041-21) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683641243820} status=0 QTime=0
+2023-05-09 14:08:17.584 INFO  (qtp479459041-22) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683641243820} status=0 QTime=8
+2023-05-09 14:08:17.584 INFO  (qtp479459041-20) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+cats&indent=true&q.op=OR&fq=subject:+rice&useParams=&_=1683641247128} hits=0 status=0 QTime=1
+2023-05-09 14:08:23.387 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/config/params params={wt=json&_=1683641247128} status=0 QTime=0
+2023-05-09 14:08:23.389 INFO  (qtp479459041-17) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+rice&indent=true&q.op=OR&fq=subject:+rice&useParams=&_=1683641247128} hits=1 status=0 QTime=2
+2023-05-09 14:08:23.389 INFO  (qtp479459041-21) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683641243820} status=0 QTime=0
+2023-05-09 14:08:23.399 INFO  (qtp479459041-22) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683641243820} status=0 QTime=12
+2023-05-09 14:08:33.253 INFO  (qtp479459041-18) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683641243820} status=0 QTime=0
+2023-05-09 14:08:33.253 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/config/params params={wt=json&_=1683641247128} status=0 QTime=0
+2023-05-09 14:08:33.259 INFO  (qtp479459041-22) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=text:+rice&indent=true&q.op=OR&fq=subject:+rice&useParams=&_=1683641247128} hits=1 status=0 QTime=4
+2023-05-09 14:08:33.266 INFO  (qtp479459041-20) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683641243820} status=0 QTime=11
+2023-05-09 14:08:38.237 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=text:+lorem&indent=true&q.op=OR&fq=subject:+rice&useParams=&_=1683641247128} hits=0 status=0 QTime=2
+2023-05-09 14:08:38.238 INFO  (qtp479459041-24) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683641243820} status=0 QTime=0
+2023-05-09 14:08:38.244 INFO  (qtp479459041-17) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683641243820} status=0 QTime=8
+2023-05-09 14:08:38.253 INFO  (qtp479459041-22) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/config/params params={wt=json&_=1683641247128} status=0 QTime=0
+2023-05-09 14:08:41.552 INFO  (qtp479459041-23) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/config/params params={wt=json&_=1683641247128} status=0 QTime=0
+2023-05-09 14:08:41.552 INFO  (qtp479459041-17) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683641243820} status=0 QTime=0
+2023-05-09 14:08:41.553 INFO  (qtp479459041-22) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=text:+lorem&indent=true&q.op=OR&useParams=&_=1683641247128} hits=0 status=0 QTime=1
+2023-05-09 14:08:41.562 INFO  (qtp479459041-18) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683641243820} status=0 QTime=10
+2023-05-09 14:08:45.392 INFO  (qtp479459041-21) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683641243820} status=0 QTime=0
+2023-05-09 14:08:45.392 INFO  (qtp479459041-22) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=*&indent=true&q.op=OR&useParams=&_=1683641247128} hits=2 status=0 QTime=0
+2023-05-09 14:08:45.393 INFO  (qtp479459041-23) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/config/params params={wt=json&_=1683641247128} status=0 QTime=0
+2023-05-09 14:08:45.404 INFO  (qtp479459041-24) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683641243820} status=0 QTime=13
+2023-05-09 14:08:50.811 INFO  (qtp479459041-17) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/config/params params={wt=json&_=1683641247128} status=0 QTime=0
+2023-05-09 14:08:50.812 INFO  (qtp479459041-23) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=text:+lorme&indent=true&q.op=OR&useParams=&_=1683641247128} hits=1 status=0 QTime=2
+2023-05-09 14:08:50.814 INFO  (qtp479459041-25) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683641243820} status=0 QTime=0
+2023-05-09 14:08:50.826 INFO  (qtp479459041-22) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683641243820} status=0 QTime=15
