@@ -22,7 +22,7 @@ def createXMLelement(root, add):
     author_field = ET.SubElement(doc, "field", name="author")
     author_field.text = "John Doe"  # replace with dc:creator value
 
-    # add subject fields
+    # add subject fields (needs to be changed to a loop, so that as many subjects as necessary can be added)
     subject1_field = ET.SubElement(doc, "field", name="subject")
     subject1_field.text = "Example Subject 1"  # replace with dc:subject value
     subject2_field = ET.SubElement(doc, "field", name="subject")
