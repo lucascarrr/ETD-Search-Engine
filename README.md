@@ -4,6 +4,7 @@
 
 ## Information Retrieval
 
-run    
-    docker-compose up -d 
+run to upload files stored in docker (see location from command). However, shouldn't need to upload more than once. 
+    docker exec -it my_solr post -c gettingstarted example/exampledocs/example.xml
+
     
