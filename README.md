@@ -11,3 +11,4 @@ run to upload files stored in docker (see location from command). However, shoul
 ```docker exec -it my_solr post -c gettingstarted example/exampledocs/example.xml```
 
     
+REMEMBER to remove the header, and keep the <FindRecords> tag from each unprocessed XML file!
