@@ -1,0 +1,17 @@
+/* CSS for the search bar and button */
+#search-bar {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+    margin-right: 10px;
+  }
+  #search-button {
+    padding: 10px 20px;
+    background-color: #428bca;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
