@@ -1,93 +1,64 @@
+const http = require('http');
+const fs = require('fs');
 const SolrNode = require('solr-node');
-//const people = require('./people.json');
 
-var client = new SolrNode({
-  host: '127.0.0.1',
-  port: '8983',
-  core: 'gettingstarted',
-  protocol: 'http'
+const server = http.createServer((req, res) => {
+  if (req.url === '/') {
+    fs.readFile('index.html', (err, data) => {
+      if (err) {
+        res.writeHead(500, {'Content-Type': 'text/plain'});
+        res.write('Error loading index.html');
+        res.end();
+      } else {
+        res.writeHead(200, {'Content-Type': 'text/html'});
+        res.write(data);
+        res.end();
+      }
+    });
+  } else if (req.url === '/search') {
+    var client = new SolrNode({
+      host: '127.0.0.1',
+      port: '8983',
+      core: 'gettingstarted',
+      protocol: 'http'
+    });
+
+    const authorQuery = {
+      subject: 'australia'
+    };
+
+    const searchQuery = client.query()
+      .q(authorQuery)
+      .addParams({
+        wt: 'json',
+        indent: true
+      });
+
+    client.search(searchQuery, function (err, result) {
+      if (err) {
+        res.writeHead(500, {'Content-Type': 'text/plain'});
+        res.write('Error searching Solr');
+        res.end();
+      } else {
+        const response = result.response;
+        if (response && response.docs) {
+          res.writeHead(200, {'Content-Type': 'application/json'});
+          res.write(JSON.stringify(response.docs));
+          res.end();
+        } else {
+          res.writeHead(200, {'Content-Type': 'application/json'});
+          res.write(JSON.stringify([]));
+          res.end();
+        }
+      }
+    });
+  } else {
+    res.writeHead(404, {'Content-Type': 'text/plain'});
+    res.write('Page not found');
+    res.end();
+  }
 });
 
-// Add
-//Solr adds ID to each document by default, however, if you specify an id, solr will use that instead.
-
-// const data = {
-//   website: 'pentacode',
-//   url: 'http://www.penta-code.com',
-//   author: 'whyzhi',
-//   twitter: 'https://www.twitter.com/pentacodevids',
-//   youtube: 'https://www.youtube.com/pentacode',
-//   facebook: 'https://www.facebook.com/pentacode'
-// };
-
-// client.update(data, function(err, result) {
-//   if (err) {
-//     console.log(err);
-//     return;
-//   }
-//   console.log('Response:', result.responseHeader);
-// });
-
-//-------------------------------------------------------------------------------------------
-
-// // Add a bunch of docs
-// people.forEach((person) => {
-//   client.update(person, function(err, result) {
-//     if (err) {
-//       console.log(err);
-//       return;
-//     }
-//     console.log('Response:', result.responseHeader);
-//   });
-// });
-
-//-------------------------------------------------------------------------------------------
-
-// // Delete
-// const stringQuery = 'id:2';    // delete document with id 2
-// const deleteAllQuery = '*';    // delete all
-// const objectQUery = {id: 'd7497504-22d9-4a22-9635-88dd437712ff'};   // Object query
-// client.delete(deleteAllQuery, function(err, result) {
-//   if (err) {
-//     console.log(err);
-//     return;
-//   }
-//   console.log('Response:', result.responseHeader);
-// });
-
-//-------------------------------------------------------------------------------------------
-
-// Search
-const authorQuery = {
-  subject: 'australia'
-};
-
-// const genderQuery = {
-//   gender: 'Female'
-// };
-
-// Build a search query var
-const searchQuery = client.query()
-  .q(authorQuery)
-  .addParams({
-    wt: 'json',
-    indent: true
-  })
-  // .start(1)
-  // .rows(1)
-
-client.search(searchQuery, function (err, result) {
-  if (err) {
-    console.log(err);
-    return;
-  }
-
-  const response = result.response;
-  console.log(response);
-
-  if (response && response.docs) {
-    response.docs.forEach((doc) => {
-      console.log(doc);
-    })
-  }
+server.listen(3000, () => {
+  console.log('Server listening on port 3000');
 });

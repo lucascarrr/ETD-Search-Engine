@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search Query</title>
+  </head>
+  <body>
+    <button onclick="search()">Search</button>
+    <div id="search-results"></div>
+
+    <script>
+        function search() {
+        fetch('/search')
+            .then(response => response.json())
+            .then(data => {
+            let searchResultsDiv = document.getElementById("search-results");
+            searchResultsDiv.innerHTML = "";
+
+            data.forEach((doc) => {
+                let docDiv = document.createElement("div");
+                docDiv.textContent = JSON.stringify(doc);
+                searchResultsDiv.appendChild(docDiv);
+            })
+            })
+            .catch(error => console.error(error));
+        }
+    </script>
+  </body>
+</html>
