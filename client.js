@@ -20,16 +20,21 @@ function sendRequest(query) {
       return response.json();
     })
     .then((responseJSON) => {
-      console.log(`Received response from server: ${JSON.stringify(responseJSON)}`);
+      console.log(`Received response from server: ${JSON.stringify(responseJSON, null, 2)}`);
       let resultCounter = 1;
       searchResults.innerHTML = '';
       responseJSON.forEach((result) => {
-        const resultText = `result ${resultCounter++}: ${JSON.stringify(result)}`;
-        const resultNode = document.createElement('div');
+        let resultText = `result ${resultCounter++}:\n`;
+        for (let key in result) {
+          resultText += `${key}: ${JSON.stringify(result[key])}`;
+          resultText += '\n'
+        }
+        const resultNode = document.createElement('pre');
         resultNode.textContent = resultText;
         searchResults.appendChild(resultNode);
       });
     })
+    
     .catch((error) => {
       console.error(`Error sending request: ${error}`);
     });

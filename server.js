@@ -89,7 +89,7 @@ function search(input_query) {
     const searchQuery = client.query()
       .q(input_query)
       .start(0)
-      .rows(3)
+      .rows(5)
       .addParams({
         wt: 'json',
         indent: true

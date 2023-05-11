@@ -1,5 +1,9 @@
+import os
+import sys
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass
+import chardet
+
 
 
 class Record:
@@ -109,8 +113,10 @@ def find_tag(filename):
                 tag = node.tag.split('}')[1]
             else:
                 tag = node.tag
-
-            if (tag == "identifier"):
+        
+            if (tag == "about"):
+                return
+            elif (tag == "identifier" and records[count].id == "id"):
                 records[count].id = node.text
             elif (tag == "datestamp"):
                 records[count].date = node.text
@@ -124,9 +130,10 @@ def find_tag(filename):
                 records[count].text = node.text
             elif (tag == "language"):
                 records[count].language = node.text
-            if (tag == "identifier" and records[count].id != "id"):
+            elif (tag == "identifier" and node.text[0] == "h"):
                 records[count].link = node.text
-
+  
+            
             # Some print debugging
             # print(tag, ":", node.text)
 
@@ -144,9 +151,9 @@ def find_tag(filename):
     #     record.toString()
     return records
 
-
-def main():
-    records = find_tag("aaaaaaab.xml")
+def callParser(filename, write_dir, encoding):
+    print(filename)
+    records = find_tag(filename)
     # create the root element
     root = ET.Element("add")
 
@@ -159,12 +166,45 @@ def main():
     formatted_string = xml_string.decode().replace('><', '>\n<')
 
     # write the formatted XML string to a file
-    with open("processed.xml", "w") as f:
+    temp = filename.split("/")[1]
+
+    with open(f"{write_dir}/{temp}", "w", encoding=encoding) as f:
         f.write(formatted_string)
 
     # Use this to verify all documents parsed
     print(len(records))
 
+
+def documentIterator(unprocessed_dir, processed_dir):
+    counter = 0
+    for filename in os.listdir(unprocessed_dir):
+        fn = os.path.join(unprocessed_dir, filename)
+        
+        # checking if it is a file
+        if os.path.isfile(fn):    
+            #Clean up xml
+            encoding = 'utf-8'
+            try:
+                with open(fn, 'r', encoding=encoding) as input_file:
+                    lines = input_file.readlines()
+                    
+                temp = "p_" + fn.split("/")[1]
+                print(temp)
+                with open(f"{processed_dir}/{temp}", 'w', encoding=encoding) as f:
+                    f.writelines(lines[8:-1])
+
+                fn = (os.path.join(processed_dir, "p_"+filename))
+                callParser(fn, processed_dir, encoding)
+                
+            except:
+                print("error")
+
+
+
+def main():
+    unprocessed_dir = "Unprocessed Metadata/"
+    processed_dir = "Processed Metadata"
+    documentIterator(unprocessed_dir, processed_dir)
 
 if __name__ == "__main__":
     main()

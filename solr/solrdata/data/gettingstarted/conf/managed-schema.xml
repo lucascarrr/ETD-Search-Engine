@@ -455,7 +455,7 @@
   <field name="date" type="pdates"/>
   <field name="id" type="string" multiValued="false" indexed="true" required="true" stored="true"/>
   <field name="language" type="text_general"/>
-  <field name="link" type="plongs"/>
+  <field name="link" type="string" indexed="true" stored="true"/>
   <field name="subject" type="text_general"/>
   <field name="text" type="text_general"/>
   <field name="title" type="text_general"/>
