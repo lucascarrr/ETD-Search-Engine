@@ -8,8 +8,6 @@ searchForm.addEventListener('submit', (event) => {
   sendRequest(queryText);
 });
 
-
-
 function sendRequest(query) {
   const url = `http://localhost:3000/search?q=${query}`;
 
@@ -35,7 +33,6 @@ function sendRequest(query) {
         searchResults.appendChild(resultNode);
       });
     })
-
     .catch((error) => {
       console.error(`Error sending request: ${error}`);
     });
