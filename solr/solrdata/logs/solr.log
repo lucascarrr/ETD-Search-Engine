@@ -246,3 +246,7 @@ Was expecting one of:
 2023-05-11 15:22:49.632 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Math&start=0&rows=5&wt=json} hits=19 status=0 QTime=2
 2023-05-11 15:25:22.529 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Math&start=0&rows=5&wt=json} hits=19 status=0 QTime=2
 2023-05-11 15:34:42.870 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+babel&start=0&rows=5&wt=json} hits=7 status=0 QTime=87
+2023-05-11 15:50:42.866 INFO  (qtp479459041-25) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Maths&start=0&rows=5&wt=json} hits=3 status=0 QTime=26
+2023-05-11 15:52:36.671 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:Maths&start=0&rows=5&wt=json} hits=3 status=0 QTime=14
+2023-05-11 15:53:04.590 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:Maths&start=0&rows=5&wt=json} hits=3 status=0 QTime=2
+2023-05-11 16:06:10.473 INFO  (qtp479459041-18) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=we&start=0&rows=5&wt=json} hits=0 status=0 QTime=22

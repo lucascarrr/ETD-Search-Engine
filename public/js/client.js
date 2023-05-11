@@ -9,6 +9,7 @@ searchForm.addEventListener('submit', (event) => {
 });
 
 
+
 function sendRequest(query) {
   const url = `http://localhost:3000/search?q=${query}`;
 

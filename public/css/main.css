@@ -1,24 +1,50 @@
 body {
-    background-color: rgb(226, 200, 133);
+    background-color: #bfc6d97b;
 }
 
 h1 {
+    color: #3A2F9d;
     text-align: center;
 }
 
-/* CSS for the search bar and button */
-#search-input {
-    /*background-image: url("magGlass.png");*/
-    background-repeat: no-repeat;
-    background-position: 10px center;
-    background-size: 20px;
-    padding: 8px 16px 8px 40px;
-    font-size: 18px;
-    border: 1px solid #dfe1e5;
-    border-radius: 24px;
-    width: 70%;
-    outline: none;
-}
+.box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
+    background-color: #EEE;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    overflow: hidden; /* hide overflow from the box */
+  }
+  
+  .box label {
+    display: block;
+    background: #DBC995;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+    transition: all .5s;
+  }
+  
+  .box input:checked + label {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    margin-top: 0;
+    left: 0;
+    margin-left: 0;
+    border-radius: 0;
+    background:#3A2F9d;
+  }
+  
 
 button[type="submit"] {
     font-size: 18px;
@@ -35,3 +61,46 @@ button[type="submit"]:hover {
     background-color: #e8e8e8;
     border: 1px solid #e8e8e8;
 }
+
+#search-results {
+    color: #3A2F9d;
+    text-align: center;
+  }
+
+/* CSS for the search bar and button */
+#search-input {
+    /*background-image: url("magGlass.png");*/
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 20px;
+    padding: 8px 16px 8px 40px;
+    font-size: 18px;
+    border: 1px solid #dfe1e5;
+    border-radius: 24px;
+    width: 70%;
+    outline: none;
+}
+div.small {
+    background: #f00;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+    transition: all .5s;
+}
+
+div.big {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    margin-top: 0;
+    left: 0;
+    margin-left: 0;
+    border-radius: 0;
+    background: #0f0;
+}
+
