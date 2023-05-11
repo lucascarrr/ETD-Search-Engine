@@ -12,3 +12,7 @@ run to upload files stored in docker (see location from command). However, shoul
 
     
 REMEMBER to remove the header, and keep the <FindRecords> tag from each unprocessed XML file!
+
+
+# Color Palette 
+![Colour Palette](../Additional%20Files/Images/colors.pngAdditional Files/Images/colors.png)
