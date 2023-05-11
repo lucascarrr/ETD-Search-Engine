@@ -8,8 +8,11 @@ searchForm.addEventListener('submit', (event) => {
   sendRequest(queryText);
 });
 
+
+
 function sendRequest(query) {
   const url = `http://localhost:3000/search?q=${query}`;
+  var results_array = []
 
   fetch(url)
     .then((response) => {
@@ -19,11 +22,13 @@ function sendRequest(query) {
       return response.json();
     })
     .then((responseJSON) => {
-      console.log(`Received response from server: ${JSON.stringify(responseJSON, null, 2)}`);
+      // console.log(`Received response from server: ${JSON.stringify(responseJSON, null, 2)}`);
       let resultCounter = 1;
       searchResults.innerHTML = '';
       responseJSON.forEach((result) => {
+        
         let resultText = `result ${resultCounter++}:\n`;
+     
         for (let key in result) {
           resultText += `${key}: ${JSON.stringify(result[key])}`;
           resultText += '\n'
@@ -31,12 +36,20 @@ function sendRequest(query) {
         const resultNode = document.createElement('pre');
         resultNode.textContent = resultText;
         searchResults.appendChild(resultNode);
+      })
+
+      results_array.forEach(element => {
+        console.log(JSON.stringify(element));
+        
       });
+      
     })
     .catch((error) => {
       console.error(`Error sending request: ${error}`);
     });
 }
+
+
 
 // BUBBLE STUFF
 var data = [
@@ -113,7 +126,6 @@ var infoLabels = node.append("text")
   .attr("text-anchor", "middle")
   .attr("alignment-baseline", "middle")
   .style("font-size", function (d) { return d.relevance / 3 + "px"; })
-  .style("display", "none")
   .style("fill", "white");
 
 
@@ -159,4 +171,4 @@ function ticked() {
       .attr("y", function (d) { return d.y; });
 }
 
-updateView();
+
