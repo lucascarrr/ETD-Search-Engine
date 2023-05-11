@@ -1177,3 +1177,4 @@ Was expecting one of:
 2023-05-11 12:22:34.505 INFO  (qtp479459041-60) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683807193610} status=0 QTime=102
 2023-05-11 12:22:55.401 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=*&start=0&rows=5&wt=json} hits=498998 status=0 QTime=9
 2023-05-11 12:25:23.110 INFO  (qtp479459041-58) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=title:+Mathematical&start=0&rows=5&wt=json} hits=647 status=0 QTime=152
+2023-05-11 12:47:40.328 INFO  (qtp479459041-46) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Canada&start=0&rows=5&wt=json} hits=307 status=0 QTime=8

@@ -611,3 +611,4 @@
 172.17.0.1 - - [11/May/2023:12:22:34 +0000] "GET /solr/admin/info/system?_=1683807193610&wt=json HTTP/1.1" 200 1392
 172.17.0.1 - - [11/May/2023:12:22:55 +0000] "GET /solr/gettingstarted/select?q=*&start=0&rows=5&wt=json HTTP/1.1" 200 1213
 172.17.0.1 - - [11/May/2023:12:25:22 +0000] "GET /solr/gettingstarted/select?q=title%3A%20Mathematical&start=0&rows=5&wt=json HTTP/1.1" 200 612
+172.17.0.1 - - [11/May/2023:12:47:40 +0000] "GET /solr/gettingstarted/select?q=subject%3A%20Canada&start=0&rows=5&wt=json HTTP/1.1" 200 1219
