@@ -1,0 +1,688 @@
+2023-05-11 07:19:29.186 INFO  (main) [] o.e.j.s.Server jetty-10.0.13; built: 2022-12-07T20:13:20.134Z; git: 1c2636ea05c0ca8de1ffd6ca7f3a98ac084c766d; jvm 17.0.7+7
+2023-05-11 07:19:31.769 WARN  (main) [] o.e.j.u.DeprecationWarning Using @Deprecated Class org.eclipse.jetty.servlet.listener.ELContextCleaner
+2023-05-11 07:19:32.130 INFO  (main) [] o.a.s.s.CoreContainerProvider Using logger factory org.apache.logging.slf4j.Log4jLoggerFactory
+2023-05-11 07:19:32.166 INFO  (main) [] o.a.s.s.CoreContainerProvider  ___      _       Welcome to Apache Solr™ version 9.2.1
+2023-05-11 07:19:32.167 INFO  (main) [] o.a.s.s.CoreContainerProvider / __| ___| |_ _   Starting in standalone mode on port 8983
+2023-05-11 07:19:32.167 INFO  (main) [] o.a.s.s.CoreContainerProvider \__ \/ _ \ | '_|  Install dir: /opt/solr-9.2.1
+2023-05-11 07:19:32.167 INFO  (main) [] o.a.s.s.CoreContainerProvider |___/\___/_|_|    Start time: 2023-05-11T07:19:32.167384900Z
+2023-05-11 07:19:32.172 INFO  (main) [] o.a.s.s.CoreContainerProvider Solr started with "-XX:+CrashOnOutOfMemoryError" that will crash on any OutOfMemoryError exception. The cause of the OOME will be logged in the crash file at the following path: /var/solr/logs/jvm_crash_12.log
+2023-05-11 07:19:32.277 INFO  (main) [] o.a.s.s.CoreContainerProvider Solr Home: /var/solr/data (source: system property: solr.solr.home)
+2023-05-11 07:19:32.335 INFO  (main) [] o.a.s.c.SolrXmlConfig solr.xml not found in SOLR_HOME, using built-in default
+2023-05-11 07:19:32.335 INFO  (main) [] o.a.s.c.SolrXmlConfig Loading solr.xml from /opt/solr-9.2.1/server/solr/solr.xml
+2023-05-11 07:19:33.620 INFO  (main) [] o.a.s.c.SolrResourceLoader Added 1 libs to classloader, from paths: [/opt/solr-9.2.1/lib]
+2023-05-11 07:19:41.850 WARN  (main) [] o.a.s.u.StartupLoggingUtils Jetty request logging enabled. Will retain logs for last 3 days. See chapter "Configuring Logging" in reference guide for how to configure.
+2023-05-11 07:19:41.886 WARN  (main) [] o.a.s.c.CoreContainer Not all security plugins configured!  authentication=disabled authorization=disabled.  Solr is only as secure as you make it. Consider configuring authentication/authorization before exposing Solr to users internal or external.  See https://s.apache.org/solrsecurity for more info
+2023-05-11 07:19:43.462 INFO  (main) [] o.a.s.c.CorePropertiesLocator Found 1 core definitions underneath /var/solr/data
+2023-05-11 07:19:43.464 INFO  (main) [] o.a.s.c.CorePropertiesLocator Cores are: [gettingstarted]
+2023-05-11 07:19:43.762 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.c.SolrConfig Using Lucene MatchVersion: 9.4.0
+2023-05-11 07:19:44.955 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.s.IndexSchema Schema name=default-config
+2023-05-11 07:19:47.794 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.s.IndexSchema Loaded schema default-config/1.6 with uniqueid field id
+2023-05-11 07:19:47.795 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.c.CoreContainer Creating SolrCore 'gettingstarted' using configuration from instancedir /var/solr/data/gettingstarted, trusted=true
+2023-05-11 07:19:48.060 INFO  (main) [] o.a.s.j.SolrRequestAuthorizer Creating a new SolrRequestAuthorizer
+2023-05-11 07:19:48.338 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.c.SolrCore Opening new SolrCore at [/var/solr/data/gettingstarted], dataDir=[/var/solr/data/gettingstarted/data/]
+2023-05-11 07:19:48.766 INFO  (main) [] o.e.j.s.h.ContextHandler Started o.e.j.w.WebAppContext@4eeea57d{solr-jetty-context.xml,/solr,file:///opt/solr-9.2.1/server/solr-webapp/webapp/,AVAILABLE}{/opt/solr-9.2.1/server/solr-webapp/webapp}
+2023-05-11 07:19:48.816 INFO  (main) [] o.e.j.s.RequestLogWriter Opened /var/solr/logs/2023_05_11.request.log
+2023-05-11 07:19:48.828 INFO  (main) [] o.e.j.s.AbstractConnector Started ServerConnector@53812a9b{HTTP/1.1, (http/1.1, h2c)}{0.0.0.0:8983}
+2023-05-11 07:19:48.832 INFO  (main) [] o.e.j.s.Server Started Server@269f4bad{STARTING}[10.0.13,sto=0] @30927ms
+2023-05-11 07:19:50.183 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.j.SolrRequestAuthorizer Creating a new SolrRequestAuthorizer
+2023-05-11 07:19:50.232 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.u.UpdateHandler Using UpdateLog implementation: org.apache.solr.update.UpdateLog
+2023-05-11 07:19:50.232 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.u.UpdateLog Initializing UpdateLog: dataDir= defaultSyncLevel=FLUSH numRecordsToKeep=100 maxNumLogsToKeep=10 numVersionBuckets=65536
+2023-05-11 07:19:50.476 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.u.CommitTracker Hard AutoCommit: if uncommitted for 15000ms; 
+2023-05-11 07:19:50.479 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.u.CommitTracker Soft AutoCommit: disabled
+2023-05-11 07:19:51.188 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.r.ManagedResourceStorage File-based storage initialized to use dir: /var/solr/data/gettingstarted/conf
+2023-05-11 07:19:51.238 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.s.DirectSolrSpellChecker init: {name=default, field=_text_, classname=solr.DirectSolrSpellChecker, distanceMeasure=internal, accuracy=0.5, maxQueryFrequency=0.01, maxEdits=2, minPrefix=1, maxInspections=5, minQueryLength=4}
+2023-05-11 07:19:51.279 INFO  (coreLoadExecutor-10-thread-1) [ x:gettingstarted] o.a.s.h.ReplicationHandler Commits will be reserved for 10000 ms
+2023-05-11 07:19:51.338 INFO  (searcherExecutor-12-thread-1-processing-gettingstarted) [ x:gettingstarted] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2023-05-11 07:19:51.338 INFO  (searcherExecutor-12-thread-1-processing-gettingstarted) [ x:gettingstarted] o.a.s.h.c.SpellCheckComponent Loading spell index for spellchecker: default
+2023-05-11 07:19:51.391 INFO  (searcherExecutor-12-thread-1-processing-gettingstarted) [ x:gettingstarted] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
+2023-05-11 07:19:55.414 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/ping params={action=status&wt=json&_=1683789595069&ts=1683789595069} status=503 QTime=95
+2023-05-11 07:19:55.454 INFO  (qtp479459041-16) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683789595068} status=0 QTime=261
+2023-05-11 07:19:55.480 INFO  (qtp479459041-23) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={numTerms=0&show=index&wt=json&_=1683789595151} status=0 QTime=165
+2023-05-11 07:19:55.496 INFO  (qtp479459041-25) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/replication params={wt=json&command=details&_=1683789595151} status=0 QTime=149
+2023-05-11 07:19:55.504 INFO  (qtp479459041-19) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683789595069} status=0 QTime=263
+2023-05-11 07:19:55.659 INFO  (qtp479459041-18) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/system params={wt=json&_=1683789595151} status=0 QTime=177
+2023-05-11 07:22:06.075 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Australia&start=0&rows=3&wt=json} hits=132 status=0 QTime=257
+2023-05-11 07:23:05.138 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+"australia"&start=0&rows=3&wt=json} hits=132 status=0 QTime=8
+2023-05-11 07:27:33.229 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+"australia"+AND+title:+"ballad"&start=0&rows=3&wt=json} hits=0 status=0 QTime=25
+2023-05-11 07:27:38.538 INFO  (qtp479459041-22) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+"music"+AND+title:+"ballad"&start=0&rows=3&wt=json} hits=1 status=0 QTime=3
+2023-05-11 07:27:48.021 INFO  (qtp479459041-16) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+"music"+AND+title:+"ballad"&start=0&rows=3&wt=json} hits=1 status=0 QTime=1
+2023-05-11 07:28:03.455 INFO  (qtp479459041-22) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+"music"+AND+subject:+"perception"&start=0&rows=3&wt=json} hits=2 status=0 QTime=7
+2023-05-11 07:28:15.490 INFO  (qtp479459041-16) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+"music"+AND+subject:+"perception"&start=0&rows=3&wt=json} hits=2 status=0 QTime=2
+2023-05-11 07:41:13.073 INFO  (qtp479459041-20) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Australia&start=0&rows=3&wt=json} hits=132 status=0 QTime=1
+2023-05-11 07:42:46.206 INFO  (qtp479459041-22) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Australia&start=0&rows=3&wt=json} hits=132 status=0 QTime=1
+2023-05-11 07:43:24.268 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Australia&start=0&rows=3&wt=json} hits=132 status=0 QTime=6
+2023-05-11 07:43:44.325 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=&start=0&rows=3&wt=json} hits=0 status=0 QTime=3
+2023-05-11 07:43:51.863 INFO  (qtp479459041-22) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=&start=0&rows=3&wt=json} hits=0 status=0 QTime=1
+2023-05-11 07:44:36.111 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=&start=0&rows=3&wt=json} hits=0 status=0 QTime=2
+2023-05-11 07:45:42.552 INFO  (qtp479459041-22) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=&start=0&rows=3&wt=json} hits=0 status=0 QTime=2
+2023-05-11 07:45:45.763 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=&start=0&rows=3&wt=json} hits=0 status=0 QTime=1
+2023-05-11 07:46:33.959 INFO  (qtp479459041-22) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=&start=0&rows=3&wt=json} hits=0 status=0 QTime=1
+2023-05-11 07:47:14.540 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=&start=0&rows=3&wt=json} hits=0 status=0 QTime=0
+2023-05-11 07:47:36.990 INFO  (qtp479459041-22) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=&start=0&rows=3&wt=json} hits=0 status=0 QTime=4
+2023-05-11 07:47:49.772 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=&start=0&rows=3&wt=json} hits=0 status=0 QTime=1
+2023-05-11 07:47:58.309 INFO  (qtp479459041-22) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=&start=0&rows=3&wt=json} hits=0 status=0 QTime=1
+2023-05-11 07:48:40.045 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=&start=0&rows=3&wt=json} hits=0 status=0 QTime=1
+2023-05-11 07:49:07.637 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=3&wt=json} hits=132 status=0 QTime=13
+2023-05-11 07:49:28.033 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=3&wt=json} hits=132 status=0 QTime=2
+2023-05-11 07:49:43.522 INFO  (qtp479459041-22) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=3&wt=json} hits=132 status=0 QTime=3
+2023-05-11 07:49:59.562 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=3&wt=json} hits=132 status=0 QTime=1
+2023-05-11 07:50:58.305 INFO  (qtp479459041-22) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=3&wt=json} hits=132 status=0 QTime=2
+2023-05-11 07:51:08.005 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=3&wt=json} hits=132 status=0 QTime=5
+2023-05-11 07:51:48.815 INFO  (qtp479459041-22) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683789595068} status=0 QTime=3
+2023-05-11 07:51:48.941 INFO  (qtp479459041-24) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683789595069} status=0 QTime=96
+2023-05-11 07:51:48.979 INFO  (qtp479459041-22) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={show=schema&wt=json&_=1683789595151} status=0 QTime=75
+2023-05-11 07:51:50.699 INFO  (qtp479459041-23) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683789595068} status=0 QTime=0
+2023-05-11 07:51:50.726 INFO  (qtp479459041-19) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/config/params params={wt=json&_=1683791510656} status=0 QTime=21
+2023-05-11 07:51:50.884 INFO  (qtp479459041-23) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683789595069} status=0 QTime=170
+2023-05-11 07:51:56.235 INFO  (qtp479459041-16) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/config/params params={wt=json&_=1683791510656} status=0 QTime=0
+2023-05-11 07:51:56.237 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&indent=true&q.op=OR&rows=3&useParams=&_=1683791510656} hits=132 status=0 QTime=3
+2023-05-11 07:51:56.242 INFO  (qtp479459041-18) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683789595068} status=0 QTime=12
+2023-05-11 07:51:56.266 INFO  (qtp479459041-16) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683789595069} status=0 QTime=21
+2023-05-11 07:52:32.056 INFO  (qtp479459041-18) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=10&wt=json} hits=132 status=0 QTime=2
+2023-05-11 07:56:55.738 INFO  (qtp479459041-20) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=10&wt=json} hits=132 status=0 QTime=1
+2023-05-11 08:06:48.814 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=10&wt=json} hits=132 status=0 QTime=2
+2023-05-11 08:10:01.238 INFO  (qtp479459041-23) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=10&wt=json} hits=132 status=0 QTime=1
+2023-05-11 08:10:08.506 INFO  (qtp479459041-18) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Australia&start=0&rows=10&wt=json} hits=132 status=0 QTime=1
+2023-05-11 08:10:41.349 INFO  (qtp479459041-18) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Australia&start=0&rows=10&wt=json} hits=132 status=0 QTime=2
+2023-05-11 08:10:43.599 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=&start=0&rows=10&wt=json} hits=0 status=0 QTime=0
+2023-05-11 08:10:45.682 INFO  (qtp479459041-18) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Australia&start=0&rows=10&wt=json} hits=132 status=0 QTime=3
+2023-05-11 08:14:53.655 INFO  (qtp479459041-25) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Australia&start=0&rows=3&wt=json} hits=132 status=0 QTime=1
+2023-05-11 08:15:05.571 INFO  (qtp479459041-16) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Australia+AND+subject:+music&start=0&rows=3&wt=json} hits=3 status=0 QTime=6
+2023-05-11 08:15:06.718 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Australia+AND+subject:+music&start=0&rows=3&wt=json} hits=3 status=0 QTime=2
+2023-05-11 08:15:20.248 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Australia+AND+subject:+music&start=0&rows=3&wt=json} hits=3 status=0 QTime=1
+2023-05-11 08:15:20.408 INFO  (qtp479459041-16) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Australia+AND+subject:+music&start=0&rows=3&wt=json} hits=3 status=0 QTime=3
+2023-05-11 08:15:20.568 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Australia+AND+subject:+music&start=0&rows=3&wt=json} hits=3 status=0 QTime=3
+2023-05-11 08:15:37.753 INFO  (qtp479459041-16) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Australia+AND+subject:+Music&start=0&rows=3&wt=json} hits=3 status=0 QTime=7
+2023-05-11 08:16:53.213 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Australia&start=0&rows=3&wt=json} hits=132 status=0 QTime=1
+2023-05-11 08:16:53.247 INFO  (qtp479459041-16) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Australia&start=0&rows=3&wt=json} hits=132 status=0 QTime=2
+2023-05-11 08:17:03.945 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Australia&start=0&rows=3&wt=json} hits=132 status=0 QTime=1
+2023-05-11 08:17:06.927 INFO  (qtp479459041-16) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Australia&start=0&rows=3&wt=json} hits=132 status=0 QTime=0
+2023-05-11 08:17:11.030 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Australia&start=0&rows=3&wt=json} hits=132 status=0 QTime=1
+2023-05-11 08:17:11.792 INFO  (qtp479459041-16) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Australia&start=0&rows=3&wt=json} hits=132 status=0 QTime=3
+2023-05-11 08:17:39.037 INFO  (qtp479459041-16) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Australia&start=0&rows=3&wt=json} hits=132 status=0 QTime=2
+2023-05-11 08:17:42.047 INFO  (qtp479459041-16) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Australia&start=0&rows=3&wt=json} hits=132 status=0 QTime=1
+2023-05-11 08:17:46.850 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Music&start=0&rows=3&wt=json} hits=13 status=0 QTime=2
+2023-05-11 08:17:56.496 INFO  (qtp479459041-16) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Australia&start=0&rows=3&wt=json} hits=132 status=0 QTime=1
+2023-05-11 08:18:01.708 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Canada&start=0&rows=3&wt=json} hits=3 status=0 QTime=3
+2023-05-11 08:18:19.216 INFO  (qtp479459041-16) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Canada&start=0&rows=3&wt=json} hits=3 status=0 QTime=2
+2023-05-11 08:18:31.137 INFO  (qtp479459041-16) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Australia&start=0&rows=3&wt=json} hits=132 status=0 QTime=6
+2023-05-11 08:18:32.161 INFO  (qtp479459041-16) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Australia&start=0&rows=3&wt=json} hits=132 status=0 QTime=0
+2023-05-11 08:18:32.891 INFO  (qtp479459041-16) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Australia&start=0&rows=3&wt=json} hits=132 status=0 QTime=3
+2023-05-11 08:18:33.194 INFO  (qtp479459041-16) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Australia&start=0&rows=3&wt=json} hits=132 status=0 QTime=3
+2023-05-11 08:18:38.147 INFO  (qtp479459041-16) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Rugby&start=0&rows=3&wt=json} hits=0 status=0 QTime=3
+2023-05-11 08:18:45.392 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+Computer+Science&start=0&rows=3&wt=json} hits=14 status=0 QTime=6
+2023-05-11 08:18:56.403 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=title:+Computer+Science&start=0&rows=3&wt=json} hits=6 status=0 QTime=1
+2023-05-11 08:19:12.117 INFO  (qtp479459041-16) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=title:+"Computer+Science"&start=0&rows=3&wt=json} hits=0 status=0 QTime=29
+2023-05-11 08:19:21.820 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=title:+Australia&start=0&rows=3&wt=json} hits=57 status=0 QTime=5
+2023-05-11 08:19:28.136 INFO  (qtp479459041-16) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=title:+"Australia"&start=0&rows=3&wt=json} hits=57 status=0 QTime=3
+2023-05-11 08:19:28.923 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=title:+"Australia"&start=0&rows=3&wt=json} hits=57 status=0 QTime=3
+2023-05-11 08:19:32.383 INFO  (qtp479459041-16) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=title:+"Australia"&start=0&rows=3&wt=json} hits=57 status=0 QTime=4
+2023-05-11 08:19:37.960 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=title:+"Australias"&start=0&rows=3&wt=json} hits=0 status=0 QTime=2
+2023-05-11 08:19:40.918 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=title:+"Australia"&start=0&rows=3&wt=json} hits=57 status=0 QTime=1
+2023-05-11 08:21:18.399 INFO  (qtp479459041-16) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:australia&start=0&rows=3&wt=json} hits=132 status=0 QTime=2
+2023-05-11 08:22:44.562 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:australia&start=0&rows=3&wt=json} hits=132 status=0 QTime=1
+2023-05-11 08:34:45.729 INFO  (qtp479459041-25) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&indent=true&q.op=OR&rows=3&useParams=&_=1683794085374} hits=132 status=0 QTime=9
+2023-05-11 08:34:45.734 INFO  (qtp479459041-18) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/config/params params={wt=json&_=1683794085375} status=0 QTime=3
+2023-05-11 08:34:45.738 INFO  (qtp479459041-24) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683794084938} status=0 QTime=61
+2023-05-11 08:34:45.963 INFO  (qtp479459041-16) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683794084939} status=0 QTime=194
+2023-05-11 08:36:28.519 INFO  (qtp479459041-21) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683794185252} status=0 QTime=27
+2023-05-11 08:36:28.611 INFO  (qtp479459041-18) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&indent=true&q.op=OR&rows=3&useParams=&_=1683794185974} hits=132 status=0 QTime=1
+2023-05-11 08:36:28.628 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/config/params params={wt=json&_=1683794185975} status=0 QTime=0
+2023-05-11 08:36:28.712 INFO  (qtp479459041-20) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683794185250} status=0 QTime=0
+2023-05-11 08:46:04.665 INFO  (qtp479459041-16) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=3&wt=json} hits=132 status=0 QTime=2
+2023-05-11 08:48:36.444 INFO  (qtp479459041-16) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia+AND+subject:+music&start=0&rows=3&wt=json} hits=3 status=0 QTime=1
+2023-05-11 08:50:55.974 INFO  (qtp479459041-20) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=1&wt=json} hits=132 status=0 QTime=1
+2023-05-11 08:53:56.397 INFO  (qtp479459041-19) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=1&wt=json} hits=132 status=0 QTime=1
+2023-05-11 08:54:14.964 INFO  (qtp479459041-25) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=&start=0&rows=1&wt=json} hits=0 status=0 QTime=1
+2023-05-11 08:54:16.184 INFO  (qtp479459041-22) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=1&wt=json} hits=132 status=0 QTime=2
+2023-05-11 08:54:45.782 INFO  (qtp479459041-25) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=1&wt=json} hits=132 status=0 QTime=1
+2023-05-11 08:56:12.370 INFO  (qtp479459041-22) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=1&wt=json} hits=132 status=0 QTime=2
+2023-05-11 08:56:49.755 INFO  (qtp479459041-25) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=1&wt=json} hits=132 status=0 QTime=1
+2023-05-11 08:56:50.606 INFO  (qtp479459041-22) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=1&wt=json} hits=132 status=0 QTime=1
+2023-05-11 08:56:51.124 INFO  (qtp479459041-25) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=1&wt=json} hits=132 status=0 QTime=1
+2023-05-11 08:58:01.398 INFO  (qtp479459041-25) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=1&wt=json} hits=132 status=0 QTime=8
+2023-05-11 08:58:06.972 INFO  (qtp479459041-22) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=1&wt=json} hits=132 status=0 QTime=1
+2023-05-11 08:59:21.802 INFO  (qtp479459041-25) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=1&wt=json} hits=132 status=0 QTime=3
+2023-05-11 09:00:17.983 INFO  (qtp479459041-22) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=1&wt=json} hits=132 status=0 QTime=1
+2023-05-11 09:05:08.562 INFO  (qtp479459041-16) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=1&wt=json} hits=132 status=0 QTime=2
+2023-05-11 09:05:12.341 INFO  (qtp479459041-22) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=1&wt=json} hits=132 status=0 QTime=0
+2023-05-11 09:05:24.146 INFO  (qtp479459041-22) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=1&wt=json} hits=132 status=0 QTime=0
+2023-05-11 09:05:27.734 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=&start=0&rows=1&wt=json} hits=0 status=0 QTime=6
+2023-05-11 09:05:29.097 INFO  (qtp479459041-22) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=1&wt=json} hits=132 status=0 QTime=1
+2023-05-11 09:10:20.083 INFO  (qtp479459041-18) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=1&wt=json} hits=132 status=0 QTime=3
+2023-05-11 09:11:53.928 INFO  (qtp479459041-20) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=1&wt=json} hits=132 status=0 QTime=0
+2023-05-11 09:12:06.959 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=1&wt=json} hits=132 status=0 QTime=1
+2023-05-11 09:12:11.155 INFO  (qtp479459041-20) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+music&start=0&rows=1&wt=json} hits=13 status=0 QTime=1
+2023-05-11 09:12:51.429 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+music&start=0&rows=1&wt=json} hits=13 status=0 QTime=2
+2023-05-11 09:12:56.075 INFO  (qtp479459041-20) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+music&start=0&rows=1&wt=json} hits=13 status=0 QTime=3
+2023-05-11 09:13:31.810 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+music&start=0&rows=1&wt=json} hits=13 status=0 QTime=2
+2023-05-11 09:13:50.272 INFO  (qtp479459041-20) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+music&start=0&rows=1&wt=json} hits=13 status=0 QTime=2
+2023-05-11 09:14:39.776 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+music&start=0&rows=1&wt=json} hits=13 status=0 QTime=4
+2023-05-11 09:15:08.124 INFO  (qtp479459041-20) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+music&start=0&rows=1&wt=json} hits=13 status=0 QTime=3
+2023-05-11 09:17:52.260 INFO  (qtp479459041-18) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+music&start=0&rows=1&wt=json} hits=13 status=0 QTime=0
+2023-05-11 09:18:06.753 INFO  (qtp479459041-25) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+music&start=0&rows=1&wt=json} hits=13 status=0 QTime=3
+2023-05-11 09:18:10.082 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+music&start=0&rows=1&wt=json} hits=13 status=0 QTime=1
+2023-05-11 09:18:11.575 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+music&start=0&rows=1&wt=json} hits=13 status=0 QTime=4
+2023-05-11 09:18:56.500 INFO  (qtp479459041-25) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+music&start=0&rows=1&wt=json} hits=13 status=0 QTime=1
+2023-05-11 09:20:04.555 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=title:+computer+science+AND+subject:+machine&start=0&rows=5&wt=json} hits=0 status=0 QTime=3
+2023-05-11 09:20:12.901 INFO  (qtp479459041-25) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=title:+computer+science&start=0&rows=5&wt=json} hits=6 status=0 QTime=4
+2023-05-11 09:21:10.277 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=5&wt=json} hits=132 status=0 QTime=1
+2023-05-11 09:24:50.762 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=5&wt=json} hits=132 status=0 QTime=4
+2023-05-11 09:24:52.382 INFO  (qtp479459041-23) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=5&wt=json} hits=132 status=0 QTime=1
+2023-05-11 09:24:54.581 INFO  (qtp479459041-25) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia&start=0&rows=5&wt=json} hits=132 status=0 QTime=2
+2023-05-11 09:28:43.182 INFO  (qtp479459041-18) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/select params={q=subject:+australia+AND+subject:+music&start=0&rows=5&wt=json} hits=3 status=0 QTime=4
+2023-05-11 10:31:20.369 INFO  (qtp479459041-18) [ x:gettingstarted] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={}{add=[adata (1765593401458163712), apple (1765593401631178752), asus (1765593401634324480), ati (1765593401636421632), belkin (1765593401637470208), canon (1765593401638518784), corsair (1765593401638518785), dell (1765593401639567360), maxtor (1765593401640615936), samsung (1765593401641664512), ... (11 adds)]} 0 332
+2023-05-11 10:31:21.088 INFO  (searcherExecutor-12-thread-1-processing-gettingstarted) [ x:gettingstarted] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2023-05-11 10:31:21.143 INFO  (searcherExecutor-12-thread-1-processing-gettingstarted) [ x:gettingstarted] o.a.s.c.SolrCore Registered new searcher autowarm time: 21 ms
+2023-05-11 10:31:21.219 INFO  (qtp479459041-23) [ x:gettingstarted] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{commit=} 0 787
+2023-05-11 10:31:27.572 INFO  (qtp479459041-23) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683801087448} status=0 QTime=1
+2023-05-11 10:31:27.705 INFO  (qtp479459041-19) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683801087449} status=0 QTime=86
+2023-05-11 10:31:27.899 INFO  (qtp479459041-23) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683801087449} status=0 QTime=113
+2023-05-11 10:31:33.467 INFO  (qtp479459041-19) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683801087448} status=0 QTime=16
+2023-05-11 10:31:33.531 INFO  (qtp479459041-20) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={numTerms=0&show=index&wt=json&_=1683801093440} status=0 QTime=17
+2023-05-11 10:31:33.591 INFO  (qtp479459041-23) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683801087449} status=0 QTime=113
+2023-05-11 10:31:33.621 INFO  (qtp479459041-19) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/ping params={action=status&wt=json&_=1683801087449&ts=1683801087449} status=503 QTime=31
+2023-05-11 10:31:33.678 INFO  (qtp479459041-20) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/system params={wt=json&_=1683801093440} status=0 QTime=47
+2023-05-11 10:31:33.680 INFO  (qtp479459041-25) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/replication params={wt=json&command=details&_=1683801093441} status=0 QTime=58
+2023-05-11 10:31:36.510 INFO  (qtp479459041-16) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683801087448} status=0 QTime=0
+2023-05-11 10:31:36.520 INFO  (qtp479459041-16) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={show=schema&wt=json&_=1683801093440} status=0 QTime=7
+2023-05-11 10:31:36.591 INFO  (qtp479459041-19) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683801087449} status=0 QTime=65
+2023-05-11 10:32:00.423 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={}{} 0 54
+2023-05-11 10:32:00.425 ERROR (qtp479459041-24) [ x:gettingstarted] o.a.s.h.RequestHandlerBase org.apache.solr.common.SolrException: ERROR: [doc=oai:xtcat.oclc.org:OCLCNo/40432741] Error adding field 'link'='oai:xtcat.oclc.org:OCLCNo/40432741' msg=For input string: "oai:xtcat.oclc.org:OCLCNo/40432741" => org.apache.solr.common.SolrException: ERROR: [doc=oai:xtcat.oclc.org:OCLCNo/40432741] Error adding field 'link'='oai:xtcat.oclc.org:OCLCNo/40432741' msg=For input string: "oai:xtcat.oclc.org:OCLCNo/40432741"
+	at org.apache.solr.update.DocumentBuilder.toDocument(DocumentBuilder.java:258)
+org.apache.solr.common.SolrException: ERROR: [doc=oai:xtcat.oclc.org:OCLCNo/40432741] Error adding field 'link'='oai:xtcat.oclc.org:OCLCNo/40432741' msg=For input string: "oai:xtcat.oclc.org:OCLCNo/40432741"
+	at org.apache.solr.update.DocumentBuilder.toDocument(DocumentBuilder.java:258) ~[?:?]
+	at org.apache.solr.update.DocumentBuilder.toDocument(DocumentBuilder.java:100) ~[?:?]
+	at org.apache.solr.update.AddUpdateCommand.lambda$makeLuceneDocs$0(AddUpdateCommand.java:233) ~[?:?]
+	at java.util.stream.ReferencePipeline$3$1.accept(Unknown Source) ~[?:?]
+	at java.util.ArrayList$ArrayListSpliterator.tryAdvance(Unknown Source) ~[?:?]
+	at java.util.stream.StreamSpliterators$WrappingSpliterator.lambda$initPartialTraversalState$0(Unknown Source) ~[?:?]
+	at java.util.stream.StreamSpliterators$AbstractWrappingSpliterator.fillBuffer(Unknown Source) ~[?:?]
+	at java.util.stream.StreamSpliterators$AbstractWrappingSpliterator.doAdvance(Unknown Source) ~[?:?]
+	at java.util.stream.StreamSpliterators$WrappingSpliterator.tryAdvance(Unknown Source) ~[?:?]
+	at java.util.Spliterators$1Adapter.hasNext(Unknown Source) ~[?:?]
+	at org.apache.lucene.index.DocumentsWriterPerThread.updateDocuments(DocumentsWriterPerThread.java:232) ~[?:?]
+	at org.apache.lucene.index.DocumentsWriter.updateDocuments(DocumentsWriter.java:432) ~[?:?]
+	at org.apache.lucene.index.IndexWriter.updateDocuments(IndexWriter.java:1533) ~[?:?]
+	at org.apache.lucene.index.IndexWriter.updateDocuments(IndexWriter.java:1522) ~[?:?]
+	at org.apache.solr.update.DirectUpdateHandler2.updateDocOrDocValues(DirectUpdateHandler2.java:1050) ~[?:?]
+	at org.apache.solr.update.DirectUpdateHandler2.doNormalUpdate(DirectUpdateHandler2.java:409) ~[?:?]
+	at org.apache.solr.update.DirectUpdateHandler2.addDoc0(DirectUpdateHandler2.java:362) ~[?:?]
+	at org.apache.solr.update.DirectUpdateHandler2.addDoc(DirectUpdateHandler2.java:299) ~[?:?]
+	at org.apache.solr.update.processor.RunUpdateProcessorFactory$RunUpdateProcessor.processAdd(RunUpdateProcessorFactory.java:76) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.NestedUpdateProcessorFactory$NestedUpdateProcessor.processAdd(NestedUpdateProcessorFactory.java:79) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.doLocalAdd(DistributedUpdateProcessor.java:270) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.doVersionAdd(DistributedUpdateProcessor.java:545) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.lambda$versionAdd$0(DistributedUpdateProcessor.java:357) ~[?:?]
+	at org.apache.solr.update.VersionBucket.runWithLock(VersionBucket.java:51) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.versionAdd(DistributedUpdateProcessor.java:354) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.processAdd(DistributedUpdateProcessor.java:236) ~[?:?]
+	at org.apache.solr.update.processor.LogUpdateProcessorFactory$LogUpdateProcessor.processAdd(LogUpdateProcessorFactory.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.AddSchemaFieldsUpdateProcessorFactory$AddSchemaFieldsUpdateProcessor.processAdd(AddSchemaFieldsUpdateProcessorFactory.java:535) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.FieldNameMutatingUpdateProcessorFactory$1.processAdd(FieldNameMutatingUpdateProcessorFactory.java:71) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.AbstractDefaultValueUpdateProcessorFactory$DefaultValueUpdateProcessor.processAdd(AbstractDefaultValueUpdateProcessorFactory.java:82) ~[?:?]
+	at org.apache.solr.handler.loader.XMLLoader.processUpdate(XMLLoader.java:189) ~[?:?]
+	at org.apache.solr.handler.loader.XMLLoader.load(XMLLoader.java:136) ~[?:?]
+	at org.apache.solr.handler.UpdateRequestHandler$1.load(UpdateRequestHandler.java:101) ~[?:?]
+	at org.apache.solr.handler.ContentStreamHandlerBase.handleRequestBody(ContentStreamHandlerBase.java:84) ~[?:?]
+	at org.apache.solr.handler.RequestHandlerBase.handleRequest(RequestHandlerBase.java:224) ~[?:?]
+	at org.apache.solr.core.SolrCore.execute(SolrCore.java:2890) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.executeCoreRequest(HttpSolrCall.java:872) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.call(HttpSolrCall.java:568) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.dispatch(SolrDispatchFilter.java:252) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.lambda$doFilter$0(SolrDispatchFilter.java:220) ~[?:?]
+	at org.apache.solr.servlet.ServletUtils.traceHttpRequestExecution2(ServletUtils.java:257) ~[?:?]
+	at org.apache.solr.servlet.ServletUtils.rateLimitRequest(ServletUtils.java:227) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:215) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:197) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:210) ~[jetty-servlet-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:527) ~[jetty-servlet-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:131) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:578) ~[jetty-security-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:223) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1570) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1383) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:176) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:484) ~[jetty-servlet-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1543) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1305) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:149) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.InetAccessHandler.handle(InetAccessHandler.java:228) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:141) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.rewrite.handler.RewriteHandler.handle(RewriteHandler.java:301) ~[jetty-rewrite-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.gzip.GzipHandler.handle(GzipHandler.java:822) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.Server.handle(Server.java:563) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$0(HttpChannel.java:505) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:762) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:497) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:282) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314) ~[jetty-io-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100) ~[jetty-io-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53) ~[jetty-io-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.runTask(AdaptiveExecutionStrategy.java:416) ~[jetty-util-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.consumeTask(AdaptiveExecutionStrategy.java:385) ~[jetty-util-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce(AdaptiveExecutionStrategy.java:272) ~[jetty-util-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.lambda$new$0(AdaptiveExecutionStrategy.java:140) ~[jetty-util-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:411) ~[jetty-util-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:934) ~[jetty-util-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1078) ~[jetty-util-10.0.13.jar:10.0.13]
+	at java.lang.Thread.run(Unknown Source) [?:?]
+Caused by: java.lang.NumberFormatException: For input string: "oai:xtcat.oclc.org:OCLCNo/40432741"
+	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:?]
+	at java.lang.Long.parseLong(Unknown Source) ~[?:?]
+	at java.lang.Long.parseLong(Unknown Source) ~[?:?]
+	at org.apache.solr.schema.LongPointField.createField(LongPointField.java:161) ~[?:?]
+	at org.apache.solr.schema.PointField.createFields(PointField.java:270) ~[?:?]
+	at org.apache.solr.update.DocumentBuilder.addField(DocumentBuilder.java:67) ~[?:?]
+	at org.apache.solr.update.DocumentBuilder.addOriginalField(DocumentBuilder.java:302) ~[?:?]
+	at org.apache.solr.update.DocumentBuilder.toDocument(DocumentBuilder.java:218) ~[?:?]
+	... 98 more
+2023-05-11 10:32:00.988 INFO  (searcherExecutor-12-thread-1-processing-gettingstarted) [ x:gettingstarted] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2023-05-11 10:32:01.010 INFO  (searcherExecutor-12-thread-1-processing-gettingstarted) [ x:gettingstarted] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
+2023-05-11 10:32:01.019 INFO  (qtp479459041-23) [ x:gettingstarted] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{commit=} 0 173
+2023-05-11 10:32:29.372 INFO  (qtp479459041-23) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683801149286} status=0 QTime=0
+2023-05-11 10:32:29.413 INFO  (qtp479459041-23) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={show=schema&wt=json&_=1683801149355} status=0 QTime=27
+2023-05-11 10:32:29.512 INFO  (qtp479459041-24) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683801149287} status=0 QTime=117
+2023-05-11 10:32:30.648 INFO  (qtp479459041-18) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683801149286} status=0 QTime=0
+2023-05-11 10:32:30.652 INFO  (qtp479459041-20) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={show=schema&wt=json&_=1683801149355} status=0 QTime=25
+2023-05-11 10:32:30.715 INFO  (qtp479459041-23) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683801149287} status=0 QTime=116
+2023-05-11 10:32:31.257 INFO  (qtp479459041-21) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683801149286} status=0 QTime=0
+2023-05-11 10:32:31.315 INFO  (qtp479459041-23) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/ping params={action=status&wt=json&_=1683801149287&ts=1683801149287} status=503 QTime=6
+2023-05-11 10:32:31.339 INFO  (qtp479459041-25) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/system params={wt=json&_=1683801151250} status=0 QTime=29
+2023-05-11 10:32:31.364 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={numTerms=0&show=index&wt=json&_=1683801149355} status=0 QTime=16
+2023-05-11 10:32:31.386 INFO  (qtp479459041-22) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/replication params={wt=json&command=details&_=1683801151250} status=0 QTime=92
+2023-05-11 10:32:31.433 INFO  (qtp479459041-19) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683801149287} status=0 QTime=144
+2023-05-11 10:32:32.963 INFO  (qtp479459041-18) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683801152853} status=0 QTime=9
+2023-05-11 10:32:33.017 INFO  (qtp479459041-23) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/ping params={action=status&wt=json&_=1683801152854&ts=1683801152854} status=503 QTime=0
+2023-05-11 10:32:33.096 INFO  (qtp479459041-16) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/replication params={wt=json&command=details&_=1683801152938} status=0 QTime=111
+2023-05-11 10:32:33.096 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={numTerms=0&show=index&wt=json&_=1683801152938} status=0 QTime=69
+2023-05-11 10:32:33.149 INFO  (qtp479459041-18) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683801152854} status=0 QTime=81
+2023-05-11 10:32:33.154 INFO  (qtp479459041-20) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/system params={wt=json&_=1683801152938} status=0 QTime=133
+2023-05-11 10:32:50.594 INFO  (qtp479459041-25) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683801152853} status=0 QTime=0
+2023-05-11 10:32:50.615 INFO  (qtp479459041-23) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={show=schema&wt=json&_=1683801152938} status=0 QTime=20
+2023-05-11 10:32:50.666 INFO  (qtp479459041-24) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683801152854} status=0 QTime=56
+2023-05-11 10:32:54.420 INFO  (qtp479459041-21) [ x:gettingstarted] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commitWithin=1000&overwrite=true&wt=json&_=1683801152938}{deleteByQuery=*:* (-1765593500189982720)} 0 68
+2023-05-11 10:32:55.424 INFO  (searcherExecutor-12-thread-1-processing-gettingstarted) [ x:gettingstarted] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2023-05-11 10:32:55.452 INFO  (searcherExecutor-12-thread-1-processing-gettingstarted) [ x:gettingstarted] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
+2023-05-11 10:32:56.303 INFO  (qtp479459041-19) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1683801152853} status=0 QTime=0
+2023-05-11 10:32:56.324 INFO  (qtp479459041-22) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={numTerms=0&show=index&wt=json&_=1683801152938} status=0 QTime=0
+2023-05-11 10:32:56.353 INFO  (qtp479459041-21) [] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1683801152854} status=0 QTime=45
+2023-05-11 10:32:56.376 INFO  (qtp479459041-22) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/replication params={wt=json&command=details&_=1683801152938} status=0 QTime=49
+2023-05-11 10:32:56.393 INFO  (qtp479459041-19) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/ping params={action=status&wt=json&_=1683801152854&ts=1683801152854} status=503 QTime=3
+2023-05-11 10:32:56.448 INFO  (qtp479459041-22) [ x:gettingstarted] o.a.s.c.S.Request webapp=/solr path=/admin/system params={wt=json&_=1683801152938} status=0 QTime=51
+2023-05-11 10:34:00.558 INFO  (qtp479459041-16) [ x:gettingstarted] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={}{} 0 4
+2023-05-11 10:34:00.559 ERROR (qtp479459041-16) [ x:gettingstarted] o.a.s.h.RequestHandlerBase org.apache.solr.common.SolrException: ERROR: [doc=oai:xtcat.oclc.org:OCLCNo/40432741] Error adding field 'link'='node.text' msg=For input string: "node.text" => org.apache.solr.common.SolrException: ERROR: [doc=oai:xtcat.oclc.org:OCLCNo/40432741] Error adding field 'link'='node.text' msg=For input string: "node.text"
+	at org.apache.solr.update.DocumentBuilder.toDocument(DocumentBuilder.java:258)
+org.apache.solr.common.SolrException: ERROR: [doc=oai:xtcat.oclc.org:OCLCNo/40432741] Error adding field 'link'='node.text' msg=For input string: "node.text"
+	at org.apache.solr.update.DocumentBuilder.toDocument(DocumentBuilder.java:258) ~[?:?]
+	at org.apache.solr.update.DocumentBuilder.toDocument(DocumentBuilder.java:100) ~[?:?]
+	at org.apache.solr.update.AddUpdateCommand.lambda$makeLuceneDocs$0(AddUpdateCommand.java:233) ~[?:?]
+	at java.util.stream.ReferencePipeline$3$1.accept(Unknown Source) ~[?:?]
+	at java.util.ArrayList$ArrayListSpliterator.tryAdvance(Unknown Source) ~[?:?]
+	at java.util.stream.StreamSpliterators$WrappingSpliterator.lambda$initPartialTraversalState$0(Unknown Source) ~[?:?]
+	at java.util.stream.StreamSpliterators$AbstractWrappingSpliterator.fillBuffer(Unknown Source) ~[?:?]
+	at java.util.stream.StreamSpliterators$AbstractWrappingSpliterator.doAdvance(Unknown Source) ~[?:?]
+	at java.util.stream.StreamSpliterators$WrappingSpliterator.tryAdvance(Unknown Source) ~[?:?]
+	at java.util.Spliterators$1Adapter.hasNext(Unknown Source) ~[?:?]
+	at org.apache.lucene.index.DocumentsWriterPerThread.updateDocuments(DocumentsWriterPerThread.java:232) ~[?:?]
+	at org.apache.lucene.index.DocumentsWriter.updateDocuments(DocumentsWriter.java:432) ~[?:?]
+	at org.apache.lucene.index.IndexWriter.updateDocuments(IndexWriter.java:1533) ~[?:?]
+	at org.apache.lucene.index.IndexWriter.updateDocuments(IndexWriter.java:1522) ~[?:?]
+	at org.apache.solr.update.DirectUpdateHandler2.updateDocOrDocValues(DirectUpdateHandler2.java:1050) ~[?:?]
+	at org.apache.solr.update.DirectUpdateHandler2.doNormalUpdate(DirectUpdateHandler2.java:409) ~[?:?]
+	at org.apache.solr.update.DirectUpdateHandler2.addDoc0(DirectUpdateHandler2.java:362) ~[?:?]
+	at org.apache.solr.update.DirectUpdateHandler2.addDoc(DirectUpdateHandler2.java:299) ~[?:?]
+	at org.apache.solr.update.processor.RunUpdateProcessorFactory$RunUpdateProcessor.processAdd(RunUpdateProcessorFactory.java:76) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.NestedUpdateProcessorFactory$NestedUpdateProcessor.processAdd(NestedUpdateProcessorFactory.java:79) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.doLocalAdd(DistributedUpdateProcessor.java:270) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.doVersionAdd(DistributedUpdateProcessor.java:545) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.lambda$versionAdd$0(DistributedUpdateProcessor.java:357) ~[?:?]
+	at org.apache.solr.update.VersionBucket.runWithLock(VersionBucket.java:51) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.versionAdd(DistributedUpdateProcessor.java:354) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.processAdd(DistributedUpdateProcessor.java:236) ~[?:?]
+	at org.apache.solr.update.processor.LogUpdateProcessorFactory$LogUpdateProcessor.processAdd(LogUpdateProcessorFactory.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.AddSchemaFieldsUpdateProcessorFactory$AddSchemaFieldsUpdateProcessor.processAdd(AddSchemaFieldsUpdateProcessorFactory.java:535) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.FieldNameMutatingUpdateProcessorFactory$1.processAdd(FieldNameMutatingUpdateProcessorFactory.java:71) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.AbstractDefaultValueUpdateProcessorFactory$DefaultValueUpdateProcessor.processAdd(AbstractDefaultValueUpdateProcessorFactory.java:82) ~[?:?]
+	at org.apache.solr.handler.loader.XMLLoader.processUpdate(XMLLoader.java:189) ~[?:?]
+	at org.apache.solr.handler.loader.XMLLoader.load(XMLLoader.java:136) ~[?:?]
+	at org.apache.solr.handler.UpdateRequestHandler$1.load(UpdateRequestHandler.java:101) ~[?:?]
+	at org.apache.solr.handler.ContentStreamHandlerBase.handleRequestBody(ContentStreamHandlerBase.java:84) ~[?:?]
+	at org.apache.solr.handler.RequestHandlerBase.handleRequest(RequestHandlerBase.java:224) ~[?:?]
+	at org.apache.solr.core.SolrCore.execute(SolrCore.java:2890) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.executeCoreRequest(HttpSolrCall.java:872) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.call(HttpSolrCall.java:568) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.dispatch(SolrDispatchFilter.java:252) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.lambda$doFilter$0(SolrDispatchFilter.java:220) ~[?:?]
+	at org.apache.solr.servlet.ServletUtils.traceHttpRequestExecution2(ServletUtils.java:257) ~[?:?]
+	at org.apache.solr.servlet.ServletUtils.rateLimitRequest(ServletUtils.java:227) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:215) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:197) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:210) ~[jetty-servlet-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:527) ~[jetty-servlet-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:131) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:578) ~[jetty-security-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:223) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1570) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1383) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:176) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:484) ~[jetty-servlet-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1543) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1305) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:149) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.InetAccessHandler.handle(InetAccessHandler.java:228) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:141) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.rewrite.handler.RewriteHandler.handle(RewriteHandler.java:301) ~[jetty-rewrite-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.gzip.GzipHandler.handle(GzipHandler.java:822) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.Server.handle(Server.java:563) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$0(HttpChannel.java:505) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:762) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:497) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:282) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314) ~[jetty-io-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100) ~[jetty-io-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53) ~[jetty-io-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.runTask(AdaptiveExecutionStrategy.java:416) ~[jetty-util-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.consumeTask(AdaptiveExecutionStrategy.java:385) ~[jetty-util-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce(AdaptiveExecutionStrategy.java:272) ~[jetty-util-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.lambda$new$0(AdaptiveExecutionStrategy.java:140) ~[jetty-util-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:411) ~[jetty-util-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:934) ~[jetty-util-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1078) ~[jetty-util-10.0.13.jar:10.0.13]
+	at java.lang.Thread.run(Unknown Source) [?:?]
+Caused by: java.lang.NumberFormatException: For input string: "node.text"
+	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:?]
+	at java.lang.Long.parseLong(Unknown Source) ~[?:?]
+	at java.lang.Long.parseLong(Unknown Source) ~[?:?]
+	at org.apache.solr.schema.LongPointField.createField(LongPointField.java:161) ~[?:?]
+	at org.apache.solr.schema.PointField.createFields(PointField.java:270) ~[?:?]
+	at org.apache.solr.update.DocumentBuilder.addField(DocumentBuilder.java:67) ~[?:?]
+	at org.apache.solr.update.DocumentBuilder.addOriginalField(DocumentBuilder.java:302) ~[?:?]
+	at org.apache.solr.update.DocumentBuilder.toDocument(DocumentBuilder.java:218) ~[?:?]
+	... 98 more
+2023-05-11 10:34:01.120 INFO  (searcherExecutor-12-thread-1-processing-gettingstarted) [ x:gettingstarted] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2023-05-11 10:34:01.146 INFO  (searcherExecutor-12-thread-1-processing-gettingstarted) [ x:gettingstarted] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
+2023-05-11 10:34:01.150 INFO  (qtp479459041-19) [ x:gettingstarted] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{commit=} 0 136
+2023-05-11 11:21:54.415 INFO  (qtp479459041-20) [ x:gettingstarted] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={}{} 0 35
+2023-05-11 11:21:54.416 ERROR (qtp479459041-20) [ x:gettingstarted] o.a.s.h.RequestHandlerBase org.apache.solr.common.SolrException: ERROR: [doc=oai:union.ndltd.org:OCLC/oai:xtcat.oclc.org:OCLCNo/40432741] Error adding field 'link'='http://www.uwstout.edu/lib/thesis/1998/1998czechr.pdf' msg=For input string: "http://www.uwstout.edu/lib/thesis/1998/1998czechr.pdf" => org.apache.solr.common.SolrException: ERROR: [doc=oai:union.ndltd.org:OCLC/oai:xtcat.oclc.org:OCLCNo/40432741] Error adding field 'link'='http://www.uwstout.edu/lib/thesis/1998/1998czechr.pdf' msg=For input string: "http://www.uwstout.edu/lib/thesis/1998/1998czechr.pdf"
+	at org.apache.solr.update.DocumentBuilder.toDocument(DocumentBuilder.java:258)
+org.apache.solr.common.SolrException: ERROR: [doc=oai:union.ndltd.org:OCLC/oai:xtcat.oclc.org:OCLCNo/40432741] Error adding field 'link'='http://www.uwstout.edu/lib/thesis/1998/1998czechr.pdf' msg=For input string: "http://www.uwstout.edu/lib/thesis/1998/1998czechr.pdf"
+	at org.apache.solr.update.DocumentBuilder.toDocument(DocumentBuilder.java:258) ~[?:?]
+	at org.apache.solr.update.DocumentBuilder.toDocument(DocumentBuilder.java:100) ~[?:?]
+	at org.apache.solr.update.AddUpdateCommand.lambda$makeLuceneDocs$0(AddUpdateCommand.java:233) ~[?:?]
+	at java.util.stream.ReferencePipeline$3$1.accept(Unknown Source) ~[?:?]
+	at java.util.ArrayList$ArrayListSpliterator.tryAdvance(Unknown Source) ~[?:?]
+	at java.util.stream.StreamSpliterators$WrappingSpliterator.lambda$initPartialTraversalState$0(Unknown Source) ~[?:?]
+	at java.util.stream.StreamSpliterators$AbstractWrappingSpliterator.fillBuffer(Unknown Source) ~[?:?]
+	at java.util.stream.StreamSpliterators$AbstractWrappingSpliterator.doAdvance(Unknown Source) ~[?:?]
+	at java.util.stream.StreamSpliterators$WrappingSpliterator.tryAdvance(Unknown Source) ~[?:?]
+	at java.util.Spliterators$1Adapter.hasNext(Unknown Source) ~[?:?]
+	at org.apache.lucene.index.DocumentsWriterPerThread.updateDocuments(DocumentsWriterPerThread.java:232) ~[?:?]
+	at org.apache.lucene.index.DocumentsWriter.updateDocuments(DocumentsWriter.java:432) ~[?:?]
+	at org.apache.lucene.index.IndexWriter.updateDocuments(IndexWriter.java:1533) ~[?:?]
+	at org.apache.lucene.index.IndexWriter.updateDocuments(IndexWriter.java:1522) ~[?:?]
+	at org.apache.solr.update.DirectUpdateHandler2.updateDocOrDocValues(DirectUpdateHandler2.java:1050) ~[?:?]
+	at org.apache.solr.update.DirectUpdateHandler2.doNormalUpdate(DirectUpdateHandler2.java:409) ~[?:?]
+	at org.apache.solr.update.DirectUpdateHandler2.addDoc0(DirectUpdateHandler2.java:362) ~[?:?]
+	at org.apache.solr.update.DirectUpdateHandler2.addDoc(DirectUpdateHandler2.java:299) ~[?:?]
+	at org.apache.solr.update.processor.RunUpdateProcessorFactory$RunUpdateProcessor.processAdd(RunUpdateProcessorFactory.java:76) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.NestedUpdateProcessorFactory$NestedUpdateProcessor.processAdd(NestedUpdateProcessorFactory.java:79) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.doLocalAdd(DistributedUpdateProcessor.java:270) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.doVersionAdd(DistributedUpdateProcessor.java:545) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.lambda$versionAdd$0(DistributedUpdateProcessor.java:357) ~[?:?]
+	at org.apache.solr.update.VersionBucket.runWithLock(VersionBucket.java:51) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.versionAdd(DistributedUpdateProcessor.java:354) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.processAdd(DistributedUpdateProcessor.java:236) ~[?:?]
+	at org.apache.solr.update.processor.LogUpdateProcessorFactory$LogUpdateProcessor.processAdd(LogUpdateProcessorFactory.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.AddSchemaFieldsUpdateProcessorFactory$AddSchemaFieldsUpdateProcessor.processAdd(AddSchemaFieldsUpdateProcessorFactory.java:535) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.FieldNameMutatingUpdateProcessorFactory$1.processAdd(FieldNameMutatingUpdateProcessorFactory.java:71) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.AbstractDefaultValueUpdateProcessorFactory$DefaultValueUpdateProcessor.processAdd(AbstractDefaultValueUpdateProcessorFactory.java:82) ~[?:?]
+	at org.apache.solr.handler.loader.XMLLoader.processUpdate(XMLLoader.java:189) ~[?:?]
+	at org.apache.solr.handler.loader.XMLLoader.load(XMLLoader.java:136) ~[?:?]
+	at org.apache.solr.handler.UpdateRequestHandler$1.load(UpdateRequestHandler.java:101) ~[?:?]
+	at org.apache.solr.handler.ContentStreamHandlerBase.handleRequestBody(ContentStreamHandlerBase.java:84) ~[?:?]
+	at org.apache.solr.handler.RequestHandlerBase.handleRequest(RequestHandlerBase.java:224) ~[?:?]
+	at org.apache.solr.core.SolrCore.execute(SolrCore.java:2890) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.executeCoreRequest(HttpSolrCall.java:872) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.call(HttpSolrCall.java:568) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.dispatch(SolrDispatchFilter.java:252) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.lambda$doFilter$0(SolrDispatchFilter.java:220) ~[?:?]
+	at org.apache.solr.servlet.ServletUtils.traceHttpRequestExecution2(ServletUtils.java:257) ~[?:?]
+	at org.apache.solr.servlet.ServletUtils.rateLimitRequest(ServletUtils.java:227) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:215) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:197) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:210) ~[jetty-servlet-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:527) ~[jetty-servlet-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:131) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:578) ~[jetty-security-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:223) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1570) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1383) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:176) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:484) ~[jetty-servlet-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1543) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1305) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:149) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.InetAccessHandler.handle(InetAccessHandler.java:228) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:141) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.rewrite.handler.RewriteHandler.handle(RewriteHandler.java:301) ~[jetty-rewrite-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.gzip.GzipHandler.handle(GzipHandler.java:822) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.Server.handle(Server.java:563) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$0(HttpChannel.java:505) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:762) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:497) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:282) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314) ~[jetty-io-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100) ~[jetty-io-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53) ~[jetty-io-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:934) ~[jetty-util-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1078) ~[jetty-util-10.0.13.jar:10.0.13]
+	at java.lang.Thread.run(Unknown Source) [?:?]
+Caused by: java.lang.NumberFormatException: For input string: "http://www.uwstout.edu/lib/thesis/1998/1998czechr.pdf"
+	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:?]
+	at java.lang.Long.parseLong(Unknown Source) ~[?:?]
+	at java.lang.Long.parseLong(Unknown Source) ~[?:?]
+	at org.apache.solr.schema.LongPointField.createField(LongPointField.java:161) ~[?:?]
+	at org.apache.solr.schema.PointField.createFields(PointField.java:270) ~[?:?]
+	at org.apache.solr.update.DocumentBuilder.addField(DocumentBuilder.java:67) ~[?:?]
+	at org.apache.solr.update.DocumentBuilder.addOriginalField(DocumentBuilder.java:302) ~[?:?]
+	at org.apache.solr.update.DocumentBuilder.toDocument(DocumentBuilder.java:218) ~[?:?]
+	... 93 more
+2023-05-11 11:21:55.139 INFO  (searcherExecutor-12-thread-1-processing-gettingstarted) [ x:gettingstarted] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2023-05-11 11:21:55.159 INFO  (searcherExecutor-12-thread-1-processing-gettingstarted) [ x:gettingstarted] o.a.s.c.SolrCore Registered new searcher autowarm time: 1 ms
+2023-05-11 11:21:55.162 INFO  (qtp479459041-16) [ x:gettingstarted] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{commit=} 0 83
+2023-05-11 11:22:07.671 INFO  (qtp479459041-16) [ x:gettingstarted] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={}{} 0 3
+2023-05-11 11:22:07.672 ERROR (qtp479459041-16) [ x:gettingstarted] o.a.s.h.RequestHandlerBase org.apache.solr.common.SolrException: ERROR: [doc=oai:union.ndltd.org:OCLC/oai:xtcat.oclc.org:OCLCNo/40432741] Error adding field 'link'='http://www.uwstout.edu/lib/thesis/1998/1998czechr.pdf' msg=For input string: "http://www.uwstout.edu/lib/thesis/1998/1998czechr.pdf" => org.apache.solr.common.SolrException: ERROR: [doc=oai:union.ndltd.org:OCLC/oai:xtcat.oclc.org:OCLCNo/40432741] Error adding field 'link'='http://www.uwstout.edu/lib/thesis/1998/1998czechr.pdf' msg=For input string: "http://www.uwstout.edu/lib/thesis/1998/1998czechr.pdf"
+	at org.apache.solr.update.DocumentBuilder.toDocument(DocumentBuilder.java:258)
+org.apache.solr.common.SolrException: ERROR: [doc=oai:union.ndltd.org:OCLC/oai:xtcat.oclc.org:OCLCNo/40432741] Error adding field 'link'='http://www.uwstout.edu/lib/thesis/1998/1998czechr.pdf' msg=For input string: "http://www.uwstout.edu/lib/thesis/1998/1998czechr.pdf"
+	at org.apache.solr.update.DocumentBuilder.toDocument(DocumentBuilder.java:258) ~[?:?]
+	at org.apache.solr.update.DocumentBuilder.toDocument(DocumentBuilder.java:100) ~[?:?]
+	at org.apache.solr.update.AddUpdateCommand.lambda$makeLuceneDocs$0(AddUpdateCommand.java:233) ~[?:?]
+	at java.util.stream.ReferencePipeline$3$1.accept(Unknown Source) ~[?:?]
+	at java.util.ArrayList$ArrayListSpliterator.tryAdvance(Unknown Source) ~[?:?]
+	at java.util.stream.StreamSpliterators$WrappingSpliterator.lambda$initPartialTraversalState$0(Unknown Source) ~[?:?]
+	at java.util.stream.StreamSpliterators$AbstractWrappingSpliterator.fillBuffer(Unknown Source) ~[?:?]
+	at java.util.stream.StreamSpliterators$AbstractWrappingSpliterator.doAdvance(Unknown Source) ~[?:?]
+	at java.util.stream.StreamSpliterators$WrappingSpliterator.tryAdvance(Unknown Source) ~[?:?]
+	at java.util.Spliterators$1Adapter.hasNext(Unknown Source) ~[?:?]
+	at org.apache.lucene.index.DocumentsWriterPerThread.updateDocuments(DocumentsWriterPerThread.java:232) ~[?:?]
+	at org.apache.lucene.index.DocumentsWriter.updateDocuments(DocumentsWriter.java:432) ~[?:?]
+	at org.apache.lucene.index.IndexWriter.updateDocuments(IndexWriter.java:1533) ~[?:?]
+	at org.apache.lucene.index.IndexWriter.updateDocuments(IndexWriter.java:1522) ~[?:?]
+	at org.apache.solr.update.DirectUpdateHandler2.updateDocOrDocValues(DirectUpdateHandler2.java:1050) ~[?:?]
+	at org.apache.solr.update.DirectUpdateHandler2.doNormalUpdate(DirectUpdateHandler2.java:409) ~[?:?]
+	at org.apache.solr.update.DirectUpdateHandler2.addDoc0(DirectUpdateHandler2.java:362) ~[?:?]
+	at org.apache.solr.update.DirectUpdateHandler2.addDoc(DirectUpdateHandler2.java:299) ~[?:?]
+	at org.apache.solr.update.processor.RunUpdateProcessorFactory$RunUpdateProcessor.processAdd(RunUpdateProcessorFactory.java:76) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.NestedUpdateProcessorFactory$NestedUpdateProcessor.processAdd(NestedUpdateProcessorFactory.java:79) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.doLocalAdd(DistributedUpdateProcessor.java:270) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.doVersionAdd(DistributedUpdateProcessor.java:545) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.lambda$versionAdd$0(DistributedUpdateProcessor.java:357) ~[?:?]
+	at org.apache.solr.update.VersionBucket.runWithLock(VersionBucket.java:51) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.versionAdd(DistributedUpdateProcessor.java:354) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.processAdd(DistributedUpdateProcessor.java:236) ~[?:?]
+	at org.apache.solr.update.processor.LogUpdateProcessorFactory$LogUpdateProcessor.processAdd(LogUpdateProcessorFactory.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.AddSchemaFieldsUpdateProcessorFactory$AddSchemaFieldsUpdateProcessor.processAdd(AddSchemaFieldsUpdateProcessorFactory.java:535) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.FieldNameMutatingUpdateProcessorFactory$1.processAdd(FieldNameMutatingUpdateProcessorFactory.java:71) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55) ~[?:?]
+	at org.apache.solr.update.processor.AbstractDefaultValueUpdateProcessorFactory$DefaultValueUpdateProcessor.processAdd(AbstractDefaultValueUpdateProcessorFactory.java:82) ~[?:?]
+	at org.apache.solr.handler.loader.XMLLoader.processUpdate(XMLLoader.java:189) ~[?:?]
+	at org.apache.solr.handler.loader.XMLLoader.load(XMLLoader.java:136) ~[?:?]
+	at org.apache.solr.handler.UpdateRequestHandler$1.load(UpdateRequestHandler.java:101) ~[?:?]
+	at org.apache.solr.handler.ContentStreamHandlerBase.handleRequestBody(ContentStreamHandlerBase.java:84) ~[?:?]
+	at org.apache.solr.handler.RequestHandlerBase.handleRequest(RequestHandlerBase.java:224) ~[?:?]
+	at org.apache.solr.core.SolrCore.execute(SolrCore.java:2890) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.executeCoreRequest(HttpSolrCall.java:872) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.call(HttpSolrCall.java:568) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.dispatch(SolrDispatchFilter.java:252) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.lambda$doFilter$0(SolrDispatchFilter.java:220) ~[?:?]
+	at org.apache.solr.servlet.ServletUtils.traceHttpRequestExecution2(ServletUtils.java:257) ~[?:?]
+	at org.apache.solr.servlet.ServletUtils.rateLimitRequest(ServletUtils.java:227) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:215) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:197) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:210) ~[jetty-servlet-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:527) ~[jetty-servlet-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:131) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:578) ~[jetty-security-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:223) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1570) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1383) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:176) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:484) ~[jetty-servlet-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1543) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1305) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:149) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.InetAccessHandler.handle(InetAccessHandler.java:228) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:141) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.rewrite.handler.RewriteHandler.handle(RewriteHandler.java:301) ~[jetty-rewrite-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.gzip.GzipHandler.handle(GzipHandler.java:822) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.Server.handle(Server.java:563) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$0(HttpChannel.java:505) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:762) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:497) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:282) ~[jetty-server-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314) ~[jetty-io-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100) ~[jetty-io-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53) ~[jetty-io-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.runTask(AdaptiveExecutionStrategy.java:416) ~[jetty-util-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.consumeTask(AdaptiveExecutionStrategy.java:385) ~[jetty-util-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce(AdaptiveExecutionStrategy.java:272) ~[jetty-util-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.lambda$new$0(AdaptiveExecutionStrategy.java:140) ~[jetty-util-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:411) ~[jetty-util-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:934) ~[jetty-util-10.0.13.jar:10.0.13]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1078) ~[jetty-util-10.0.13.jar:10.0.13]
+	at java.lang.Thread.run(Unknown Source) [?:?]
+Caused by: java.lang.NumberFormatException: For input string: "http://www.uwstout.edu/lib/thesis/1998/1998czechr.pdf"
+	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:?]
+	at java.lang.Long.parseLong(Unknown Source) ~[?:?]
+	at java.lang.Long.parseLong(Unknown Source) ~[?:?]
+	at org.apache.solr.schema.LongPointField.createField(LongPointField.java:161) ~[?:?]
+	at org.apache.solr.schema.PointField.createFields(PointField.java:270) ~[?:?]
+	at org.apache.solr.update.DocumentBuilder.addField(DocumentBuilder.java:67) ~[?:?]
+	at org.apache.solr.update.DocumentBuilder.addOriginalField(DocumentBuilder.java:302) ~[?:?]
+	at org.apache.solr.update.DocumentBuilder.toDocument(DocumentBuilder.java:218) ~[?:?]
+	... 98 more
+2023-05-11 11:22:07.997 INFO  (searcherExecutor-12-thread-1-processing-gettingstarted) [ x:gettingstarted] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2023-05-11 11:22:08.027 INFO  (searcherExecutor-12-thread-1-processing-gettingstarted) [ x:gettingstarted] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
+2023-05-11 11:22:08.033 INFO  (qtp479459041-24) [ x:gettingstarted] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{commit=} 0 103
+2023-05-11 11:24:42.390 INFO  (JettyShutdownThread) [] o.e.j.s.Server Stopped Server@269f4bad{STOPPING}[10.0.13,sto=0]
+2023-05-11 11:24:42.400 INFO  (JettyShutdownThread) [] o.e.j.s.AbstractConnector Stopped ServerConnector@53812a9b{HTTP/1.1, (http/1.1, h2c)}{0.0.0.0:8983}
+2023-05-11 11:24:42.417 INFO  (JettyShutdownThread) [] o.a.s.c.CoreContainer Shutting down CoreContainer instance=2022562847
+2023-05-11 11:24:42.422 INFO  (coreCloseExecutor-18-thread-1) [ x:gettingstarted] o.a.s.c.SolrCore CLOSING SolrCore org.apache.solr.core.SolrCore@b4a65a3 gettingstarted
+2023-05-11 11:24:42.427 INFO  (coreCloseExecutor-18-thread-1) [ x:gettingstarted] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.core.gettingstarted tag=SolrCore@b4a65a3
+2023-05-11 11:24:42.493 INFO  (coreCloseExecutor-18-thread-1) [ x:gettingstarted] o.a.s.u.DirectUpdateHandler2 Committing on IndexWriter.close()  ... SKIPPED (unnecessary).
+2023-05-11 11:24:42.563 INFO  (JettyShutdownThread) [] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.node tag=null
+2023-05-11 11:24:42.588 INFO  (JettyShutdownThread) [] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.jvm tag=null
+2023-05-11 11:24:42.604 INFO  (JettyShutdownThread) [] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.jetty tag=null
+2023-05-11 11:24:42.640 INFO  (JettyShutdownThread) [] o.e.j.s.h.ContextHandler Stopped o.e.j.w.WebAppContext@4eeea57d{solr-jetty-context.xml,/solr,null,STOPPED}{/opt/solr-9.2.1/server/solr-webapp/webapp}
