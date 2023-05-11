@@ -1,5 +1,15 @@
 {
+  "name": "edt-engine", 
+  "scripts": {
+    "test": "echo \"Error: No test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
   "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
     "solr-node": "^1.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }
