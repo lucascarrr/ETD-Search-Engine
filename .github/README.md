@@ -15,4 +15,4 @@ REMEMBER to remove the header, and keep the <FindRecords> tag from each unproces
 
 
 # Color Palette 
-![Colour Palette](../Additional%20Files/Images/colors.pngAdditional Files/Images/colors.png)
+![colours](../Additional%20Files/Images/colors.png)
