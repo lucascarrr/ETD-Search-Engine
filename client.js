@@ -8,6 +8,7 @@ searchForm.addEventListener('submit', (event) => {
   sendRequest(queryText);
 });
 
+
 function sendRequest(query) {
   const url = `http://localhost:3000/search?q=${query}`;
 
@@ -16,13 +17,22 @@ function sendRequest(query) {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      return response.text();
+      return response.json();
     })
-    .then((responseText) => {
-      console.log(`Received response from server: ${responseText}`);
-      searchResults.textContent = responseText;
+    .then((responseJSON) => {
+      console.log(`Received response from server: ${JSON.stringify(responseJSON)}`);
+      let resultCounter = 1;
+      searchResults.innerHTML = '';
+      responseJSON.forEach((result) => {
+        const resultText = `result ${resultCounter++}: ${JSON.stringify(result)}`;
+        const resultNode = document.createElement('div');
+        resultNode.textContent = resultText;
+        searchResults.appendChild(resultNode);
+      });
     })
     .catch((error) => {
       console.error(`Error sending request: ${error}`);
     });
 }
+
+
