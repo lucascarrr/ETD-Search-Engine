@@ -665,3 +665,4 @@
 172.17.0.1 - - [11/May/2023:15:22:45 +0000] "GET /solr/gettingstarted/select?q=subject%3A%20Math&start=0&rows=5&wt=json HTTP/1.1" 200 1257
 172.17.0.1 - - [11/May/2023:15:22:49 +0000] "GET /solr/gettingstarted/select?q=subject%3A%20Math&start=0&rows=5&wt=json HTTP/1.1" 200 1257
 172.17.0.1 - - [11/May/2023:15:25:22 +0000] "GET /solr/gettingstarted/select?q=subject%3A%20Math&start=0&rows=5&wt=json HTTP/1.1" 200 1257
+172.17.0.1 - - [11/May/2023:15:34:42 +0000] "GET /solr/gettingstarted/select?q=subject%3A%20babel&start=0&rows=5&wt=json HTTP/1.1" 200 2152
