@@ -1,11 +1,9 @@
 const SolrNode = require('solr-node');
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
-const url = require('url');
-const querystring = require('querystring');
+const express = require('express');
+const app = express();
+const port = 3000;
 
-// establishing the connection to the solr server
+// establishing the connection to the Solr server
 var client = new SolrNode({
   host: '127.0.0.1',
   port: '8983',
@@ -13,75 +11,35 @@ var client = new SolrNode({
   protocol: 'http'
 });
 
-// creating the node server
-const server = http.createServer((req, res) => {
-  const parsedUrl = url.parse(req.url);
-  const pathname = parsedUrl.pathname;
+//set views
+app.set('views', './views');
+app.set('view engine', 'ejs');
 
-  if (pathname === '/') {
-    // Serve the index.html file
-    const filePath = path.join(__dirname, 'index.html');
-    fs.readFile(filePath, (error, content) => {
-      if (error) {
-        res.writeHead(500, { 'Content-Type': 'text/plain' });
-        res.write('500 Internal Server Error');
-        res.end();
-        console.error(`Error serving ${filePath}: ${error}`);
-      } else {
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.write(content);
-        res.end();
-      }
-    });
+// Serve static files from the public directory
+app.use(express.static('public'));
 
-  } else if (pathname === '/client.js') {
-    // Serve the client.js file
-    const filePath = path.join(__dirname, 'client.js');
-    fs.readFile(filePath, (error, content) => {
-      if (error) {
-        res.writeHead(500, { 'Content-Type': 'text/plain' });
-        res.write('500 Internal Server Error');
-        res.end();
-        console.error(`Error serving ${filePath}: ${error}`);
-      } else {
-        res.writeHead(200, { 'Content-Type': 'text/javascript' });
-        res.write(content);
-        res.end();
-      }
-    });
+app.get('', (req, res) => {
+  res.render('index',)
+})
+// Route for handling search requests
+app.get('/search', (req, res) => {
+  console.log("Succes")
+  console.log(`Received search query: ${req.query.q}`);
+  const queryText = req.query.q;
 
-  }  else if (pathname === '/search' && req.method === 'GET') {
-  // Handle the search request
-  const query = querystring.parse(parsedUrl.query);
-  const queryText = query.q || '';
-  console.log(`Received search query: ${queryText}`);
-  
   search(queryText).then((result) => {
     console.log("Responding with: " + (result[0]));
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.write(JSON.stringify(result));
-    res.end();
+    console.log(JSON.stringify(result));
+    res.send(result)
+    
   }).catch((error) => {
-    res.writeHead(500, { 'Content-Type': 'text/plain' });
-    res.write('Error');
-    res.end();
+    console.log("Error")
   })
-}
- else {
-    // Handle unknown requests
-    res.writeHead(404, { 'Content-Type': 'text/plain' });
-    res.write('404 Not Found');
-    res.end();
-  }
 });
 
-// Server listening for requests
-server.listen(3000, () => {
-  console.log('Server is listening on port 3000');
-});
-
-server.on('error', (error) => {
-  console.error(`Server error: ${error}`);
+// Start the server
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
 });
 
 function search(input_query) {
