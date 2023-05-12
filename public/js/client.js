@@ -106,7 +106,6 @@ function convertJson(jsonStr) {
               delete resultItem['_version_'];
           }
       });
-
       return resultItem;
   });
 
@@ -228,6 +227,35 @@ function bubbles(d) {
         .attr("x", function (d) { return d.x; })
         .attr("y", function (d) { return d.y; });
   }
+
+  node.on("click", function (event, d) {
+    const nodeSelection = d3.select(this);
+    
+    nodeSelection.raise(); // bring the node (circle and text) to the top
+
+    const circle = nodeSelection.select("circle");
+    const name = nodeSelection.select(".name");
+    const info = nodeSelection.select(".info");
+
+    circle.transition()
+        .attr("r", function (d) {
+            if (d.isExpanded) {
+                d.isExpanded = false;
+                return d.relevance;
+            } else {
+                d.isExpanded = true;
+                return Math.sqrt(window.innerWidth * window.innerHeight) / 4; 
+            }
+        });
+
+    name.style("font-size", function (d) { 
+        return d.isExpanded ? "20px" : Math.sqrt(d.relevance) + "px"; 
+    });
+
+    info.style("font-size", function (d) { 
+        return d.isExpanded ? "20px" : Math.sqrt(d.relevance) + "px"; 
+    });
+});
 
 
   
