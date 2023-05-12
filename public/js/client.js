@@ -21,6 +21,7 @@ searchForm.addEventListener('submit', (event) => {
   { name: " 10", relevance: 40, original: 40, info: "Info 10" }
 ];*/
 var data;
+let relevance = 130;
 
 function sendRequest(query) {
   const url = `http://localhost:3000/search?q=${query}`;
@@ -42,6 +43,7 @@ function sendRequest(query) {
       data = convertJson(JSON.stringify(responseJSON));
       //console.log(data);
       bubbles(data);
+      relevance = 130;
       responseJSON.forEach((result) => {
         
         let resultText = `result ${resultCounter++}:\n`;
@@ -76,7 +78,7 @@ function convertJson(jsonStr) {
   let result = jsonData.map((item, index) => {
       let keys = Object.keys(item);
       let resultItem = {};
-      let relevance = 130;
+      relevance -= 10
 
       keys.forEach((key) => {
           let value = item[key];
@@ -90,7 +92,7 @@ function convertJson(jsonStr) {
           if(key !== 'id' && key !== '_version_') {
               resultItem['relevance'] = relevance;
               resultItem['original'] = relevance;
-              relevance -= 10;
+              //relevance -= 10;
           }
 
           // Convert language from 'EN' to 'Eng'
@@ -116,15 +118,16 @@ function convertJson(jsonStr) {
 // BUBBLE STUFF
 
 function bubbles(d) {
+  d3.select("#searchVis").select("svg").remove();
   var svg = d3.select("#searchVis").append("svg")
-    .attr("width", 1600)
-    .attr("height", 800); 
+    .attr("width", window.innerWidth)
+    .attr("height", window.innerHeight); 
 
   var colorScale = d3.scaleSequential().domain([0, 120]).interpolator(d3.interpolateBlues); 
 
   var simulation = d3.forceSimulation(data)
     .force("charge", d3.forceManyBody().strength(500))
-    .force("center", d3.forceCenter(400, 400))
+    .force("center", d3.forceCenter(window.innerWidth / 2, window.innerHeight / 2))  
     .force("collision", d3.forceCollide().radius(function (d) {
         return d.relevance + 10;
     }))
@@ -172,7 +175,9 @@ function bubbles(d) {
 
   var infoLabels = node.append("text")
     .attr("class", "info")
-    .text(function (d) { return d.text; })
+    .text(function (d) { 
+      return d.text; 
+    })
     .attr("x", function (d) { return -d.relevance / 3; })
     .attr("y", function (d) { return d.relevance / 4; })
     .attr("text-anchor", "middle")
@@ -213,8 +218,8 @@ function bubbles(d) {
   function ticked() {
     if (!isGrid) {
         circles
-            .attr("cx", function (d) { return d.x = Math.max(d.relevance, Math.min(800 - d.relevance, d.x)); })
-            .attr("cy", function (d) { return d.y = Math.max(d.relevance, Math.min(800 - d.relevance, d.y)); });
+            .attr("cx", function (d) { return d.x = Math.max(d.relevance, Math.min(window.innerWidth - d.relevance, d.x)); })
+            .attr("cy", function (d) { return d.y = Math.max(d.relevance, Math.min(window.innerHeight - d.relevance, d.y)); });
     }
     nameLabels.attr("x", function (d) { return d.x; })
         .attr("y", function (d) { return d.y; }); 
