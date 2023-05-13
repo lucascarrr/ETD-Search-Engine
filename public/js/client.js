@@ -77,7 +77,7 @@ function convertJson(jsonStr) {
 function bubbles(data) {
   d3.select("body").select("svg").remove();
   var width = 1100;
-  var height = 2000;
+  var height = 1000;
   var fill = d3.scale.category20();
   var nodes = [];
   var labels = [];
@@ -94,7 +94,7 @@ function bubbles(data) {
     .nodes(nodes)
     .links([])
     .charge(-1000) // Increase the magnitude of negative charge for more repulsion
-    .gravity(0.005) // Reduce the gravity to let the nodes spread out more
+    .gravity(0.01) // Reduce the gravity to let the nodes spread out more
     .chargeDistance(width) // Set the chargeDistance to half the width of the screen
     .size([width, height])
     .on("tick", tick);
@@ -163,7 +163,7 @@ function bubbles(data) {
   
     n.append("circle")
       .attr("r", function(d) {
-        return d.relevance * 2.5;
+        return d.relevance * 2;
       })
       .style("fill", function(d) {
         return fill(d.id);
