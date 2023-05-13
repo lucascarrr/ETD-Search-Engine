@@ -199,7 +199,7 @@ function bubbles(data) {
         return d.relevance * 4;
       })
       .html(function(d) {
-        return "<div style='width:" + (d.relevance * 4) + "px; height:" + (d.relevance * 4) + "px; text-align:center; display: flex; color: #F7F7F7; justify-content: center; align-items: center;'>" +
+        return "<div style='width:" + (d.relevance * 4) + "px; height:" + (d.relevance * 4) + "px; text-align:center; display: flex; color: #fbf0e0; justify-content: center; align-items: center;'>" +
           "<span>" + d.title + "</span>" +
           "</div>";
       });
