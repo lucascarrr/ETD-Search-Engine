@@ -1,16 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/main.css">
-    <title>Babel</title>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-</head>
+    <title>D3.js Example</title>
+    <style>
+        body {
+    background-color: #F7F7F7;
+}
 
+h1 {
+    color: #3A2F9d;
+    text-align: center;
+}
+
+.masthead {
+  margin-top: 2%; /*here*/
+  text-align: center;
+  font-size: 70px;
+  font-weight: bold;
+  color: #002FA7;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;/*here*/
+}
+
+.search-container form {
+  display: flex;
+  align-items: center;
+  border: 2px solid #002FA7;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.search-container input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  width: 500px;
+  outline: none;
+}
+
+.search-container button[type="submit"] {
+  padding: 10px 15px;
+  background-color: #002FA7;
+  border: none;
+  font-size: 16px;
+  color: #F7F7F7;
+  cursor: pointer;
+}
+
+.search-container button[type="submit"]:hover {
+  background-color: #060147;
+}
+
+.circle-container {
+  padding-top: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #F7F7F7;
+}
+
+.container {
+  padding-top: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+        .node {
+            stroke-width: 1.5px;
+        }
+        .node:hover circle {
+            fill: grey !important;
+        }
+        text {
+            font: 18px 'Open Sans', sans-serif;;
+            text-anchor: middle;
+            pointer-events: none;
+            fill: white;
+        }
+        circle {
+            fill: #ccc;
+            stroke: white ;
+            stroke-width: 2px;
+        }
+        .mySvg {
+  position: relative;
+  top: 50px; 
+}
+
+#info-box {
+  position: fixed;
+  top: 40%; /* Adjusts the vertical position of the text box */
+  right: 10px; /* Adjusts the horizontal position of the text box */
+  width: 300px;
+  height: 300px;
+  padding: 20px;
+  border: 3px solid #002FA7; /* Changes the color of the border to blue */
+  border-radius: 15px; /* Gives the text box rounded borders */
+  background-color: white;
+  overflow: auto; /* Allows scrolling if the text is too long for the box */
+  display: none; 
+}
+    </style>
+</head>
 <body>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
 
     <div class="masthead">
         babel
@@ -25,23 +123,11 @@
         </form>
     </div>
 
-    <div class="circle-container">
-        <div class="results-container">
-            <div id="searchVis"></div>
-            <button id="toggleButton">Toggle View</button>
-            
-        </div>
+    <div id="info-box">
+      <h3></h3>
+      <p id="bubble-info"></p>
     </div>
-
-    <div class="container">
-        <div class="results-container">
-            <div class="results" id="search-results"></div>
-        </div>
-    </div>
-
-
-    
-
+  
     <script src="/js/client.js"></script>
 </body>
 

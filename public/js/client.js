@@ -1,6 +1,6 @@
 const searchForm = document.querySelector('#search-form');
 const searchInput = document.querySelector('#search-input');
-const searchResults = document.querySelector('#search-results');
+//const searchResults = document.querySelector('#search-results');
 
 searchForm.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -21,7 +21,7 @@ searchForm.addEventListener('submit', (event) => {
   { name: " 10", relevance: 40, original: 40, info: "Info 10" }
 ];*/
 var data;
-let relevance = 130;
+let relevance = 50;
 
 function sendRequest(query) {
   const url = `http://localhost:3000/search?q=${query}`;
@@ -37,15 +37,40 @@ function sendRequest(query) {
     .then((responseJSON) => {
       // console.log(`Received response from server: ${JSON.stringify(responseJSON, null, 2)}`);
       let resultCounter = 1;
-      searchResults.innerHTML = '';
+      //searchResults.innerHTML = '';
 
       //get data and display bubbles
       data = convertJson(JSON.stringify(responseJSON));
+      console.log(data)
+      // var data = [
+      //   {"id": 0, "name": "AngularJSAngularJSAngularJSAngularJSAngularJS", "r": 50 },
+      //   {"id": 0, "name": "HTML5", "r": 40 },
+      //   {"id": 0, "name": "Javascript", "r": 30 },
+      //   {"id": 0, "name": "NodeJs", "r": 30 },
+      //   {"id": 0, "name": "D3.js", "r": 40 },
+      //   {"id": 0, "name": "CreateJS", "r": 45 },
+      //   {"id": 0, "name": "Cordova", "r": 40 },
+      //   {"id": 0, "name": "CSS", "r": 40 },
+      //   {"id": 0, "name": "SVG", "r": 20 },
+      //   {"id": 0, "name": "PHP", "r": 20 },
+      //   {"id": 0, "name": "jQuery", "r": 30 },
+      
+      //   {"id": 1, "name": "Actionscript", "r": 50 },
+      //   {"id": 1, "name": "Flash", "r": 32 },
+      //   {"id": 1, "name": "Flex", "r": 50 },
+      //   {"id": 1, "name": "AIR", "r": 40 },
+      //   {"id": 1, "name": "Photoshop", "r": 30 },
+      //   {"id": 1, "name": "Illustrator", "r": 30 },
+      
+      //   {"id": 2, "name": "Node Webkit", "r": 40 },
+      //   {"id": 2, "name": "Chrome App", "r": 30 },
+      //   {"id": 2, "name": "Cordova", "r": 45 },
+      // ];
       //console.log(data);
       bubbles(data);
-      relevance = 130;
+      relevance = 50;
       responseJSON.forEach((result) => {
-        
+        //console.log(JSON.stringify(result));
         let resultText = `result ${resultCounter++}:\n`;
      
         for (let key in result) {
@@ -57,7 +82,7 @@ function sendRequest(query) {
 
         const resultNode = document.createElement('pre');
         resultNode.textContent = resultText;
-        searchResults.appendChild(resultNode);
+        //searchResults.appendChild(resultNode);
       })
       
       results_array.forEach(element => {
@@ -78,7 +103,7 @@ function convertJson(jsonStr) {
   let result = jsonData.map((item, index) => {
       let keys = Object.keys(item);
       let resultItem = {};
-      relevance -= 10
+      relevance -= 1
 
       keys.forEach((key) => {
           let value = item[key];
@@ -116,148 +141,112 @@ function convertJson(jsonStr) {
 
 // BUBBLE STUFF
 
-function bubbles(d) {
-  d3.select("#searchVis").select("svg").remove();
-  var svg = d3.select("#searchVis").append("svg")
-    .attr("width", window.innerWidth)
-    .attr("height", window.innerHeight); 
+function bubbles(data) {
+  d3.select("body").select("svg").remove();
+  var width = window.innerWidth,
+  height = window.innerHeight - 50;;
 
-  var colorScale = d3.scaleSequential().domain([0, 120]).interpolator(d3.interpolateBlues); 
+  var fill = d3.scale.category10(); 
 
-  var simulation = d3.forceSimulation(data)
-    .force("charge", d3.forceManyBody().strength(500))
-    .force("center", d3.forceCenter(window.innerWidth / 2, window.innerHeight / 2))  
-    .force("collision", d3.forceCollide().radius(function (d) {
-        return d.relevance + 10;
-    }))
-    .alphaDecay(0.05) // Add this line to set a lower alpha decay rate
-    .on("tick", ticked);  
+  var nodes = [], labels = [],
+  foci = [
+    {x: width / 2, y: height / 2}
+  ];  
+
+  var svg = d3.select("body").append("svg")
+    .attr("width", "100%")
+    .attr("height", height)
+    .attr("class", "mySvg"); // add class to SVG  
+
+    var force = d3.layout.force()
+      .nodes(nodes)
+      .links([])
+      .charge(-1000) // Increase the magnitude of negative charge for more repulsion
+      .gravity(0.05) // Reduce the gravity to let the nodes spread out more
+      .chargeDistance(width/2) // Set the chargeDistance to half the width of the screen
+      .size([width, height])
+      .on("tick", tick);  
 
 
-  var node = svg.selectAll(".node")
-    .data(data)
-    .enter().append("g")
-    .attr("class", "node"); 
+  //var node = svg.selectAll("circle");
+  var node = svg.selectAll("g");  
 
-  var circles = node.append("circle")
-    .attr("r", function (d) { return d.relevance; })
-    .attr("class", "bubble")
-    .attr("fill", function (d) { return colorScale(d.relevance); })
-    .on("mouseover", function (d) {
-        d.relevance *= 1.2;
-        d3.select(this).attr("r", d.relevance);
-        simulation.force("collision", d3.forceCollide().radius(function (d) { return d.relevance + 10; }));
-        simulation.alpha(1).restart();
-    })
-    .on("mouseout", function (d) {
-        d.relevance = d.original;
-        d3.select(this).attr("r", d.relevance);
-        simulation.force("collision", d3.forceCollide().radius(function (d) { return d.relevance + 10; }));
-        simulation.alpha(1).restart();
-    })
-    .on("click", function (d) {
-        var parent = d3.select(this.parentNode);
-        parent.classed("flipped", !parent.classed("flipped"));
+  var counter = 0;  
+
+  function tick(e) {
+    var k = .1 * e.alpha; 
+
+    // Push nodes toward their designated focus.
+    nodes.forEach(function(o, i) {
+      o.y += (foci[0].y - o.y) * k;
+      o.x += (foci[0].x - o.x) * k;
     }); 
 
-  var nameLabels = node.append("text")
-    .attr("class", "name")
-    .text(function (d) { return d.subject; })
-    .attr("x", function (d) { return -d.relevance / 3; })
-    .attr("y", function (d) { return d.relevance / 4; })
-    .attr("text-anchor", "middle")
-    .attr("alignment-baseline", "middle")
-    //.style("font-size", function (d) { return d.relevance / 3 - 10+ "px"; })
-    .style("font-size", function (d) { return Math.sqrt(d.relevance) + "px"; })
-    .style("fill", "white") 
+    node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; }); 
 
-
-  var infoLabels = node.append("text")
-    .attr("class", "info")
-    .text(function (d) { 
-      return d.text; 
-    })
-    .attr("x", function (d) { return -d.relevance / 3; })
-    .attr("y", function (d) { return d.relevance / 4; })
-    .attr("text-anchor", "middle")
-    .attr("alignment-baseline", "middle")
-    //.style("font-size", function (d) { return d.relevance / 3 - 10 + "px"; })
-    .style("font-size", function (d) { return Math.sqrt(d.relevance) + "px"; })
-    .style("fill", "white")
-
-
-  var toggleButton = d3.select("#toggleButton");
-  var isGrid = false; 
-
-  toggleButton.on("click", function () {
-    isGrid = !isGrid;
-    updateView();
-  }); 
-
-  function updateView() {
-    if (isGrid) {
-        svg.attr("height", 200);
-        node.attr("transform", function (d, i) {
-            var x = (i % 5) * 160 + 80;
-            var y = Math.floor(i / 5) * 160 + 80;
-            return "translate(" + x + "," + y + ")";
-        });
-        nameLabels.style("display", "block");
-        infoLabels.style("display", "block");
-        circles.style("display", "none");
-    } else {
-        svg.attr("height", 800);
-        node.attr("transform", null);
-        nameLabels.style("display", null);
-        infoLabels.style("display", null);
-        circles.style("display", "block");
-    }
   } 
 
-  function ticked() {
-    if (!isGrid) {
-        circles
-            .attr("cx", function (d) { return d.x = Math.max(d.relevance, Math.min(window.innerWidth - d.relevance, d.x)); })
-            .attr("cy", function (d) { return d.y = Math.max(d.relevance, Math.min(window.innerHeight - d.relevance, d.y)); });
-    }
-    nameLabels.attr("x", function (d) { return d.x; })
-        .attr("y", function (d) { return d.y; }); 
 
-    infoLabels
-        .attr("x", function (d) { return d.x; })
-        .attr("y", function (d) { return d.y; });
-  }
+  var timer = setInterval(function(){ 
 
-  node.on("click", function (event, d) {
-    const nodeSelection = d3.select(this);
-    
-    nodeSelection.raise(); // bring the node (circle and text) to the top
+    if (nodes.length > data.length-1) { clearInterval(timer); return;}  
 
-    const circle = nodeSelection.select("circle");
-    const name = nodeSelection.select(".name");
-    const info = nodeSelection.select(".info");
+    var item = data[counter];
+    nodes.push({id: item.id, relevance: item.relevance, subject: item.subject, text: item.text, title: item.title});
+    force.start();  
 
-    circle.transition()
-        .attr("r", function (d) {
-            if (d.isExpanded) {
-                d.isExpanded = false;
-                return d.relevance;
-            } else {
-                d.isExpanded = true;
-                return Math.sqrt(window.innerWidth * window.innerHeight) / 4; 
-            }
-        });
+    node = node.data(nodes);  
 
-    name.style("font-size", function (d) { 
-        return d.isExpanded ? "20px" : Math.sqrt(d.relevance) + "px"; 
+    var n = node.enter().append("g")
+        .attr("class", "node")
+        .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+        .style('cursor', 'pointer')
+        .on('mousedown', function(d) {
+           var sel = d3.select(this);
+           sel.moveToFront();
+           var infoElement = document.getElementById("bubble-info");
+           var infoBox = document.getElementById("info-box");
+           if (infoElement.textContent === d.text) {
+            infoElement.textContent = '';
+            infoBox.style.display = 'none';
+        } else {
+            infoElement.textContent = d.text;
+            console.log(d.text);
+            infoBox.style.display = 'block';
+        }
+        })
+        .call(force.drag);  
+
+    n.append("circle")
+        .attr("r",  function(d) { return d.relevance*1.5; })
+        .style("fill", function(d) { return fill(d.id); })  
+
+    n.append("text")
+        .text(function(d){
+            return d.subject;
+        })
+        .style("font-size", function(d) {
+            return Math.min(2 * d.relevance, (2 * d.relevance - 8) / this.getComputedTextLength() * 16) + "px"; 
+         })
+        .attr("dy", ".35em")  
+
+    counter++;
+  }, 100);  
+
+
+  d3.selection.prototype.moveToFront = function() {
+    return this.each(function(){
+      this.parentNode.appendChild(this);
     });
+  };  
 
-    info.style("font-size", function (d) { 
-        return d.isExpanded ? "20px" : Math.sqrt(d.relevance) + "px"; 
-    });
-});
+  function resize() {
+    width = window.innerWidth;
+    force.size([width, height]);
+    force.start();
+  } 
 
-
+  d3.select(window).on('resize', resize);
   
 }
 
