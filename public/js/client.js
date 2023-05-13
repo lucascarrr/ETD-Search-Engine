@@ -74,22 +74,28 @@ function convertJson(jsonStr) {
   return result;
 }
 
+var nodeBox = document.getElementById("nodes-box").getBoundingClientRect();
+var middle_h = 1200;
+var middle_w = nodeBox.width;
+
 function bubbles(data) {
   d3.select("body").select("svg").remove();
-  var width = 1100;
-  var height = 1000;
+  var width = middle_w;
+  var height = middle_h;
   var fill = d3.scale.category20();
   var nodes = [];
   var labels = [];
   var foci = [
     { x: width / 2, y: height / 2 }
   ];
+
   var svg = d3.select("body")
     .append("svg")
     .attr("width", width)
     .attr("height", height)
     .attr("class", "mySvg") // add class to SVG
     .style("overflow", "hidden");
+
   var force = d3.layout.force()
     .nodes(nodes)
     .links([])
@@ -108,20 +114,21 @@ function bubbles(data) {
       o.y += (foci[0].y - o.y) * k;
       o.x += (foci[0].x - o.x) * k;
       // Ensure the nodes stay within the bounds of the SVG
-      o.x = Math.max(o.x, 0);
-      o.y = Math.max(o.y, 0);
-      o.x = Math.min(o.x, width);
-      o.y = Math.min(o.y, height);
+      o.x = Math.max(o.x, 100);
+      o.y = Math.max(o.y, 100);
+      o.x = Math.min(o.x, 900);
+      o.y = Math.min(o.y, 850);
     });
     node.attr("transform", function (d) {
       // Ensure the nodes stay within the bounds of the SVG
-      d.x = Math.max(d.x, 0);
-      d.y = Math.max(d.y, 0);
-      d.x = Math.min(d.x, width);
-      d.y = Math.min(d.y, height);
+      d.x = Math.max(d.x, 100);
+      d.y = Math.max(d.y, 100);
+      d.x = Math.min(d.x, 900);
+      d.y = Math.min(d.y, 850);
       return "translate(" + d.x + "," + d.y + ")";
     });
   }
+  
 
   var timer = setInterval(function() {
     if (nodes.length > data.length - 1) {
