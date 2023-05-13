@@ -49,7 +49,7 @@ function search(input_query) {
     const searchQuery = client.query()
       .q(input_query)
       .start(0)
-      .rows(10)
+      .rows(20)
       .addParams({
         wt: 'json',
         indent: true

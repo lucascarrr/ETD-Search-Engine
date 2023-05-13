@@ -1,0 +1,111 @@
+body {
+  background-color: #F7F7F7;
+}
+
+h1 {
+  color: #3A2F9d;
+  text-align: center;
+}
+
+.masthead {
+  margin-top: 2%;
+  text-align: center;
+  font-size: 70px;
+  font-weight: bold;
+  color: #0F0698;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.search-container form {
+  display: flex;
+  align-items: center;
+  border: 2px solid #0F0698;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.search-container input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  width: 500px;
+  outline: none;
+}
+
+.search-container button[type="submit"] {
+  padding: 10px 15px;
+  background-color: #0F0698;
+  border: none;
+  font-size: 16px;
+  color: #F7F7F7;
+  cursor: pointer;
+}
+
+.search-container button[type="submit"]:hover {
+  background-color: #060147;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.rectangle-box {
+  margin-top: 100px;
+  height: 1200px;
+  background-color: #f1e7d9;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 10px 10px #2012a284;
+}
+
+
+.rectangle-box:first-child {
+  order: 1;
+  /* set the order of the first box to 1 */
+  width: 40%;
+  margin-right: 50px;
+
+}
+
+.rectangle-box:last-child {
+  order: 0;
+  /* set the order of the second box to 0 */
+  width: 60%;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+
+
+.node {
+  stroke-width: 1.5px;
+  fill-opacity: 80%;
+  background-color: #0F0698 !important;
+}
+
+.node:hover circle {
+  fill: #0F0698 !important;
+}
+
+#nodes-box {
+  position: relative;
+}
+
+.mySvg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#information-box {
+  position: relative
+}
