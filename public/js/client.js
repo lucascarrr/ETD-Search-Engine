@@ -82,7 +82,6 @@ function bubbles(data) {
   d3.select("body").select("svg").remove();
   var width = middle_w;
   var height = middle_h;
-  var fill = d3.scale.category20();
   var nodes = [];
   var labels = [];
   var foci = [
@@ -168,13 +167,23 @@ function bubbles(data) {
       })
       .call(force.drag);
   
+    // define the color scale with linear interpolation
+    var colorScale = d3.scale.linear()
+      .domain([50, 1])
+      .range(["#0F0698", "#e1ebf2"]);
+
+    // create the circles
     n.append("circle")
       .attr("r", function(d) {
         return d.relevance * 2.5;
       })
       .style("fill", function(d) {
-        return fill(d.id);
-      })
+        return colorScale(d.relevance);
+      });
+
+
+
+
   
     n.append("foreignObject")
       .attr("x", function(d) {
