@@ -77,7 +77,7 @@ function convertJson(jsonStr) {
 function bubbles(data) {
   d3.select("body").select("svg").remove();
   var width = 1100;
-  var height = 1700;
+  var height = 2000;
   var fill = d3.scale.category20();
   var nodes = [];
   var labels = [];

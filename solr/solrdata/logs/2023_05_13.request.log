@@ -1,0 +1,14 @@
+172.17.0.1 - - [13/May/2023:12:56:58 +0000] "GET /solr/gettingstarted/select?q=*&start=0&rows=20&wt=json HTTP/1.1" 200 2698
+172.17.0.1 - - [13/May/2023:12:58:24 +0000] "GET /solr/gettingstarted/select?q=*&start=0&rows=20&wt=json HTTP/1.1" 200 2697
+172.17.0.1 - - [13/May/2023:12:59:24 +0000] "GET /solr/gettingstarted/select?q=*&start=0&rows=20&wt=json HTTP/1.1" 200 2696
+172.17.0.1 - - [13/May/2023:12:59:43 +0000] "GET /solr/gettingstarted/select?q=*&start=0&rows=20&wt=json HTTP/1.1" 200 2697
+172.17.0.1 - - [13/May/2023:12:59:52 +0000] "GET /solr/gettingstarted/select?q=*&start=0&rows=20&wt=json HTTP/1.1" 200 2694
+172.17.0.1 - - [13/May/2023:13:00:37 +0000] "GET /solr/gettingstarted/select?q=*&start=0&rows=20&wt=json HTTP/1.1" 200 2696
+172.17.0.1 - - [13/May/2023:13:05:05 +0000] "GET /solr/gettingstarted/select?q=*&start=0&rows=20&wt=json HTTP/1.1" 200 2697
+172.17.0.1 - - [13/May/2023:13:05:18 +0000] "GET /solr/gettingstarted/select?q=*&start=0&rows=20&wt=json HTTP/1.1" 200 2697
+172.17.0.1 - - [13/May/2023:13:05:42 +0000] "GET /solr/gettingstarted/select?q=*&start=0&rows=20&wt=json HTTP/1.1" 200 2696
+172.17.0.1 - - [13/May/2023:13:06:19 +0000] "GET /solr/gettingstarted/select?q=*&start=0&rows=20&wt=json HTTP/1.1" 200 2694
+172.17.0.1 - - [13/May/2023:13:06:22 +0000] "GET /solr/gettingstarted/select?q=*&start=0&rows=20&wt=json HTTP/1.1" 200 2696
+172.17.0.1 - - [13/May/2023:13:06:35 +0000] "GET /solr/gettingstarted/select?q=*&start=0&rows=20&wt=json HTTP/1.1" 200 2694
+172.17.0.1 - - [13/May/2023:13:06:54 +0000] "GET /solr/gettingstarted/select?q=*&start=0&rows=20&wt=json HTTP/1.1" 200 2694
+172.17.0.1 - - [13/May/2023:13:07:17 +0000] "GET /solr/gettingstarted/select?q=*&start=0&rows=20&wt=json HTTP/1.1" 200 2697

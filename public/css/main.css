@@ -8,7 +8,6 @@ h1 {
 }
 
 .masthead {
-  margin-top: 2%;
   text-align: center;
   font-size: 70px;
   font-weight: bold;
@@ -18,7 +17,7 @@ h1 {
 .search-container {
   display: flex;
   justify-content: center;
-  margin-top: 25px;
+  margin-top: 10px;
 }
 
 .search-container form {
@@ -57,10 +56,9 @@ h1 {
 }
 
 .rectangle-box {
-  margin-top: 100px;
-  height: 1200px;
+  margin-top: 30px;
+  height: 750px;
   background-color: #f1e7d9;
-  padding: 20px;
   box-sizing: border-box;
   box-shadow: 10px 10px #2012a284;
 }
