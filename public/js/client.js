@@ -100,7 +100,7 @@ function bubbles(data) {
     .nodes(nodes)
     .links([])
     .charge(-1000) // Increase the magnitude of negative charge for more repulsion
-    .gravity(0.01) // Reduce the gravity to let the nodes spread out more
+    .gravity(0.005) // Reduce the gravity to let the nodes spread out more
     .chargeDistance(width) // Set the chargeDistance to half the width of the screen
     .size([width, height])
     .on("tick", tick);
@@ -114,17 +114,17 @@ function bubbles(data) {
       o.y += (foci[0].y - o.y) * k;
       o.x += (foci[0].x - o.x) * k;
       // Ensure the nodes stay within the bounds of the SVG
-      o.x = Math.max(o.x, 100);
-      o.y = Math.max(o.y, 100);
+      o.x = Math.max(o.x, 200);
+      o.y = Math.max(o.y, 250);
       o.x = Math.min(o.x, 900);
-      o.y = Math.min(o.y, 850);
+      o.y = Math.min(o.y, 825);
     });
     node.attr("transform", function (d) {
       // Ensure the nodes stay within the bounds of the SVG
-      d.x = Math.max(d.x, 100);
-      d.y = Math.max(d.y, 100);
+      d.x = Math.max(d.x, 200);
+      d.y = Math.max(d.y, 250);
       d.x = Math.min(d.x, 900);
-      d.y = Math.min(d.y, 850);
+      d.y = Math.min(d.y, 825);
       return "translate(" + d.x + "," + d.y + ")";
     });
   }
@@ -170,7 +170,7 @@ function bubbles(data) {
   
     n.append("circle")
       .attr("r", function(d) {
-        return d.relevance * 2;
+        return d.relevance * 2.5;
       })
       .style("fill", function(d) {
         return fill(d.id);
