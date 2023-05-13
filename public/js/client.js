@@ -192,7 +192,7 @@ function bubbles(data) {
     if (nodes.length > data.length-1) { clearInterval(timer); return;}  
 
     var item = data[counter];
-    nodes.push({id: item.id, relevance: item.relevance, subject: item.subject, text: item.text, title: item.title});
+    nodes.push({id: item.id, relevance: item.relevance, subject: item.subject, text: item.text, title: item.title, link: item.link});
     force.start();  
 
     node = node.data(nodes);  
@@ -210,7 +210,7 @@ function bubbles(data) {
             infoElement.textContent = '';
             infoBox.style.display = 'none';
         } else {
-            infoElement.textContent = d.text;
+            infoElement.textContent = d.text + "\n\nLink:" + d.link;
             console.log(d.text);
             infoBox.style.display = 'block';
         }
