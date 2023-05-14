@@ -1,25 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/main.css">
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/css/main.css" />
     <title>BABEL</title>
-    <link rel="icon" type="image/x-icon" href="../Additional Files/favo.ico">
-    
+    <link rel="icon" type="image/x-icon" href="../Additional Files/favo.ico" />
   </head>
   <body>
     <script src="https://d3js.org/d3.v3.min.js"></script>
 
-    <div class="masthead">
-      babel
-    </div>
-
+    <div class="masthead">babel</div>
     <div class="search-container">
       <form id="search-form">
         <label for="search-input"></label>
-        <input type="text" id="search-input" name="q" autocomplete="off">
+        <input type="text" id="search-input" name="q" autocomplete="off" />
         <button type="submit">Search</button>
       </form>
+
+      <button class="settings-button">Settings</button>
+      <div class="settings-panel">
+        <div id="settings-header">Settings</div>
+        <div>
+          <input
+            type="text"
+            class="settings-textbox"
+            id="textbox1"
+            placeholder="Start Year"
+          />
+          <button class="clear-button" onclick="clearTextbox('textbox1')">x</button>
+        </div>
+        <div>
+          <input
+            type="text"
+            class="settings-textbox"
+            id="textbox2"
+            placeholder="End Year"
+          />
+          <button class="clear-button" onclick="clearTextbox('textbox2')">x</button>
+        </div>
+      </div>
     </div>
 
     <div class="flex-container">
@@ -28,6 +47,7 @@
         <p id="bubble-info"></p>
       </div>
       <div class="rectangle-box" id="nodes-box">
+        <div id="animation-container"></div>
       </div>
     </div>
 
