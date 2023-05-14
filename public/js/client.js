@@ -1,31 +1,31 @@
 const searchForm = document.querySelector('#search-form');
 const searchInput = document.querySelector('#search-input');
-const searchResults = document.querySelector('#search-results');
+const startDate = document.querySelector("#start-date");
+const endDate = document.querySelector("#end-date");
 
 searchForm.addEventListener('submit', (event) => {
+  console.log(startDate.value + "" + endDate.value);
+  //const queryText = "";
+  if (startDate.value == "" && endDate.value=="")  {
+    queryText = searchInput.value;
+  }else if (endDate.value != "NOW"){
+    queryText = searchInput.value + " date:[" + startDate.value + "-01-01T00:00:01Z TO " + endDate.value + "-12-31T23:59:59Z]";
+  }else {
+    queryText = searchInput.value + " date:[" + startDate.value + "-01-01T00:00:01Z TO " + endDate.value + "]";
+  }
+  console.log(queryText);
   event.preventDefault();
-  const queryText = searchInput.value;
+  //const queryText = searchInput.value;
   sendRequest(queryText);
+  searchInput.value = '';
 });
 
-/*var data = [
-  { name: " 1", relevance: 90, original: 90, info: "Info 1" },
-  { name: " 2", relevance: 70, original: 70, info: "Info 2" },
-  { name: " 3", relevance: 85, original: 85, info: "Info 3" },
-  { name: " 4", relevance: 60, original: 60, info: "Info 4" },
-  { name: " 5", relevance: 95, original: 95, info: "Info 5" },
-  { name: " 6", relevance: 120, original: 120, info: "Info 6" },
-  { name: " 7", relevance: 50, original: 50, info: "Info 7" },
-  { name: " 8", relevance: 110, original: 110, info: "Info 8" },
-  { name: " 9", relevance: 80, original: 80, info: "Info 9" },
-  { name: " 10", relevance: 40, original: 40, info: "Info 10" }
-];*/
 var data;
-let relevance = 130;
+let relevance = 50;
 
 function sendRequest(query) {
   const url = `http://localhost:3000/search?q=${query}`;
-  var results_array = []
+  var results_array = [];
 
   fetch(url)
     .then((response) => {
@@ -35,279 +35,206 @@ function sendRequest(query) {
       return response.json();
     })
     .then((responseJSON) => {
-      // console.log(`Received response from server: ${JSON.stringify(responseJSON, null, 2)}`);
       let resultCounter = 1;
-      searchResults.innerHTML = '';
-
-      //get data and display bubbles
       data = convertJson(JSON.stringify(responseJSON));
-      //console.log(data);
+      console.log(JSON.stringify(responseJSON))
+      console.log(data)
       bubbles(data);
-      relevance = 130;
+      
+      relevance = 50;
       responseJSON.forEach((result) => {
-        
         let resultText = `result ${resultCounter++}:\n`;
-     
         for (let key in result) {
           resultText += `${key}: ${JSON.stringify(result[key])}`;
-          //resultText += '\n'
-          
         }
-        
-
         const resultNode = document.createElement('pre');
         resultNode.textContent = resultText;
-        searchResults.appendChild(resultNode);
-      })
-      
-      results_array.forEach(element => {
-        console.log(JSON.stringify(element));
         
       });
       
+      results_array.forEach(element => {
+        
+        console.log(JSON.stringify(element));
+
+      });
     })
     .catch((error) => {
       console.error(`Error sending request: ${error}`);
     });
-    
 }
 
-//convert JSON string to dictionary
 function convertJson(jsonStr) {
   let jsonData = JSON.parse(jsonStr);
   let result = jsonData.map((item, index) => {
-      let keys = Object.keys(item);
-      let resultItem = {};
-      relevance -= 10
-
-      keys.forEach((key) => {
-          let value = item[key];
-          // Since value is an array, get the first item.
-          if (Array.isArray(value)) {
-              resultItem[key] = value[0];
-          } else {
-              resultItem[key] = value;
-          }
-
-          if(key !== 'id' && key !== '_version_') {
-              resultItem['relevance'] = relevance;
-              resultItem['original'] = relevance;
-              //relevance -= 10;
-          }
-
-          // Convert language from 'EN' to 'Eng'
-          if(key === 'language' && resultItem[key] === 'EN') {
-              resultItem[key] = 'Eng';
-          }
-
-          // Convert '_version_' to 'version'
-          if(key === '_version_') {
-              resultItem['version'] = resultItem['_version_'];
-              delete resultItem['_version_'];
-          }
-      });
-      return resultItem;
+    let keys = Object.keys(item);
+    let resultItem = {};
+    relevance -= 1.5;
+    keys.forEach((key) => {
+      let value = item[key];
+      if (Array.isArray(value)) {
+        resultItem[key] = value[0];
+      } else {
+        resultItem[key] = value;
+      }
+      if (key !== 'id' && key !== '_version_') {
+        resultItem['relevance'] = relevance;
+        resultItem['original'] = relevance;
+      }
+      if (key === 'language' && resultItem[key] === 'EN') {
+        resultItem[key] = 'Eng';
+      }
+      if (key === '_version_') {
+        resultItem['version'] = resultItem['_version_'];
+        delete resultItem['_version_'];
+      }
+    });
+    return resultItem;
   });
-  linkrelvance= false;
-if(linkrelvance){
-  return linkrelevance(result);
-}
   return result;
 }
 
+var nodeBox = document.getElementById("nodes-box").getBoundingClientRect();
+var middle_h = 1200;
+var middle_w = nodeBox.width;
 
-function linkrelevance(result){
-  // Sorting the result array based on link validity'
+function bubbles(data) {
+  d3.select("body").select("svg").remove();
+  var width = middle_w;
+  var height = middle_h;
+  var nodes = [];
+  var labels = [];
+  var foci = [
+    { x: width / 2, y: height / 2 }
+  ];
 
- 
-  // Function to perform asynchronous link validation
-  async function checkLinkValidity(link) {
-    try {
-      const response = await axios.head(link);
-      // Assuming a valid link if the response status is 200 (OK)
-      return response.status === 200;
-    } catch (error) {
-      // Handle any errors that occur during the request
-      console.error(`Error validating link: ${link}`, error);
-      return false; // Treat link as invalid in case of error
-    }
+  var svg = d3.select("body")
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .attr("class", "mySvg") // add class to SVG
+    .style("overflow", "hidden");
+
+  var force = d3.layout.force()
+    .nodes(nodes)
+    .links([])
+    .charge(-1000) // Increase the magnitude of negative charge for more repulsion
+    .gravity(0.005) // Reduce the gravity to let the nodes spread out more
+    .chargeDistance(width) // Set the chargeDistance to half the width of the screen
+    .size([width, height])
+    .on("tick", tick);
+  var counter = 0;
+  var node = svg.selectAll("g");
+  
+  function tick(e) {
+    var k = .1 * e.alpha;
+    // Push nodes toward their designated focus.
+    nodes.forEach(function (o, i) {
+      o.y += (foci[0].y - o.y) * k;
+      o.x += (foci[0].x - o.x) * k;
+      // Ensure the nodes stay within the bounds of the SVG
+      o.x = Math.max(o.x, 200);
+      o.y = Math.max(o.y, 250);
+      o.x = Math.min(o.x, 900);
+      o.y = Math.min(o.y, 825);
+    });
+    node.attr("transform", function (d) {
+      // Ensure the nodes stay within the bounds of the SVG
+      d.x = Math.max(d.x, 200);
+      d.y = Math.max(d.y, 250);
+      d.x = Math.min(d.x, 900);
+      d.y = Math.min(d.y, 825);
+      return "translate(" + d.x + "," + d.y + ")";
+    });
   }
   
-  // Sorting the result array based on link validity
-  result.sort(async (a, b) => {
-    const linkA = a['link'];
-    const linkB = b['link'];
+
+  var timer = setInterval(function() {
+    if (nodes.length > data.length - 1) {
+      clearInterval(timer);
+      return;
+    }
+    var item = data[counter];
+    nodes.push({
+      id: item.id,
+      relevance: item.relevance,
+      subject: item.subject,
+      text: item.text,
+      title: item.title
+    });
+    force.start();
   
-    // Checking the validity of the links
-    const isValidA = await checkLinkValidity(linkA);
-    const isValidB = await checkLinkValidity(linkB);
+    node = node.data(nodes);
+    var prev_title = "";
+    var n = node.enter().append("g")
+      .attr("class", "node")
+      .attr("transform", function(d) {
+        return "translate(" + d.x + "," + d.y + ")";
+      })
+      .style('cursor', 'pointer')
+      .on('mousedown', function(d) {
+        var sel = d3.select(this);
+        sel.moveToFront();
+        var infoElement = document.getElementById("bubble-info");
+        if (prev_title === d.title) {
+          infoElement.textContent = "";
+          prev_title = "";
+        } else {
+          infoElement.innerHTML = "Title: " + d.title + "<br> <br>" +
+            "Subjects: " + d.subject;
+          prev_title = d.title;
+        }
+      })
+      .call(force.drag);
   
-    if (isValidA && isValidB) {
-      return 0; // No change in order
-    } else if (isValidA) {
-      return -1; // linkA comes first (valid link)
-    } else if (isValidB) {
-      return 1; // linkB comes first (valid link)
-    } else {
-      return 0; // No change in order (both links are invalid)
-    }
-  });
+    // define the color scale with linear interpolation
+    var colorScale = d3.scale.linear()
+      .domain([50, 1])
+      .range(["#0F0698", "#e1ebf2"]);
 
-rel = 110;
-for (let i = 0; i < result.length; i++) {
-  const itemm = result[i];
-  // Set the relevance of each item
-  itemm.relevance = rel;
-  rel=rel-10;
-}
-return result
-}
+    // create the circles
+    n.append("circle")
+      .attr("r", function(d) {
+        return d.relevance * 2.5;
+      })
+      .style("fill", function(d) {
+        return colorScale(d.relevance);
+      });
 
 
-// BUBBLE STUFF
-
-function bubbles(d) {
-  d3.select("#searchVis").select("svg").remove();
-  var svg = d3.select("#searchVis").append("svg")
-    .attr("width", window.innerWidth)
-    .attr("height", window.innerHeight); 
-
-  var colorScale = d3.scaleSequential().domain([0, 120]).interpolator(d3.interpolateBlues); 
-
-  var simulation = d3.forceSimulation(data)
-    .force("charge", d3.forceManyBody().strength(500))
-    .force("center", d3.forceCenter(window.innerWidth / 2, window.innerHeight / 2))  
-    .force("collision", d3.forceCollide().radius(function (d) {
-        return d.relevance + 10;
-    }))
-    .alphaDecay(0.05) // Add this line to set a lower alpha decay rate
-    .on("tick", ticked);  
 
 
-  var node = svg.selectAll(".node")
-    .data(data)
-    .enter().append("g")
-    .attr("class", "node"); 
-
-  var circles = node.append("circle")
-    .attr("r", function (d) { return d.relevance; })
-    .attr("class", "bubble")
-    .attr("fill", function (d) { return colorScale(d.relevance); })
-    .on("mouseover", function (d) {
-        d.relevance *= 1.2;
-        d3.select(this).attr("r", d.relevance);
-        simulation.force("collision", d3.forceCollide().radius(function (d) { return d.relevance + 10; }));
-        simulation.alpha(1).restart();
-    })
-    .on("mouseout", function (d) {
-        d.relevance = d.original;
-        d3.select(this).attr("r", d.relevance);
-        simulation.force("collision", d3.forceCollide().radius(function (d) { return d.relevance + 10; }));
-        simulation.alpha(1).restart();
-    })
-    .on("click", function (d) {
-        var parent = d3.select(this.parentNode);
-        parent.classed("flipped", !parent.classed("flipped"));
-    }); 
-
-  var nameLabels = node.append("text")
-    .attr("class", "name")
-    .text(function (d) { return d.subject; })
-    .attr("x", function (d) { return -d.relevance / 3; })
-    .attr("y", function (d) { return d.relevance / 4; })
-    .attr("text-anchor", "middle")
-    .attr("alignment-baseline", "middle")
-    //.style("font-size", function (d) { return d.relevance / 3 - 10+ "px"; })
-    .style("font-size", function (d) { return Math.sqrt(d.relevance) + "px"; })
-    .style("fill", "white") 
-
-
-  var infoLabels = node.append("text")
-    .attr("class", "info")
-    .text(function (d) { 
-      return d.text; 
-    })
-    .attr("x", function (d) { return -d.relevance / 3; })
-    .attr("y", function (d) { return d.relevance / 4; })
-    .attr("text-anchor", "middle")
-    .attr("alignment-baseline", "middle")
-    //.style("font-size", function (d) { return d.relevance / 3 - 10 + "px"; })
-    .style("font-size", function (d) { return Math.sqrt(d.relevance) + "px"; })
-    .style("fill", "white")
-
-
-  var toggleButton = d3.select("#toggleButton");
-  var isGrid = false; 
-
-  toggleButton.on("click", function () {
-    isGrid = !isGrid;
-    updateView();
-  }); 
-
-  function updateView() {
-    if (isGrid) {
-        svg.attr("height", 200);
-        node.attr("transform", function (d, i) {
-            var x = (i % 5) * 160 + 80;
-            var y = Math.floor(i / 5) * 160 + 80;
-            return "translate(" + x + "," + y + ")";
-        });
-        nameLabels.style("display", "block");
-        infoLabels.style("display", "block");
-        circles.style("display", "none");
-    } else {
-        svg.attr("height", 800);
-        node.attr("transform", null);
-        nameLabels.style("display", null);
-        infoLabels.style("display", null);
-        circles.style("display", "block");
-    }
-  } 
-
-  function ticked() {
-    if (!isGrid) {
-        circles
-            .attr("cx", function (d) { return d.x = Math.max(d.relevance, Math.min(window.innerWidth - d.relevance, d.x)); })
-            .attr("cy", function (d) { return d.y = Math.max(d.relevance, Math.min(window.innerHeight - d.relevance, d.y)); });
-    }
-    nameLabels.attr("x", function (d) { return d.x; })
-        .attr("y", function (d) { return d.y; }); 
-
-    infoLabels
-        .attr("x", function (d) { return d.x; })
-        .attr("y", function (d) { return d.y; });
+  
+    n.append("foreignObject")
+      .attr("x", function(d) {
+        return -d.relevance * 2;
+      })
+      .attr("y", function(d) {
+        return -d.relevance * 2;
+      })
+      .attr("width", function(d) {
+        return d.relevance * 4;
+      })
+      .attr("height", function(d) {
+        return d.relevance * 4;
+      })
+      .html(function(d) {
+        return "<div style='width:" + (d.relevance * 4) + "px; height:" + (d.relevance * 4) + "px; text-align:center; display: flex; color: #fbf0e0; justify-content: center; align-items: center;'>" +
+          "<span>" + d.title + "</span>" +
+          "</div>";
+      });
+    counter++;
+  }, 100);
+  
+  d3.selection.prototype.moveToFront = function() {
+    return this.each(function() {
+      this.parentNode.appendChild(this);
+    });
+  };
+  
+  function resize() {
+    width = window.innerWidth;
+    force.size([width, height]);
+    force.start();
   }
-
-  node.on("click", function (event, d) {
-    const nodeSelection = d3.select(this);
-    
-    nodeSelection.raise(); // bring the node (circle and text) to the top
-
-    const circle = nodeSelection.select("circle");
-    const name = nodeSelection.select(".name");
-    const info = nodeSelection.select(".info");
-
-    circle.transition()
-        .attr("r", function (d) {
-            if (d.isExpanded) {
-                d.isExpanded = false;
-                return d.relevance;
-            } else {
-                d.isExpanded = true;
-                return Math.sqrt(window.innerWidth * window.innerHeight) / 4; 
-            }
-        });
-
-    name.style("font-size", function (d) { 
-        return d.isExpanded ? "20px" : Math.sqrt(d.relevance) + "px"; 
-    });
-
-    info.style("font-size", function (d) { 
-        return d.isExpanded ? "20px" : Math.sqrt(d.relevance) + "px"; 
-    });
-});
-
-
-  
-}
-
+  d3.select(window).on('resize', resize);
+};  

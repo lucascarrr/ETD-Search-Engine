@@ -1,49 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
+<html>
+  <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/main.css">
-    <title>Babel</title>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-</head>
-
-<body>
+    <title>BABEL</title>
+    <link rel="icon" type="image/x-icon" href="../Additional Files/favo.ico">
+    
+  </head>
+  <body>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
 
     <div class="masthead">
-        babel
+      babel
     </div>
-
 
     <div class="search-container">
-        <form id="search-form">
-            <label for="search-input"></label>
-            <input type="text" id="search-input" name="q" autocomplete="off">
-            <button type="submit">Search</button>
-        </form>
+      <form id="search-form">
+        <label for="search-input"></label>
+        <input type="text" id="search-input" name="q" autocomplete="off">
+        <button type="submit">Search</button>
+      </form>
     </div>
+    <form>
+        <label for="start-date">Start YEAR:</label>
+        <input type="text" id="start-date" name="start-date" value="">
+        <br>
+        <label for="end-date">End YEAR:</label>
+        <input type="text" id="end-date" name="end-date" value="">
+      </form>
 
-    <div class="circle-container">
-        <div class="results-container">
-            <div id="searchVis"></div>
-            <button id="toggleButton">Toggle View</button>
-            
-        </div>
+    <div class="flex-container">
+      <div class="rectangle-box" id="information-box">
+        <h1>Information</h1>
+        <p id="bubble-info"></p>
+      </div>
+      <div class="rectangle-box" id="nodes-box">
+      </div>
     </div>
-
-    <div class="container">
-        <div class="results-container">
-            <div class="results" id="search-results"></div>
-        </div>
-    </div>
-
-
-    
 
     <script src="/js/client.js"></script>
-</body>
-
+  </body>
 </html>
