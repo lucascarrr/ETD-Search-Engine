@@ -2,7 +2,7 @@
   --main_white: #F7F7F7;
   --main_blue: #0F0698;
   --second_white: #fbf0e0;
-  --second_blue: #0F0698;
+  --second_blue: #0c047d;
 }
 
 body {
@@ -17,8 +17,9 @@ h1 {
 .masthead {
   text-align: center;
   font-size: 70px;
-  font-weight: bold;
-  color: #0F0698;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bolder;
+  color: var(--main_blue);
 }
 
 .search-container {
@@ -47,15 +48,86 @@ h1 {
   background-color: var(--second_white);
 }
 
-
 .search-container button[type="submit"] {
   padding: 10px 15px;
   background-color: #0F0698;
+  font-weight: bold;
   border: none;
   font-size: 16px;
   color: var(--second_white);
   cursor: pointer;
 }
+
+.settings-button {
+  padding: 10px 15px;
+  background-color: #0F0698;
+  width: 100px;
+  border: none;
+  font-weight: bold;
+  margin-left: 4px;
+  font-size: 16px;
+  color: var(--second_white);
+  cursor: pointer;
+  border-radius: 10px;
+}
+#test{
+  position: absolute;
+  margin-top: 90%;
+}
+
+.settings-panel {
+  position: absolute;
+  margin-top: 60px;
+  left: calc(50% - 200px / 2)-100;
+  justify-content: center;
+  width: 680px;
+  height: 200px;
+  background-color: var(--second_white);
+  border: 2px solid var(--main_blue);
+  border-radius: 5px;
+  padding: 10px;
+  display: none;
+  z-index: 9999;
+  box-shadow: 12px 12px var(--second_blue);
+}
+
+#settings-header {
+  font-weight: bold;
+  margin-left: 10px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 28px;
+  color: var(--main_blue);
+  margin-bottom: 10px;
+}
+
+.settings-textbox {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 2px solid var(--main_blue) !important;
+  border-radius: 5px;
+  width: 100px;
+  max-width: 100px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.clear-button {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #0F0698;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.textbox-container {
+  margin-bottom: 10px;
+}
+
 
 .search-container button[type="submit"]:hover {
   background-color: #060147;
@@ -72,7 +144,7 @@ h1 {
   height: 750px;
   background-color: var(--second_white);
   box-sizing: border-box;
-  box-shadow: 12px 12px #0F0698;
+  box-shadow: 12px 12px var(--second_blue);
 }
 
 .rectangle-box:first-child {
