@@ -62,40 +62,6 @@ function sendRequest(query) {
     });
 }
 
-// function sendRequest(query) {
-//   const url = `http://localhost:3000/search?q=${query}`;
-//   var results_array = [];
-
-//   fetch(url)
-//     .then((response) => {
-//       if (!response.ok) {
-//         throw new Error(`HTTP error! status: ${response.status}`);
-//       }
-//       return response.json();
-//     })
-//     .then((responseJSON) => {
-//       let resultCounter = 1;
-//       data = convertJson(JSON.stringify(responseJSON));
-//       console.log(data)
-//       bubbles(data);
-//       relevance = 50;
-//       responseJSON.forEach((result) => {
-//         let resultText = `result ${resultCounter++}:\n`;
-//         for (let key in result) {
-//           resultText += `${key}: ${JSON.stringify(result[key])}`;
-//         }
-//         const resultNode = document.createElement('pre');
-//         resultNode.textContent = resultText;
-//       });
-//       results_array.forEach(element => {
-//         console.log(JSON.stringify(element));
-//       });
-//     })
-//     .catch((error) => {
-//       console.error(`Error sending request: ${error}`);
-//     });
-// }
-
 function convertJson(jsonStr) {
   let jsonData = JSON.parse(jsonStr);
   let result = jsonData.map((item, index) => {
@@ -132,7 +98,7 @@ var middle_w = nodeBox.width;
 
 function bubbles(data) {
 
-  d3.select("#animation-container").select("svg");
+  d3.select("#animation-container").select("svg").remove();
   var width = middle_w;
   var height = middle_h;
   var nodes = [];
@@ -140,14 +106,14 @@ function bubbles(data) {
   var foci = [
     { x: width / 2, y: height / 2 }
   ];
-  
+
   var svg = d3.select("#animation-container")
     .append("svg")
     .attr("width", width)
     .attr("height", height)
     .attr("class", "mySvg") // add class to SVG
     .style("overflow", "hidden");
-  
+
 
   var force = d3.layout.force()
     .nodes(nodes)
@@ -195,6 +161,8 @@ function bubbles(data) {
       subject: item.subject,
       text: item.text,
       title: item.title,
+      link: item.link,
+      language: item.language,
       date: item.date
     });
     force.start();
@@ -215,9 +183,12 @@ function bubbles(data) {
           infoElement.textContent = "";
           prev_title = "";
         } else {
-          infoElement.innerHTML = "Title: " + d.title + "<br> <br>" +
-            "Subjects: " + d.subject + "<br> <br>" +
-            "Date: " + d.date;
+          infoElement.innerHTML = "<strong>Title</strong>: " + d.title + "<br> <br>" +
+            "<strong>Subjects</strong>: " + d.subject + "<br> <br>" +
+            "<strong>Date:</strong> " + d.date + "<br> <br>" +
+            "<strong>Text:</strong> " + d.text + "<br> <br>" + 
+            "Language: " + d.language + "<br> <br>" +
+            " <a href='" + d.link + "'>" + "Link to document" + "</a>";
           prev_title = d.title;
         }
       })
@@ -270,5 +241,5 @@ function bubbles(data) {
     force.start();
   }
   d3.select(window).on('resize', resize);
-  
+
 };  
