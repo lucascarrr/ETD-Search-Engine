@@ -49,7 +49,7 @@ function search(input_query) {
     const searchQuery = client.query()
       .q(input_query)
       .start(0)
-      .rows(10)
+      .rows(20)
       .addParams({
         wt: 'json',
         indent: true
@@ -72,8 +72,3 @@ function search(input_query) {
     });
   });
 }
-
-
-
-//let jsonString = '[{"id":"19292","date":["2006-01-04T01:53:45Z"],"title":["The foliar physiognomic analysis and taphonomy of leaf beds derived from modern Australia rainforest"],"author":["Greenwood, David Robert."],"subject":["Forest litter Australia ","Leaves, Fossil Australia ","Rain forest ecology Australia ","Paleobotany Australia "],"text":["Typescript. Copies of two papers co-authored by the author, in back cover pocket. Bibliography: leaves 128-143."],"link":[19292],"language":["EN"],"_version_":1765500054288728000}]';
-//console.log(convertJson(jsonString));
