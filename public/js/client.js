@@ -140,7 +140,8 @@ function bubbles(data) {
       relevance: item.relevance,
       subject: item.subject,
       text: item.text,
-      title: item.title
+      title: item.title,
+      date: item.date
     });
     force.start();
   
@@ -161,7 +162,8 @@ function bubbles(data) {
           prev_title = "";
         } else {
           infoElement.innerHTML = "Title: " + d.title + "<br> <br>" +
-            "Subjects: " + d.subject;
+            "Subjects: " + d.subject  + "<br> <br>" + 
+            "Date: " + d.date;
           prev_title = d.title;
         }
       })
