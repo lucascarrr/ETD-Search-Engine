@@ -192,5 +192,7 @@ h1 {
 }
 
 #information-box {
-  position: relative
+  position: relative;
+  max-height: 1000px; /* Set a max-height to limit the height of the box */
+  overflow: auto; /* Set the overflow property to scroll or auto */
 }

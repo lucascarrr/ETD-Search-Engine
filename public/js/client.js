@@ -184,11 +184,11 @@ function bubbles(data) {
           prev_title = "";
         } else {
           infoElement.innerHTML = "<strong>Title</strong>: " + d.title + "<br> <br>" +
+          " <a href='" + d.link + "'>" + "Link to document" + "</a>" + "<br> <br>" +
             "<strong>Subjects</strong>: " + d.subject + "<br> <br>" +
             "<strong>Date:</strong> " + d.date + "<br> <br>" +
             "<strong>Text:</strong> " + d.text + "<br> <br>" + 
-            "Language: " + d.language + "<br> <br>" +
-            " <a href='" + d.link + "'>" + "Link to document" + "</a>";
+            "Language: " + d.language + "<br> <br>";
           prev_title = d.title;
         }
       })
