@@ -162,6 +162,7 @@ function bubbles(data) {
       text: item.text,
       title: item.title,
       link: item.link,
+      language: item.language,
       date: item.date
     });
     force.start();
@@ -182,11 +183,12 @@ function bubbles(data) {
           infoElement.textContent = "";
           prev_title = "";
         } else {
-          infoElement.innerHTML = "Title: " + d.title + "<br> <br>" +
-            "Subjects: " + d.subject + "<br> <br>" +
-            "Date: " + d.date + "<br> <br>" +
-            "Text: " + d.text + "<br> <br>" + 
-            "Link: <a href='" + d.link + "'>" + d.link + "</a>";
+          infoElement.innerHTML = "<strong>Title</strong>: " + d.title + "<br> <br>" +
+            "<strong>Subjects</strong>: " + d.subject + "<br> <br>" +
+            "<strong>Date:</strong> " + d.date + "<br> <br>" +
+            "<strong>Text:</strong> " + d.text + "<br> <br>" + 
+            "Language: " + d.language + "<br> <br>" +
+            " <a href='" + d.link + "'>" + "Link to document" + "</a>";
           prev_title = d.title;
         }
       })

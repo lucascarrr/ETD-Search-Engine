@@ -23,6 +23,11 @@ h1 {
   color: var(--main_blue);
 }
 
+#bubble-info {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 .search-container {
   display: flex;
   justify-content: center;
@@ -104,7 +109,7 @@ h1 {
 
 .settings-textbox {
   display: inline-block;
-  margin-right: 10px;
+  margin-left: 10px;
   margin-bottom: 10px;
   padding: 5px;
   border: 2px solid var(--main_blue) !important;
@@ -117,7 +122,7 @@ h1 {
 
 .clear-button {
   display: inline-block;
-  padding: 5px 10px;
+  margin-left: 5px;
   background-color: #0F0698;
   color: white;
   border: none;
@@ -129,7 +134,6 @@ h1 {
 .textbox-container {
   margin-bottom: 10px;
 }
-
 
 .search-container button[type="submit"]:hover {
   background-color: #060147;
