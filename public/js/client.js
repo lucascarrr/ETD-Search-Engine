@@ -108,60 +108,10 @@ function convertJson(jsonStr) {
       });
       return resultItem;
   });
-  linkrelvance= false;
-if(linkrelvance){
-  return linkrelevance(result);
-}
+
   return result;
 }
 
-
-function linkrelevance(result){
-  // Sorting the result array based on link validity'
-
- 
-  // Function to perform asynchronous link validation
-  async function checkLinkValidity(link) {
-    try {
-      const response = await axios.head(link);
-      // Assuming a valid link if the response status is 200 (OK)
-      return response.status === 200;
-    } catch (error) {
-      // Handle any errors that occur during the request
-      console.error(`Error validating link: ${link}`, error);
-      return false; // Treat link as invalid in case of error
-    }
-  }
-  
-  // Sorting the result array based on link validity
-  result.sort(async (a, b) => {
-    const linkA = a['link'];
-    const linkB = b['link'];
-  
-    // Checking the validity of the links
-    const isValidA = await checkLinkValidity(linkA);
-    const isValidB = await checkLinkValidity(linkB);
-  
-    if (isValidA && isValidB) {
-      return 0; // No change in order
-    } else if (isValidA) {
-      return -1; // linkA comes first (valid link)
-    } else if (isValidB) {
-      return 1; // linkB comes first (valid link)
-    } else {
-      return 0; // No change in order (both links are invalid)
-    }
-  });
-
-rel = 110;
-for (let i = 0; i < result.length; i++) {
-  const itemm = result[i];
-  // Set the relevance of each item
-  itemm.relevance = rel;
-  rel=rel-10;
-}
-return result
-}
 
 
 // BUBBLE STUFF
