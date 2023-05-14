@@ -23,15 +23,11 @@ app.get('', (req, res) => {
 })
 // Route for handling search requests
 app.get('/search', (req, res) => {
-  console.log("Succes")
   console.log(`Received search query: ${req.query.q}`);
   const queryText = req.query.q;
 
   search(queryText).then((result) => {
-    console.log("Responding with: " + (result[0]));
-    console.log(JSON.stringify(result));
-    //var data = convertJson(JSON.stringify(result));
-    //console.log(data)
+
     res.send(result)
     
   }).catch((error) => {
@@ -62,7 +58,7 @@ function search(input_query) {
       }
 
       const response = result.response;
-
+      console.log(`Sent results for search query`);
       if (response && response.docs) {
         const docs = response.docs.map((doc) => doc);
         resolve(docs);
