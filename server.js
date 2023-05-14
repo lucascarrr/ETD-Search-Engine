@@ -23,6 +23,8 @@ app.get('', (req, res) => {
 })
 // Route for handling search requests
 app.get('/search', (req, res) => {
+  console.log("Succes")
+  console.log(`Received search query: ${req.query.q}`);
   const queryText = req.query.q;
 
   search(queryText).then((result) => {
