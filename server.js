@@ -26,10 +26,12 @@ app.get('/search', (req, res) => {
   console.log("Succes")
   console.log(`Received search query: ${req.query.q}`);
   const queryText = req.query.q;
-  console.log(`Server recieved query request: ${queryText}`)
 
   search(queryText).then((result) => {
-    console.log(`Server sending results for: ${queryText}`)
+    console.log("Responding with: " + (result[0]));
+    console.log(JSON.stringify(result));
+    //var data = convertJson(JSON.stringify(result));
+    //console.log(data)
     res.send(result)
     
   }).catch((error) => {
