@@ -24,12 +24,10 @@ app.get('', (req, res) => {
 // Route for handling search requests
 app.get('/search', (req, res) => {
   const queryText = req.query.q;
+  console.log(`Server recieved query request: ${queryText}`)
 
   search(queryText).then((result) => {
-    console.log("Responding with: " + (result[0]));
-    console.log(JSON.stringify(result));
-    //var data = convertJson(JSON.stringify(result));
-    //console.log(data)
+    console.log(`Server sending results for: ${queryText}`)
     res.send(result)
     
   }).catch((error) => {
