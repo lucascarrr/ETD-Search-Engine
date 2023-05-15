@@ -1,11 +1,11 @@
 const searchForm = document.querySelector('#search-form');
 const searchInput = document.querySelector('#search-input');
-
 const animationContainer = d3.select("#animation-container");
-
 const settingsButton = document.querySelector('.settings-button');
 const settingsPanel = document.querySelector('.settings-panel');
-
+const startDate = document.querySelector('#textbox1');
+const endDate = document.querySelector('#textbox2');
+const dropDown = document.querySelector('#myDropdown');
 function clearTextbox(textboxId) {
   document.getElementById(textboxId).value = "";
 }
@@ -15,11 +15,23 @@ settingsButton.addEventListener('click', () => {
   settingsPanel.style.display = settingsPanel.style.display === 'none' ? 'block' : 'none';
 });
 
-
 searchForm.addEventListener('submit', (event) => {
+
+  console.log(startDate.value + "" + endDate.value);
   event.preventDefault();
   event.stopPropagation();
-  const queryText = searchInput.value;
+
+  var dropD = dropDown.value;
+  var queryText = dropD;
+  queryText += searchInput.value;
+  if (startDate.value == "" && endDate.value=="")  {
+    queryText = queryText;
+  } else if (endDate.value != "NOW"){
+    queryText = searchInput.value + " date:[" + startDate.value + "-01-01T00:00:01Z TO " + endDate.value + "-12-31T23:59:59Z]"; 
+  } else {
+    queryText = searchInput.value + " date:[" + startDate.value + "-01-01T00:00:01Z TO " + endDate.value + "]";
+  }
+  console.log(queryText);
   sendRequest(queryText);
 });
 

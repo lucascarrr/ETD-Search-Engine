@@ -1,57 +1,64 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="/css/main.css" />
-    <title>BABEL</title>
-    <link rel="icon" type="image/x-icon" href="../Additional Files/favo.ico" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">
-  </head>
-  <body>
-    <script src="https://d3js.org/d3.v3.min.js"></script>
 
-    <div class="masthead">babel</div>
-    <div class="search-container">
-      <form id="search-form">
-        <label for="search-input"></label>
-        <input type="text" id="search-input" name="q" autocomplete="off" />
-        <button type="submit">Search</button>
-      </form>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="/css/main.css" />
+  <title>BABEL</title>
+  <link rel="icon" type="image/x-icon" href="../Additional Files/favo.ico" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">
+</head>
 
-      <button class="settings-button">Settings</button>
-      <div class="settings-panel">
-        <div id="settings-header">Settings</div>
-        <div>
-          <input
-            type="text"
-            class="settings-textbox"
-            id="textbox1"
-            placeholder="Start Year"
-          />
-          <button class="clear-button" onclick="clearTextbox('textbox1')">x</button>
-        </div>
-        <div>
-          <input
-            type="text"
-            class="settings-textbox"
-            id="textbox2"
-            placeholder="End Year"
-          />
-          <button class="clear-button" onclick="clearTextbox('textbox2')">x</button>
-        </div>
+<body>
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+
+  <div class="masthead">babel</div>
+  <div class="search-container">
+    <form id="search-form">
+      <label for="search-input"></label>
+      <input type="text" id="search-input" name="q" autocomplete="off" />
+      <button type="submit">Search</button>
+    </form>
+
+    <button class="settings-button">Settings</button>
+    <div class="settings-panel">
+      <div id="settings-header">Settings</div>
+      <div>
+        <input type="text" class="settings-textbox" id="textbox1" placeholder="Start Year" />
+        <button class="clear-button" onclick="clearTextbox('textbox1')">x</button>
       </div>
+      <div>
+        <input type="text" class="settings-textbox" id="textbox2" placeholder="End Year" />
+        <button class="clear-button" onclick="clearTextbox('textbox2')">x</button>
+      </div>
+
+      <div class="dropdown">
+        <select id="myDropdown">
+          <option value="title:">Search by: Title</option>
+          <option value="id:">Search by: ID</option>
+          <option value="author">Search by: Author</option>
+          <option value="subject:">Search by: Subject</option>
+          <option value="text">Search by: Text</option>
+        </select>
+        <!-- <button onclick="getValue()">Get Value</button> -->
+      </div>
+
     </div>
 
-    <div class="flex-container">
-      <div class="rectangle-box" id="information-box">
-        <h1>Information</h1>
-        <p id="bubble-info"></p>
-      </div>
-      <div class="rectangle-box" id="nodes-box">
-        <div id="animation-container"></div>
-      </div>
-    </div>
 
-    <script src="/js/client.js"></script>
-  </body>
+  </div>
+
+  <div class="flex-container">
+    <div class="rectangle-box" id="information-box">
+      <h1>Information</h1>
+      <p id="bubble-info"></p>
+    </div>
+    <div class="rectangle-box" id="nodes-box">
+      <div id="animation-container"></div>
+    </div>
+  </div>
+
+  <script src="/js/client.js"></script>
+</body>
+
 </html>
