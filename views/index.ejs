@@ -23,26 +23,46 @@
     <button class="settings-button">Settings</button>
     <div class="settings-panel">
       <div id="settings-header">Settings</div>
-      <div>
-        <input type="text" class="settings-textbox" id="textbox1" placeholder="Start Year" />
-        <button class="clear-button" onclick="clearTextbox('textbox1')">x</button>
+      <div class="clear-dropdown-container">
+        <div>
+          <input type="text" class="settings-textbox" id="textbox1" placeholder="Start Year" />
+          <button class="clear-button" onclick="clearTextbox('textbox1')">x</button>
+        </div>
+        <div class="dropdown">
+          <select id="myDropdown">
+            <option value="title:">Search by: Title</option>
+            <option value="id:">Search by: ID</option>
+            <option value="author">Search by: Author</option>
+            <option value="subject:">Search by: Subject</option>
+            <option value="text">Search by: Text</option>
+          </select>
+        </div>
       </div>
-      <div>
-        <input type="text" class="settings-textbox" id="textbox2" placeholder="End Year" />
-        <button class="clear-button" onclick="clearTextbox('textbox2')">x</button>
+      
+      
+      <div class="clear-dropdown-container">
+        <div>
+          <input type="text" class="settings-textbox" id="textbox2" placeholder="End Year" />
+          <button class="clear-button" onclick="clearTextbox('textbox2')">x</button>
+        </div>
+        <div class="dropdown">
+          <select id="language_selector">
+            <option value="any">Any</option>
+            <option value="eng">English</option>
+            <option value="afr">Afrikaans</option>
+            <option value="chi">Chinese</option>
+            <option value="dut">Dutch</option>
+            <option value="fre">French</option>
+            <option value="ger">German</option>
+            <option value="ita">Italian</option>
+            <option value="jpn">Japanese</option>
+            <option value="kor">Korean</option>
+            <option value="rus">Russian</option>
+            <option value="spa">Spanish</option>
+            <option value="swe">Swedish</option>
+          </select>
+        </div>
       </div>
-
-      <div class="dropdown">
-        <select id="myDropdown">
-          <option value="title:">Search by: Title</option>
-          <option value="id:">Search by: ID</option>
-          <option value="author">Search by: Author</option>
-          <option value="subject:">Search by: Subject</option>
-          <option value="text">Search by: Text</option>
-        </select>
-        <!-- <button onclick="getValue()">Get Value</button> -->
-      </div>
-
     </div>
 
 

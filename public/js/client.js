@@ -6,6 +6,7 @@ const settingsPanel = document.querySelector('.settings-panel');
 const startDate = document.querySelector('#textbox1');
 const endDate = document.querySelector('#textbox2');
 const dropDown = document.querySelector('#myDropdown');
+const langugeSelection = document.querySelector('#language_selector');
 function clearTextbox(textboxId) {
   document.getElementById(textboxId).value = "";
 }
@@ -30,6 +31,12 @@ searchForm.addEventListener('submit', (event) => {
     queryText = searchInput.value + " date:[" + startDate.value + "-01-01T00:00:01Z TO " + endDate.value + "-12-31T23:59:59Z]"; 
   } else {
     queryText = searchInput.value + " date:[" + startDate.value + "-01-01T00:00:01Z TO " + endDate.value + "]";
+  }
+  var lang = langugeSelection.value;
+  if (lang === "any") {
+    queryText = queryText;
+  } else {
+    queryText += (" and language:" + lang);
   }
   console.log(queryText);
   sendRequest(queryText);
