@@ -1,0 +1,295 @@
+:root {
+  --main_white: #F7F7F7;
+  --main_blue: #0F0698;
+  --second_white: #fbf0e0;
+  --second_blue: #0c047d;
+}
+
+body {
+  background-color: var(--main_white);
+  font-family: 'Rubik', Times, serif !important;
+}
+
+h1 {
+  color: var(--main_blue);
+  text-align: center;
+}
+
+.masthead {
+  text-align: center;
+  font-size: 70px;
+  font-family: 'Rubik', Times, serif;
+  font-weight: bolder;
+  color: var(--main_blue);
+}
+
+#bubble-info {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.search-container form {
+  display: flex;
+  align-items: center;
+  border: 2px solid #0F0698;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.search-container input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  width: 500px;
+
+  outline: none;
+}
+
+.search-container input[type="text"] {
+  background-color: var(--second_white);
+}
+
+.search-container button[type="submit"] {
+  padding: 10px 15px;
+  background-color: #0F0698;
+  font-weight: bold;
+  border: none;
+  font-size: 16px;
+  color: var(--second_white);
+  cursor: pointer;
+}
+
+.settings-button {
+  padding: 10px 15px;
+  background-color: #0F0698;
+  width: 100px;
+  border: none;
+  font-weight: bold;
+  margin-left: 4px;
+  font-size: 16px;
+  color: var(--second_white);
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+#test {
+  position: absolute;
+  margin-top: 90%;
+}
+
+.settings-panel {
+  position: absolute;
+  margin-top: 60px;
+  left: calc(50% - 200px / 2)-100;
+  justify-content: center;
+  width: 680px;
+  height: 200px;
+  background-color: var(--second_white);
+  border: 2px solid var(--main_blue);
+  border-radius: 5px;
+  padding: 10px;
+  display: none;
+  z-index: 9999;
+  box-shadow: 12px 12px var(--second_blue);
+}
+
+#settings-header {
+  font-weight: bold;
+  margin-left: 10px;
+  font-family: 'Rubik', Times, serif;
+  font-size: 28px;
+  color: var(--main_blue);
+  margin-bottom: 10px;
+}
+.clear-dropdown-container {
+  display: flex;
+}
+
+.settings-textbox {
+  display: inline-block;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  color: var(--main_blue) !important;
+  font-weight: bold;
+  padding: 5px;
+  border: 2px solid var(--main_blue) !important;
+  border-radius: 5px;
+  width: 100px;
+  max-width: 100px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.clear-button {
+  display: inline-block;
+  margin-left: 5px;
+  background-color: #0F0698;
+  color: var(--second_white);
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.textbox-container {
+  margin-bottom: 10px;
+  
+}
+
+.search-container button[type="submit"]:hover {
+  background-color: #060147;
+}
+
+.dropdown select {
+  position: absolute;
+  margin-left: 15px;
+  background-color: var(--second_white);
+  border: 2px solid var(--main_blue) !important;
+  border-radius: 5px;
+  width: 135px;
+  font-weight: bolder;
+  text-align: center;
+  max-width: 135px;
+  color: var(--main_blue);
+  height: 40px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.dropdown select:hover {
+  background-color: var(--second_blue);
+  color: var(--second_white);
+}
+
+.dropdown select::after {
+  content: "\25BC";
+  font-size: 0.8em;
+  position: absolute;
+  right: 15px;
+  color: var(--second_white);
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.rectangle-box {
+  margin-top: 30px;
+  height: 750px;
+  background-color: var(--second_white);
+  box-sizing: border-box;
+  box-shadow: 12px 12px var(--second_blue);
+  border-radius: 10px;
+  overflow-y: auto;
+}
+
+.rectangle-box:first-child {
+  order: 1;
+  /* set the order of the first box to 1 */
+  width: 40%;
+  margin-right: 50px;
+}
+
+.rectangle-box:last-child {
+  order: 0;
+  /* set the order of the second box to 0 */
+  width: 60%;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.node {
+  stroke-width: 1.5px;
+  /* fill-opacity: 80%; */
+  background-color: #0F0698 !important;
+  border: 2px solid red;/* Added border to the bubble */
+  box-shadow: 0 0 5px rgba(0,0,0,0.1); /* Added shadow to the bubble */
+}
+
+.node:hover circle {
+  fill: #0F0698 !important;
+}
+
+#nodes-box {
+  position: relative;
+}
+
+.mySvg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#information-box {
+  position: relative;
+  max-height: 1000px;
+  /* Set a max-height to limit the height of the box */
+  overflow: auto;
+  /* Set the overflow property to scroll or auto */
+}
+
+.grid-view {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  max-height: 90vh; /* Adjust this value based on your requirements */
+/* This makes the container scrollable when the content overflows vertically */
+  background-color: #fbf0e0; /* Change the background color of the grid view */
+}
+
+.grid-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #fbf0e0; /* Change the background color of the grid item */
+  margin-bottom: 25px; /* Increase the margin to create more space between items */
+  box-shadow: 0px 0px 10px 2px #0F0698; /* This creates a blue glow around each item */
+  transition: transform 0.3s ease-in-out; /* This will smooth the change when the item is hovered */
+}
+
+.grid-item:hover {
+  transform: scale(1.01); /* This enlarges the item slightly when it's hovered */
+  color: white; /* Changes the text color to white when it's hovered */
+  background-color: #0F0698; /* Changes the background color to blue when it's hovered */
+}
+
+.grid-item h4 {
+  margin-top: 0;
+}
+
+.grid-item p {
+  margin: 0.5em 0;
+}
+
+.change-view-button{
+  background-color: #0F0698;
+  margin-right: 20px;
+  border: none;
+  font-weight: bold;
+  margin-left: 4px;
+  font-size: 16px;
+  color: var(--second_white);
+  cursor: pointer;
+  border-radius: 10px;
+}
+.voice-search-button{
+  background-color: #0F0698;
+  margin-right: 20px;
+  border: none;
+  font-weight: bold;
+  margin-left: 4px;
+  font-size: 16px;
+  color: var(--second_white);
+  cursor: pointer;
+  border-radius: 10px;
+}
