@@ -188,6 +188,7 @@ h1 {
   box-sizing: border-box;
   box-shadow: 12px 12px var(--second_blue);
   border-radius: 10px;
+  overflow-y: auto;
 }
 
 .rectangle-box:first-child {
@@ -209,6 +210,8 @@ h1 {
   stroke-width: 1.5px;
   /* fill-opacity: 80%; */
   background-color: #0F0698 !important;
+  border: 2px solid red;/* Added border to the bubble */
+  box-shadow: 0 0 5px rgba(0,0,0,0.1); /* Added shadow to the bubble */
 }
 
 .node:hover circle {
@@ -233,4 +236,60 @@ h1 {
   /* Set a max-height to limit the height of the box */
   overflow: auto;
   /* Set the overflow property to scroll or auto */
+}
+
+.grid-view {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  max-height: 90vh; /* Adjust this value based on your requirements */
+/* This makes the container scrollable when the content overflows vertically */
+  background-color: #fbf0e0; /* Change the background color of the grid view */
+}
+
+.grid-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #fbf0e0; /* Change the background color of the grid item */
+  margin-bottom: 25px; /* Increase the margin to create more space between items */
+  box-shadow: 0px 0px 10px 2px #0F0698; /* This creates a blue glow around each item */
+  transition: transform 0.3s ease-in-out; /* This will smooth the change when the item is hovered */
+}
+
+.grid-item:hover {
+  transform: scale(1.01); /* This enlarges the item slightly when it's hovered */
+  color: white; /* Changes the text color to white when it's hovered */
+  background-color: #0F0698; /* Changes the background color to blue when it's hovered */
+}
+
+.grid-item h4 {
+  margin-top: 0;
+}
+
+.grid-item p {
+  margin: 0.5em 0;
+}
+
+.change-view-button{
+  background-color: #0F0698;
+  margin-right: 20px;
+  border: none;
+  font-weight: bold;
+  margin-left: 4px;
+  font-size: 16px;
+  color: var(--second_white);
+  cursor: pointer;
+  border-radius: 10px;
+}
+.voice-search-button{
+  background-color: #0F0698;
+  margin-right: 20px;
+  border: none;
+  font-weight: bold;
+  margin-left: 4px;
+  font-size: 16px;
+  color: var(--second_white);
+  cursor: pointer;
+  border-radius: 10px;
 }
