@@ -7,10 +7,84 @@ const startDate = document.querySelector('#textbox1');
 const endDate = document.querySelector('#textbox2');
 const dropDown = document.querySelector('#myDropdown');
 const langugeSelection = document.querySelector('#language_selector');
+const changeViewButton = document.querySelector('#change-view-button');
+let isGridView = false; // A variable to keep track of the current view
+var data;
+
 function clearTextbox(textboxId) {
   document.getElementById(textboxId).value = "";
 }
 
+//start
+
+const voiceSearchButton = document.querySelector('#voice-search-button');
+let isRecording = false;
+
+voiceSearchButton.addEventListener('click', () => {
+  if (!isRecording) {
+    voiceSearchButton.style.backgroundColor = "red";
+    isRecording = true;
+
+    // Create a new SpeechRecognition object
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
+
+    recognition.lang = 'en-US'; // Set the language
+    recognition.interimResults = false; // We want final results now
+    recognition.maxAlternatives = 1; // Consider only 1 result
+
+    recognition.start(); // Start listening
+
+    recognition.onresult = (event) => {
+      // Extract the speech as text from the event's results
+      const speechText = event.results[0][0].transcript;
+      searchInput.value = speechText; // Set the speech as text to the search bar
+
+      // Reset the button state and color
+      isRecording = false;
+      voiceSearchButton.style.backgroundColor = "";
+
+      recognition.stop();
+    };
+
+    recognition.onspeechend = () => {
+      // Stop listening when speech ends
+      recognition.stop();
+      // Reset the button state and color
+      isRecording = false;
+      voiceSearchButton.style.backgroundColor = "";
+    };
+
+    recognition.onerror = (event) => {
+      // Reset the button state and color in case of error
+      isRecording = false;
+      voiceSearchButton.style.backgroundColor = "";
+      console.error('Error occurred in recognition: ' + event.error);
+    };
+  } else {
+    // Reset the button state and color if we are currently recording
+    isRecording = false;
+    voiceSearchButton.style.backgroundColor = "";
+  }
+});
+
+
+
+
+
+
+//end
+
+changeViewButton.addEventListener('click', () => {
+  d3.select('#animation-container').html('');
+  isGridView = !isGridView;
+  changeViewButton.textContent = isGridView ? 'Change to Bubble View' : 'Change to Grid View';
+
+  if (isGridView) {
+    gridView(data); // Call the grid view function when isGridView is true
+  } else {
+    bubbles(data); // Call the bubbles function when isGridView is false
+  }
+});
 
 settingsButton.addEventListener('click', () => {
   settingsPanel.style.display = settingsPanel.style.display === 'none' ? 'block' : 'none';
@@ -61,7 +135,11 @@ function sendRequest(query) {
       let resultCounter = 1;
       data = convertJson(JSON.stringify(responseJSON));
       console.log(data)
-      bubbles(data);
+      if (isGridView) {
+        gridView(data); // Call the grid view function when isGridView is true
+      } else {
+        bubbles(data); // Call the bubbles function when isGridView is false
+      }
       relevance = 50;
       responseJSON.forEach((result) => {
         let resultText = `result ${resultCounter++}:\n`;
@@ -262,3 +340,40 @@ function bubbles(data) {
   d3.select(window).on('resize', resize);
 
 };  
+
+
+function gridView(data) {
+  d3.select("#animation-container").select("svg").remove(); // remove existing bubbles
+
+  var gridContainer = d3.select("#animation-container")
+    .append("div")
+    .attr("class", "grid-view");
+
+  var gridItems = gridContainer.selectAll(".grid-item")
+    .data(data)
+    .enter()
+    .append("div")
+    .attr("class", "grid-item")
+    .on('click', function (d) {
+      var infoElement = document.getElementById("bubble-info");
+      infoElement.innerHTML = "<strong>Title</strong>: " + d.title + "<br> <br>" +
+        " <a href='" + d.link + "'>" + "Link to document" + "</a>" + "<br> <br>" +
+        "<strong>Subjects</strong>: " + d.subject + "<br> <br>" +
+        "<strong>Date:</strong> " + d.date + "<br> <br>" +
+        "<strong>Text:</strong> " + d.text + "<br> <br>" + 
+        "Language: " + d.language + "<br> <br>";
+    });
+
+  gridItems.append("h4")
+    .text(function (d) { return d.title; });
+
+  gridItems.append("p")
+    .text(function (d) { return d.subject; });
+
+  gridItems.append("p")
+    .text(function (d) { 
+      var words = d.text.split(" ");
+      var first50Words = words.slice(0, 50).join(" ");
+      return first50Words+ "..."; 
+    });
+}
