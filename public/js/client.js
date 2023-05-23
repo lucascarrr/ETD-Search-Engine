@@ -15,6 +15,57 @@ function clearTextbox(textboxId) {
   document.getElementById(textboxId).value = "";
 }
 
+
+const voiceSearchButton = document.querySelector('#voice-search-button');
+let isRecording = false;
+
+voiceSearchButton.addEventListener('click', () => {
+  if (!isRecording) {
+    voiceSearchButton.style.backgroundColor = "red";
+    isRecording = true;
+
+    // Create a new SpeechRecognition object
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
+
+    recognition.lang = 'en-US'; // Set the language
+    recognition.interimResults = false; // We want final results now
+    recognition.maxAlternatives = 1; // Consider only 1 result
+
+    recognition.start(); // Start listening
+
+    recognition.onresult = (event) => {
+      // Extract the speech as text from the event's results
+      const speechText = event.results[0][0].transcript;
+      searchInput.value = speechText; // Set the speech as text to the search bar
+
+      // Reset the button state and color
+      isRecording = false;
+      voiceSearchButton.style.backgroundColor = "";
+
+      recognition.stop();
+    };
+
+    recognition.onspeechend = () => {
+      // Stop listening when speech ends
+      recognition.stop();
+      // Reset the button state and color
+      isRecording = false;
+      voiceSearchButton.style.backgroundColor = "";
+    };
+
+    recognition.onerror = (event) => {
+      // Reset the button state and color in case of error
+      isRecording = false;
+      voiceSearchButton.style.backgroundColor = "";
+      console.error('Error occurred in recognition: ' + event.error);
+    };
+  } else {
+    // Reset the button state and color if we are currently recording
+    isRecording = false;
+    voiceSearchButton.style.backgroundColor = "";
+  }
+});
+
 changeViewButton.addEventListener('click', () => {
   d3.select('#animation-container').html('');
   isGridView = !isGridView;
