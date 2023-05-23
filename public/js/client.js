@@ -7,9 +7,24 @@ const startDate = document.querySelector('#textbox1');
 const endDate = document.querySelector('#textbox2');
 const dropDown = document.querySelector('#myDropdown');
 const langugeSelection = document.querySelector('#language_selector');
+const changeViewButton = document.querySelector('#change-view-button');
+let isGridView = false; // A variable to keep track of the current view
+var data;
+
 function clearTextbox(textboxId) {
   document.getElementById(textboxId).value = "";
 }
+
+changeViewButton.addEventListener('click', () => {
+  d3.select('#animation-container').html('');
+  isGridView = !isGridView;
+
+  if (isGridView) {
+    gridView(data); // Call the grid view function when isGridView is true
+  } else {
+    bubbles(data); // Call the bubbles function when isGridView is false
+  }
+});
 
 
 settingsButton.addEventListener('click', () => {
@@ -24,21 +39,26 @@ searchForm.addEventListener('submit', (event) => {
 
   var dropD = dropDown.value;
   var queryText = dropD;
-  queryText += searchInput.value;
-  if (startDate.value == "" && endDate.value=="")  {
+  console.log("T:" + queryText);
+  queryText += "\"" + searchInput.value + "\" or ";
+  queryText += dropD + searchInput.value;
+  console.log("With Boosting: " + queryText);
+
+  if (startDate.value == "" && endDate.value == "") {
     queryText = queryText;
-  } else if (endDate.value != "NOW"){
-    queryText = searchInput.value + " date:[" + startDate.value + "-01-01T00:00:01Z TO " + endDate.value + "-12-31T23:59:59Z]"; 
+  } else if (endDate.value != "NOW") {
+    queryText += " date:[" + startDate.value + "-01-01T00:00:01Z TO " + endDate.value + "-12-31T23:59:59Z]";
   } else {
-    queryText = searchInput.value + " date:[" + startDate.value + "-01-01T00:00:01Z TO " + endDate.value + "]";
+    queryText += " date:[" + startDate.value + "-01-01T00:00:01Z TO " + endDate.value + "]";
   }
+
   var lang = langugeSelection.value;
   if (lang === "any") {
     queryText = queryText;
   } else {
     queryText += (" and language:" + lang);
   }
-  console.log(queryText);
+  console.log("Final: " + queryText);
   sendRequest(queryText);
 });
 
@@ -61,6 +81,7 @@ function sendRequest(query) {
       let resultCounter = 1;
       data = convertJson(JSON.stringify(responseJSON));
       console.log(data)
+      isGridView = !isGridView;
       bubbles(data);
       relevance = 50;
       responseJSON.forEach((result) => {
@@ -80,6 +101,17 @@ function sendRequest(query) {
       console.error(`Error sending request: ${error}`);
     });
 }
+function checkLink(link) {
+  try { 
+    const response = axisBottom.head(link);
+    if (response == 200) {
+      return 0.5;
+    }
+  }
+  catch (error) {
+    return -0.5;
+  }
+}
 
 function convertJson(jsonStr) {
   let jsonData = JSON.parse(jsonStr);
@@ -87,6 +119,7 @@ function convertJson(jsonStr) {
     let keys = Object.keys(item);
     let resultItem = {};
     relevance -= 1.5;
+    relevance += checkLink(item.link);
     keys.forEach((key) => {
       let value = item[key];
       if (Array.isArray(value)) {
@@ -203,10 +236,10 @@ function bubbles(data) {
           prev_title = "";
         } else {
           infoElement.innerHTML = "<strong>Title</strong>: " + d.title + "<br> <br>" +
-          " <a href='" + d.link + "'>" + "Link to document" + "</a>" + "<br> <br>" +
+            " <a href='" + d.link + "'>" + "Link to document" + "</a>" + "<br> <br>" +
             "<strong>Subjects</strong>: " + d.subject + "<br> <br>" +
             "<strong>Date:</strong> " + d.date + "<br> <br>" +
-            "<strong>Text:</strong> " + d.text + "<br> <br>" + 
+            "<strong>Text:</strong> " + d.text + "<br> <br>" +
             "Language: " + d.language + "<br> <br>";
           prev_title = d.title;
         }
@@ -261,4 +294,43 @@ function bubbles(data) {
   }
   d3.select(window).on('resize', resize);
 
-};  
+};
+
+
+
+function gridView(data) {
+  d3.select("#animation-container").select("svg").remove(); // remove existing bubbles
+  d3.select("#animation-container").select("grid-item").remove(); // remove 
+
+  var gridContainer = d3.select("#animation-container")
+    .append("div")
+    .attr("class", "grid-view");
+
+  var gridItems = gridContainer.selectAll(".grid-item")
+    .data(data)
+    .enter()
+    .append("div")
+    .attr("class", "grid-item")
+    .on('click', function (d) {
+      var infoElement = document.getElementById("bubble-info");
+      infoElement.innerHTML = "<strong>Title</strong>: " + d.title + "<br> <br>" +
+        " <a href='" + d.link + "'>" + "Link to document" + "</a>" + "<br> <br>" +
+        "<strong>Subjects</strong>: " + d.subject + "<br> <br>" +
+        "<strong>Date:</strong> " + d.date + "<br> <br>" +
+        "<strong>Text:</strong> " + d.text + "<br> <br>" +
+        "Language: " + d.language + "<br> <br>";
+    });
+
+  gridItems.append("h4")
+    .text(function (d) { return d.title; });
+
+  gridItems.append("p")
+    .text(function (d) { return d.subject; });
+
+  gridItems.append("p")
+    .text(function (d) {
+      var words = d.text.split(" ");
+      var first50Words = words.slice(0, 50).join(" ");
+      return first50Words + "...";
+    });
+}
